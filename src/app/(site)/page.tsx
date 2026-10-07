@@ -3,6 +3,7 @@ import { ArrowDownRight, ArrowUpRight, Code2 } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 import { StackLab } from "@/components/stack/stack-lab"
+import { ContactSection } from "@/components/contact/contact-section"
 
 const projects = [
   {
@@ -220,6 +221,8 @@ export default function HomePage() {
       </section>
 
       <StackLab />
+
+      <ContactSection />
     </div>
   )
 }

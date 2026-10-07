@@ -46,7 +46,7 @@ export const navigationItems = [
   },
   {
     label: "Contact",
-    href: "/contact",
+    href: "/#contact",
     icon: Mail,
   },
 ] as const
