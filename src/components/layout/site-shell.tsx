@@ -3,6 +3,7 @@ import type { ReactNode } from "react"
 import { MobileNav } from "@/components/layout/mobile-nav"
 import { Navbar } from "@/components/layout/navbar"
 import { Sidebar } from "@/components/layout/sidebar"
+import { CommandPalette } from "@/components/layout/command-palette"
 
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
@@ -18,6 +19,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
       </div>
 
       <MobileNav />
+      <CommandPalette />
     </div>
   )
 }

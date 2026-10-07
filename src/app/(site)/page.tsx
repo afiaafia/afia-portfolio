@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowDownRight, ArrowUpRight, Code2 } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
+import { StackLab } from "@/components/stack/stack-lab"
 
 const projects = [
   {
@@ -217,6 +218,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <StackLab />
     </div>
   )
 }

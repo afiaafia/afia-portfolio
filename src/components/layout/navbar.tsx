@@ -1,9 +1,15 @@
+"use client"
+
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 
 export function Navbar() {
+  function openCommandPalette() {
+    window.dispatchEvent(new Event("open-command-palette"))
+  }
+
   return (
     <header className="sticky top-0 z-30 border-b border-white/[0.07] bg-[#090a0c]/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -20,19 +26,27 @@ export function Navbar() {
           <span className="text-[10px] uppercase tracking-[0.2em] text-white/30">
             Workspace
           </span>
+
           <span className="text-white/15">/</span>
+
           <span className="text-xs text-white/55">Home</span>
         </div>
 
         <div className="ml-auto flex items-center gap-3">
-          <div className="hidden items-center gap-2 rounded-lg border border-white/[0.07] bg-white/[0.025] px-3 py-1.5 sm:flex">
+          <button
+            type="button"
+            onClick={openCommandPalette}
+            className="hidden items-center gap-2 rounded-lg border border-white/[0.07] bg-white/[0.025] px-3 py-1.5 transition-colors hover:border-white/15 hover:bg-white/[0.045] sm:flex"
+            aria-label="Open command palette"
+          >
             <span className="text-[10px] uppercase tracking-[0.14em] text-white/30">
-              Press
+              Search
             </span>
+
             <kbd className="rounded border border-white/10 px-1.5 py-0.5 text-[10px] text-white/55">
               Ctrl K
             </kbd>
-          </div>
+          </button>
 
           <Link
             href={siteConfig.github}
