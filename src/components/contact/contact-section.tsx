@@ -1,9 +1,16 @@
 "use client"
 
 import Link from "next/link"
-import { ArrowUpRight, Github, Linkedin, Mail, Send } from "lucide-react"
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Code2,
+  Mail,
+  Send,
+} from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
-import { FormEvent, useState } from "react"
+import type { FormEvent } from "react"
+import { useState } from "react"
 
 const channels = [
   {
@@ -17,14 +24,14 @@ const channels = [
     label: "LINKEDIN",
     value: "linkedin.com/in/afia-afia",
     href: "https://linkedin.com/in/afia-afia",
-    icon: Linkedin,
+    icon: BriefcaseBusiness,
     external: true,
   },
   {
     label: "GITHUB",
     value: "github.com/afiaafia",
     href: "https://github.com/afiaafia",
-    icon: Github,
+    icon: Code2,
     external: true,
   },
   {
@@ -45,10 +52,9 @@ const topics = [
 
 export function ContactSection() {
   const shouldReduceMotion = useReducedMotion()
+
   const [topic, setTopic] = useState(topics[0])
-  const [status, setStatus] = useState<
-    "idle" | "preparing" | "ready"
-  >("idle")
+  const [status, setStatus] = useState<"idle" | "preparing" | "ready">("idle")
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -142,7 +148,10 @@ export function ContactSection() {
                 <>
                   <div className="flex items-center gap-4">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
-                      <Icon className="h-5 w-5 text-white" strokeWidth={1.8} />
+                      <Icon
+                        className="h-5 w-5 text-white"
+                        strokeWidth={1.8}
+                      />
                     </div>
 
                     <div className="min-w-0">
@@ -171,9 +180,7 @@ export function ContactSection() {
                     target="_blank"
                     rel="noreferrer"
                     initial={
-                      shouldReduceMotion
-                        ? false
-                        : { opacity: 0, y: 18 }
+                      shouldReduceMotion ? false : { opacity: 0, y: 18 }
                     }
                     whileInView={
                       shouldReduceMotion
@@ -186,7 +193,9 @@ export function ContactSection() {
                       delay: 0.1 + index * 0.08,
                       ease: "easeOut",
                     }}
-                    whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                    whileTap={
+                      shouldReduceMotion ? undefined : { scale: 0.985 }
+                    }
                     className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.025] p-4 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05]"
                   >
                     {content}
@@ -198,14 +207,10 @@ export function ContactSection() {
                 <motion.div
                   key={channel.label}
                   initial={
-                    shouldReduceMotion
-                      ? false
-                      : { opacity: 0, y: 18 }
+                    shouldReduceMotion ? false : { opacity: 0, y: 18 }
                   }
                   whileInView={
-                    shouldReduceMotion
-                      ? undefined
-                      : { opacity: 1, y: 0 }
+                    shouldReduceMotion ? undefined : { opacity: 1, y: 0 }
                   }
                   viewport={{ once: true, amount: 0.15 }}
                   transition={{
@@ -213,7 +218,9 @@ export function ContactSection() {
                     delay: 0.1 + index * 0.08,
                     ease: "easeOut",
                   }}
-                  whileTap={shouldReduceMotion ? undefined : { scale: 0.985 }}
+                  whileTap={
+                    shouldReduceMotion ? undefined : { scale: 0.985 }
+                  }
                 >
                   <Link
                     href={channel.href}
