@@ -26,7 +26,7 @@ export const navigationItems = [
   },
   {
     label: "Stack",
-    href: "/stack",
+    href: "/#stack",
     icon: Wrench,
   },
   {
