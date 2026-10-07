@@ -179,7 +179,7 @@ export function StackLab() {
     >
       <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/25">
+          <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/80">
             06 / Stack
           </p>
 
@@ -187,13 +187,13 @@ export function StackLab() {
             A stack I actually build with.
           </h2>
 
-          <p className="mt-4 max-w-xl text-sm leading-6 text-white/40">
+          <p className="mt-4 max-w-xl text-sm leading-6 text-white/90">
             Not a list of logos. Each technology connects to something I have
             actually built, practiced, or used.
           </p>
         </div>
 
-        <div className="mono hidden text-[10px] uppercase tracking-[0.16em] text-white/20 sm:block">
+        <div className="mono hidden text-[10px] uppercase tracking-[0.16em] text-white/80 sm:block">
           evidence.system / online
         </div>
       </div>
@@ -225,14 +225,14 @@ export function StackLab() {
                   {selectedTechnology?.name ?? "Next.js"}
                 </h3>
 
-                <p className="mt-3 max-w-md text-sm leading-6 text-white/40">
+                <p className="mt-3 max-w-md text-sm leading-6 text-white/90">
                   {selectedTechnology?.description}
                 </p>
               </motion.div>
             </div>
 
             <div className="relative min-h-[150px] overflow-hidden rounded-2xl border border-white/[0.07] bg-black/20 p-5">
-              <div className="mono mb-5 flex items-center justify-between text-[9px] uppercase tracking-[0.15em] text-white/20">
+              <div className="mono mb-5 flex items-center justify-between text-[9px] uppercase tracking-[0.15em] text-white/80">
                 <span>frontend</span>
                 <span>backend</span>
                 <span>data</span>
@@ -262,7 +262,7 @@ export function StackLab() {
                 <div className="absolute -top-1.5 right-[8%] size-3 rounded-full border border-white/20 bg-[#0b0d0f]" />
               </div>
 
-              <div className="mono mt-6 grid grid-cols-3 text-[9px] uppercase tracking-[0.12em] text-white/30">
+              <div className="mono mt-6 grid grid-cols-3 text-[9px] uppercase tracking-[0.12em] text-white/80">
                 <span>UI</span>
                 <span className="text-center">API</span>
                 <span className="text-right">DB</span>
@@ -284,7 +284,7 @@ export function StackLab() {
                   className={`shrink-0 rounded-full border px-3.5 py-2 text-[11px] font-medium transition-colors ${
                     isActive
                       ? "border-[#ccff00]/30 bg-[#ccff00]/10 text-[#ccff00]"
-                      : "border-white/[0.07] bg-white/[0.02] text-white/35 hover:border-white/15 hover:text-white/70"
+                      : "border-white/[0.07] bg-white/[0.02] text-white/90 hover:border-white/15 hover:text-white/85"
                   }`}
                 >
                   {category}
@@ -297,11 +297,11 @@ export function StackLab() {
         <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
           <div className="p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between">
-              <span className="mono text-[9px] uppercase tracking-[0.16em] text-white/20">
+              <span className="mono text-[9px] uppercase tracking-[0.16em] text-white/80">
                 Technologies
               </span>
 
-              <span className="mono text-[9px] text-white/20">
+              <span className="mono text-[9px] text-white/80">
                 {visibleTechnologies.length.toString().padStart(2, "0")} items
               </span>
             </div>
@@ -356,18 +356,18 @@ export function StackLab() {
                           className={`flex size-9 items-center justify-center rounded-lg border ${
                             isSelected
                               ? "border-[#ccff00]/20 bg-[#ccff00]/10 text-[#ccff00]"
-                              : "border-white/[0.07] bg-white/[0.025] text-white/35"
+                              : "border-white/[0.07] bg-white/[0.025] text-white/90"
                           }`}
                         >
                           <Icon className="size-4" />
                         </span>
 
                         <div>
-                          <p className="text-sm font-medium text-white/80">
+                          <p className="text-sm font-medium text-white/90">
                             {technology.name}
                           </p>
 
-                          <p className="mono mt-1 text-[9px] uppercase tracking-[0.12em] text-white/20">
+                          <p className="mono mt-1 text-[9px] uppercase tracking-[0.12em] text-white/80">
                             {technology.category}
                           </p>
                         </div>
@@ -377,7 +377,7 @@ export function StackLab() {
                         className={`mt-2 size-3.5 transition-transform ${
                           isSelected
                             ? "translate-x-0 text-[#ccff00]"
-                            : "text-white/15 group-hover:translate-x-0.5"
+                            : "text-white/80 group-hover:translate-x-0.5"
                         }`}
                       />
                     </div>
@@ -397,7 +397,7 @@ export function StackLab() {
               >
                 <div className="flex items-center gap-2">
                   <Terminal className="size-3.5 text-[#ccff00]" />
-                  <span className="mono text-[9px] uppercase tracking-[0.16em] text-white/25">
+                  <span className="mono text-[9px] uppercase tracking-[0.16em] text-white/80">
                     Evidence
                   </span>
                 </div>
@@ -406,7 +406,7 @@ export function StackLab() {
                   {selectedTechnology.name}
                 </h3>
 
-                <p className="mt-2 text-sm leading-6 text-white/35">
+                <p className="mt-2 text-sm leading-6 text-white/90">
                   {selectedTechnology.description}
                 </p>
 
@@ -414,7 +414,7 @@ export function StackLab() {
                   {selectedTechnology.evidence.map((item) => (
                     <div
                       key={item}
-                      className="flex items-start gap-2.5 text-sm text-white/55"
+                      className="flex items-start gap-2.5 text-sm text-white/80"
                     >
                       <Check className="mt-0.5 size-3.5 shrink-0 text-[#ccff00]" />
                       <span>{item}</span>
@@ -423,7 +423,7 @@ export function StackLab() {
                 </div>
 
                 <div className="mt-7 border-t border-white/[0.07] pt-5">
-                  <p className="mono text-[9px] uppercase tracking-[0.16em] text-white/20">
+                  <p className="mono text-[9px] uppercase tracking-[0.16em] text-white/80">
                     Used in
                   </p>
 
@@ -431,7 +431,7 @@ export function StackLab() {
                     {selectedTechnology.projects.map((project) => (
                       <span
                         key={project}
-                        className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] text-white/45"
+                        className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] text-white/80"
                       >
                         {project}
                       </span>
@@ -456,15 +456,15 @@ export function StackLab() {
               className="group rounded-xl border border-white/[0.06] bg-white/[0.015] p-4 text-left transition-colors hover:border-white/[0.12]"
             >
               <div className="flex items-center justify-between">
-                <Icon className="size-4 text-white/25 transition-colors group-hover:text-[#ccff00]" />
-                <ChevronRight className="size-3 text-white/15" />
+                <Icon className="size-4 text-white/80 transition-colors group-hover:text-[#ccff00]" />
+                <ChevronRight className="size-3 text-white/80" />
               </div>
 
-              <p className="mt-5 text-sm font-medium text-white/60">
+              <p className="mt-5 text-sm font-medium text-white/90">
                 {category}
               </p>
 
-              <p className="mt-1 text-xs leading-5 text-white/25">
+              <p className="mt-1 text-xs leading-5 text-white/80">
                 {categoryDescriptions[category]}
               </p>
             </button>
