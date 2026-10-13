@@ -1,71 +1,100 @@
 import Link from "next/link"
-import { ArrowDownRight, ArrowUpRight, Code2 } from "lucide-react"
+import Image from "next/image"
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Code2,
+  Layers3,
+  Sparkles,
+} from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 import { StackLab } from "@/components/stack/stack-lab"
 import { ContactSection } from "@/components/contact/contact-section"
+import { InteractivePortrait } from "@/components/interactive-portrait"
+import { GitHubOverview } from "@/components/github/github-overview"
 
 const projects = [
   {
     number: "01",
-    name: "Fit Log",
+    name: "Bazar Dor",
+    category: "E-commerce experience",
     description:
-      "Workout discovery and planning application built around API-driven data, dynamic pages, and responsive UI.",
-    stack: "Next.js · React · TypeScript",
-    href: "/work/fit-log",
+      "A responsive product discovery experience with category browsing and clear product information.",
+    stack: "Next.js · TypeScript · Tailwind CSS",
+    image: "/images/bazar-dor.png",
+    repo: "https://github.com/afiaafia/bazar-dor",
+    live: "https://bazar-dor-pi.vercel.app/",
+    accent: "text-emerald-300",
   },
   {
     number: "02",
-    name: "Task Vault",
+    name: "Fit Log",
+    category: "Workout discovery & planning",
     description:
-      "Backend-focused task management project built to practice APIs, validation, TypeScript, and MongoDB.",
-    stack: "Node.js · Express · MongoDB",
-    href: "/work/task-vault",
+      "An API-driven workout application with dynamic exercise details and workout planning.",
+    stack: "Next.js · React · TypeScript · API",
+    image: "/images/fit-log%20.png",
+    repo: "https://github.com/afiaafia/b14-a6-fit-log",
+    live: "https://b14-a6-fit-log-six.vercel.app/",
+    accent: "text-[#ccff00]",
+  },
+  {
+    number: "03",
+    name: "Dev Stack Builder v2",
+    category: "Developer tool",
+    description:
+      "A developer-focused project for exploring and assembling a web development stack.",
+    stack: "Web Development · GitHub",
+    image: "/images/dev-stack-builder.png",
+    repo: "https://github.com/afiaafia/dev-stack-builder-v2",
+    live: "",
+    accent: "text-violet-300",
   },
 ]
 
 export default function HomePage() {
   return (
     <div className="relative overflow-hidden">
-      <div className="grid-background" />
+      <div className="grid-background pointer-events-none absolute inset-0 opacity-60" />
 
-      <section className="noise relative mx-auto max-w-[1400px] px-4 pb-20 pt-14 sm:px-6 sm:pt-20 lg:px-10 lg:pb-28 lg:pt-24">
-        <div className="grid items-end gap-12 lg:grid-cols-[1.35fr_0.65fr] lg:gap-16">
+      <div className="pointer-events-none absolute -top-48 left-1/2 size-[32rem] -translate-x-1/2 rounded-full bg-violet-500/[0.09] blur-[120px]" />
+      <div className="pointer-events-none absolute left-[-12rem] top-[28rem] size-[24rem] rounded-full bg-purple-500/[0.10] blur-[110px]" />
+
+      <section className="noise relative mx-auto max-w-[1400px] px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:px-10 lg:pb-28 lg:pt-28">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <div>
-            <div className="mb-8 flex items-center gap-3">
-              <span className="flex items-center gap-2 rounded-full border border-[#ccff00]/15 bg-[#ccff00]/5 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.16em] text-[#ccff00]">
-                <span className="size-1.5 rounded-full bg-[#ccff00] shadow-[0_0_10px_rgba(204,255,0,0.8)]" />
-                System online
+            <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-violet-400/25 bg-violet-500/[0.08] px-3.5 py-2 backdrop-blur-xl">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-full animate-ping rounded-full bg-violet-400/60" />
+                <span className="relative inline-flex size-2 rounded-full bg-violet-400" />
               </span>
-
-              <span className="mono hidden text-[10px] text-white/25 sm:inline">
-                /home
+              <span className="mono text-[10px] uppercase tracking-[0.16em] text-white/90">
+                Building, learning, shipping
               </span>
             </div>
 
-            <p className="mono mb-5 text-xs uppercase tracking-[0.22em] text-white/35">
-              Afia A. — Full-Stack Web Developer
+            <p className="mono mb-6 text-[11px] uppercase tracking-[0.22em] text-white/90">
+              Afia Mubassira / Full-Stack Web Development
             </p>
 
-            <h1 className="display-heading max-w-5xl text-5xl font-semibold leading-[0.9] sm:text-7xl lg:text-[7.25rem]">
-              BUILD.
-              <br />
-              <span className="text-white/25">LEARN.</span>
-              <br />
-              REPEAT.
+            <h1 className="display-heading text-3xl font-semibold leading-tight tracking-[-0.065em] sm:text-5xl lg:text-6xl">
+              I BUILD FOR THE <span className="text-violet-400">WEB.</span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-base leading-7 text-white/55 sm:text-lg">
-              I build practical web applications while learning how modern
-              frontend, backend, APIs, and databases fit together.
+            <p className="mt-8 max-w-xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
+              I&apos;m a developer in progress, building practical web
+              applications while learning how frontend, backend, APIs, and
+              databases work together. Each project is a chance to solve a
+              problem and get better at the craft.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3">
               <Link
-                href="/work"
-                className="group inline-flex items-center gap-2 rounded-full bg-[#ccff00] px-5 py-3 text-sm font-semibold text-black transition-transform hover:-translate-y-0.5"
+                href="/#selected-work"
+                className="group inline-flex items-center gap-2.5 rounded-full border border-violet-300/30 bg-violet-600 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_4px_22px_rgba(139,92,246,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-violet-200/60 hover:bg-violet-500 hover:shadow-[0_10px_35px_rgba(139,92,246,0.38)] active:translate-y-0"
               >
-                Explore work
+                Explore projects
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
 
@@ -73,155 +102,197 @@ export default function HomePage() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.025] px-5 py-3 text-sm font-medium text-white/75 transition-colors hover:border-white/20 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.025] px-5 py-3.5 text-sm font-medium text-white/90 transition hover:border-white/25 hover:bg-white/[0.06] hover:text-white"
               >
-                GitHub
+                GitHub profile
                 <ArrowUpRight className="size-4" />
               </Link>
             </div>
           </div>
 
-          <div className="lg:pb-3">
-            <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0d0f11]/85 shadow-2xl shadow-black/30 backdrop-blur-xl">
-              <div className="flex items-center justify-between border-b border-white/[0.07] px-4 py-3">
-                <div className="flex items-center gap-2">
-                  <span className="size-2 rounded-full bg-white/20" />
-                  <span className="size-2 rounded-full bg-white/20" />
-                  <span className="size-2 rounded-full bg-white/20" />
-                </div>
-
-                <span className="mono text-[10px] text-white/25">
-                  developer.workspace
-                </span>
-              </div>
-
-              <div className="p-5 sm:p-6">
-                <div className="mono space-y-4 text-xs leading-6">
-                  <div>
-                    <span className="text-[#ccff00]">$</span>{" "}
-                    <span className="text-white/70">whoami</span>
-                    <p className="pl-4 text-white/45">
-                      afia — full-stack web developer
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="text-[#ccff00]">$</span>{" "}
-                    <span className="text-white/70">focus</span>
-                    <p className="pl-4 text-white/45">
-                      React · Next.js · TypeScript
-                    </p>
-                    <p className="pl-4 text-white/45">
-                      Node.js · Express · MongoDB
-                    </p>
-                  </div>
-
-                  <div>
-                    <span className="text-[#ccff00]">$</span>{" "}
-                    <span className="text-white/70">principle</span>
-                    <p className="pl-4 text-white/45">
-                      learn by building
-                    </p>
-                  </div>
-
-                  <div className="border-t border-white/[0.07] pt-4">
-                    <div className="flex items-center gap-2 text-white/35">
-                      <Code2 className="size-3.5 text-[#ccff00]" />
-                      <span>workspace ready</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <InteractivePortrait />
         </div>
 
-        <div className="mt-16 grid border-y border-white/[0.07] sm:grid-cols-3">
-          <div className="border-b border-white/[0.07] px-0 py-5 sm:border-b-0 sm:border-r sm:px-6">
-            <p className="mono text-[10px] uppercase tracking-[0.18em] text-white/25">
-              Current mode
-            </p>
-            <p className="mt-2 text-sm font-medium text-white/75">
-              Full-Stack Web Development
-            </p>
-          </div>
-
-          <div className="border-b border-white/[0.07] px-0 py-5 sm:border-b-0 sm:border-r sm:px-6">
-            <p className="mono text-[10px] uppercase tracking-[0.18em] text-white/25">
-              Shipped work
-            </p>
-            <p className="mt-2 text-sm font-medium text-white/75">
-              02 featured projects
-            </p>
-          </div>
-
-          <div className="px-0 py-5 sm:px-6">
-            <p className="mono text-[10px] uppercase tracking-[0.18em] text-white/25">
-              Code
-            </p>
-            <p className="mt-2 text-sm font-medium text-white/75">
-              GitHub · Open to opportunities
-            </p>
-          </div>
-        </div>
       </section>
 
-      <section className="relative mx-auto max-w-[1400px] px-4 pb-24 sm:px-6 lg:px-10 lg:pb-32">
-        <div className="mb-10 flex items-end justify-between gap-6">
+      <section
+        id="selected-work"
+        className="relative mx-auto max-w-[1400px] px-4 pb-12 sm:px-6 lg:px-10 lg:pb-16"
+      >
+        <div className="mb-6 flex flex-col justify-between gap-3 sm:mb-7 sm:flex-row sm:items-end">
           <div>
-            <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/25">
-              Selected work
+            <p className="mono flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/85">
+              <span className="size-1.5 rounded-full bg-violet-400" />
+              Portfolio / Selected work
             </p>
-
-            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-              Things I&apos;ve built.
+            <h2 className="mt-4 text-2xl font-semibold tracking-[-0.06em] text-white sm:text-4xl">
+              Featured <span className="text-violet-400">work.</span>
             </h2>
+            <p className="mt-2 max-w-lg text-sm leading-6 text-white/75">
+              Practical projects, real implementation work, and the decisions
+              behind building for the web.
+            </p>
           </div>
 
           <Link
-            href="/work"
-            className="hidden items-center gap-2 text-xs font-medium text-white/45 transition-colors hover:text-white sm:flex"
+            href="/#selected-work"
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-white/15 px-4 py-3 text-xs font-medium text-white/85 transition hover:border-violet-400/50 hover:text-white"
           >
-            View all work
-            <ArrowDownRight className="size-4" />
+            Explore all projects
+            <ArrowUpRight className="size-4" />
           </Link>
         </div>
 
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="divide-y divide-white/10 border-y border-white/10">
           {projects.map((project) => (
-            <Link
+            <article
               key={project.number}
-              href={project.href}
-              className="group rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5 transition-all hover:-translate-y-1 hover:border-white/15 hover:bg-white/[0.035] sm:p-6"
+              className="group grid min-w-0 gap-4 py-5 transition-colors sm:grid-cols-[52px_160px_minmax(0,1fr)] sm:items-center sm:gap-6 sm:py-6 lg:grid-cols-[64px_190px_minmax(0,1fr)] lg:gap-8"
             >
-              <div className="flex items-center justify-between">
-                <span className="mono text-[10px] tracking-[0.18em] text-white/25">
-                  {project.number}
-                </span>
+              <span
+                className={`mono text-sm font-medium ${project.accent}`}
+                aria-label={`Project ${project.number}`}
+              >
+                {project.number}
+              </span>
 
-                <ArrowUpRight className="size-4 text-white/25 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#ccff00]" />
-              </div>
+              <a
+                href={project.live || project.repo}
+                target="_blank"
+                rel="noreferrer"
+                className="relative block aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] sm:aspect-[4/3]"
+                aria-label={`Open ${project.name}`}
+              >
+                <Image
+                  src={project.image}
+                  alt={`${project.name} project preview`}
+                  fill
+                  sizes="(max-width: 639px) 100vw, (max-width: 1023px) 160px, 190px"
+                  className="object-cover transition duration-500 group-hover:scale-[1.04]"
+                />
+              </a>
 
-              <div className="mt-20 max-w-lg">
-                <h3 className="text-2xl font-semibold tracking-[-0.04em] text-white">
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <p className="mono text-[10px] uppercase tracking-[0.14em] text-white/60">
+                    {project.category}
+                  </p>
+                  <span className="mono text-[9px] uppercase tracking-[0.12em] text-violet-300/90">
+                    {project.live ? "Live project" : "Source code"}
+                  </span>
+                </div>
+
+                <h3 className="mt-2 text-lg font-semibold tracking-[-0.04em] text-white transition-colors group-hover:text-violet-300 sm:text-xl">
                   {project.name}
                 </h3>
 
-                <p className="mt-3 text-sm leading-6 text-white/45">
+                <p className="mt-2 max-w-2xl text-sm leading-6 text-white/75">
                   {project.description}
                 </p>
 
-                <p className="mono mt-6 text-[10px] uppercase tracking-[0.12em] text-white/30">
-                  {project.stack}
-                </p>
+                <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+                  <p className="mono text-[10px] leading-5 text-white/65">
+                    {project.stack}
+                  </p>
+
+                  <div className="flex flex-wrap items-center gap-4">
+                    <a
+                      href={project.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-medium text-white/85 transition hover:text-violet-300"
+                    >
+                      GitHub
+                      <ArrowUpRight className="size-3.5" />
+                    </a>
+
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium text-violet-300 transition hover:text-white"
+                      >
+                        Live demo
+                        <ArrowUpRight className="size-3.5" />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
-            </Link>
+            </article>
           ))}
+        </div>
+
+        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 sm:pt-10">
+          <div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+            <div>
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-violet-300/90">
+                Behind the code / Build log
+              </p>
+              <h3 className="mt-2 text-xl font-semibold tracking-[-0.05em] text-white sm:text-2xl">
+                Engineering notes.
+              </h3>
+              <p className="mt-2 max-w-xl text-sm leading-6 text-white/70">
+                Lessons from debugging, API integration, and the decisions
+                that shape each implementation.
+              </p>
+            </div>
+            <Link
+              href="/build-log"
+              className="inline-flex w-fit items-center gap-2 text-xs font-medium text-white/85 transition hover:text-violet-300"
+            >
+              Read the build log
+              <ArrowUpRight className="size-4" />
+            </Link>
+          </div>
+
+          <div className="mt-4 grid gap-3 sm:grid-cols-3">
+            {[
+              {
+                number: "01",
+                title: "Debugging lessons",
+                description: "Tracing issues and understanding the root cause.",
+                href: "/build-log/debugging-lessons",
+              },
+              {
+                number: "02",
+                title: "Working with APIs",
+                description: "Connecting interfaces to real data and endpoints.",
+                href: "/build-log/fit-log-api",
+              },
+              {
+                number: "03",
+                title: "Rendering & hydration",
+                description: "Understanding rendering behavior and mismatches.",
+                href: "/build-log/hydration-mismatch",
+              },
+            ].map((note) => (
+              <Link
+                key={note.number}
+                href={note.href}
+                className="group rounded-xl border border-white/10 bg-[#0b0c10]/70 p-4 transition hover:border-violet-400/30"
+              >
+                <span className="mono text-[10px] text-violet-300/90">
+                  NOTE_{note.number}
+                </span>
+                <h4 className="mt-3 text-sm font-semibold text-white/90 transition group-hover:text-violet-300">
+                  {note.title}
+                </h4>
+                <p className="mt-2 text-xs leading-6 text-white/65">
+                  {note.description}
+                </p>
+                <span className="mt-4 inline-flex items-center gap-1.5 text-[11px] text-white/60 transition group-hover:text-white/90">
+                  Read note <ArrowUpRight className="size-3" />
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
       <StackLab />
-
+      <GitHubOverview />
       <ContactSection />
     </div>
   )

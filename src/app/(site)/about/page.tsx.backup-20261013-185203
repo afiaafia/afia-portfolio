@@ -1,0 +1,13 @@
+import type { Metadata } from "next"
+
+import { AboutExperience } from "@/components/about/about-experience"
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "Explore my approach to learning, problem-solving, and building full-stack web applications.",
+}
+
+export default function AboutPage() {
+  return <AboutExperience />
+}

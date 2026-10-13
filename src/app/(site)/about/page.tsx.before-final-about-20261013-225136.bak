@@ -1,0 +1,10 @@
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn about my approach to full-stack web development.",
+}
+
+export default function AboutPage() {
+  return <main className="min-h-[60vh]" />
+}

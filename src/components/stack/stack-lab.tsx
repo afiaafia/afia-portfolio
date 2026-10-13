@@ -179,7 +179,7 @@ export function StackLab() {
     >
       <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/80">
+          <p className="mono text-[10px] uppercase tracking-[0.2em] text-white/90">
             06 / Stack
           </p>
 
@@ -193,24 +193,24 @@ export function StackLab() {
           </p>
         </div>
 
-        <div className="mono hidden text-[10px] uppercase tracking-[0.16em] text-white/80 sm:block">
+        <div className="mono hidden text-[10px] uppercase tracking-[0.16em] text-white/90 sm:block">
           evidence.system / online
         </div>
       </div>
 
       <div className="overflow-hidden rounded-3xl border border-white/[0.07] bg-[#0b0d0f]/90">
         <div className="relative overflow-hidden border-b border-white/[0.07] px-5 py-6 sm:px-7 sm:py-8">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(204,255,0,0.07),transparent_28rem)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_75%_35%,rgba(196,167,255,0.10),transparent_28rem)]" />
 
           <div className="relative grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
             <div>
               <div className="mb-4 flex items-center gap-2">
                 <span className="relative flex size-2">
-                  <span className="absolute inline-flex size-2 animate-ping rounded-full bg-[#ccff00]/50" />
-                  <span className="relative inline-flex size-2 rounded-full bg-[#ccff00]" />
+                  <span className="absolute inline-flex size-2 animate-ping rounded-full bg-[#C4A7FF]/50" />
+                  <span className="relative inline-flex size-2 rounded-full bg-[#C4A7FF]" />
                 </span>
 
-                <span className="mono text-[10px] uppercase tracking-[0.18em] text-[#ccff00]">
+                <span className="mono text-[10px] uppercase tracking-[0.18em] text-[#C4A7FF]">
                   Current focus
                 </span>
               </div>
@@ -232,7 +232,7 @@ export function StackLab() {
             </div>
 
             <div className="relative min-h-[150px] overflow-hidden rounded-2xl border border-white/[0.07] bg-black/20 p-5">
-              <div className="mono mb-5 flex items-center justify-between text-[9px] uppercase tracking-[0.15em] text-white/80">
+              <div className="mono mb-5 flex items-center justify-between text-[9px] uppercase tracking-[0.15em] text-white/90">
                 <span>frontend</span>
                 <span>backend</span>
                 <span>data</span>
@@ -240,7 +240,7 @@ export function StackLab() {
 
               <div className="relative mt-8 h-px bg-white/[0.08]">
                 <motion.div
-                  className="absolute -top-[3px] size-[7px] rounded-full bg-[#ccff00] shadow-[0_0_16px_rgba(204,255,0,0.9)]"
+                  className="absolute -top-[3px] size-[7px] rounded-full bg-[#C4A7FF] shadow-[0_0_16px_rgba(196,167,255,0.9)]"
                   animate={
                     prefersReducedMotion
                       ? { left: "15%" }
@@ -262,7 +262,7 @@ export function StackLab() {
                 <div className="absolute -top-1.5 right-[8%] size-3 rounded-full border border-white/20 bg-[#0b0d0f]" />
               </div>
 
-              <div className="mono mt-6 grid grid-cols-3 text-[9px] uppercase tracking-[0.12em] text-white/80">
+              <div className="mono mt-6 grid grid-cols-3 text-[9px] uppercase tracking-[0.12em] text-white/90">
                 <span>UI</span>
                 <span className="text-center">API</span>
                 <span className="text-right">DB</span>
@@ -283,8 +283,8 @@ export function StackLab() {
                   onClick={() => setActiveCategory(category)}
                   className={`shrink-0 rounded-full border px-3.5 py-2 text-[11px] font-medium transition-colors ${
                     isActive
-                      ? "border-[#ccff00]/30 bg-[#ccff00]/10 text-[#ccff00]"
-                      : "border-white/[0.07] bg-white/[0.02] text-white/90 hover:border-white/15 hover:text-white/85"
+                      ? "border-[#C4A7FF]/30 bg-[#C4A7FF]/10 text-[#C4A7FF]"
+                      : "border-white/[0.07] bg-white/[0.02] text-white/90 hover:border-white/15 hover:text-white/90"
                   }`}
                 >
                   {category}
@@ -297,11 +297,11 @@ export function StackLab() {
         <div className="grid lg:grid-cols-[1.15fr_0.85fr]">
           <div className="p-4 sm:p-5">
             <div className="mb-4 flex items-center justify-between">
-              <span className="mono text-[9px] uppercase tracking-[0.16em] text-white/80">
+              <span className="mono text-[9px] uppercase tracking-[0.16em] text-white/90">
                 Technologies
               </span>
 
-              <span className="mono text-[9px] text-white/80">
+              <span className="mono text-[9px] text-white/90">
                 {visibleTechnologies.length.toString().padStart(2, "0")} items
               </span>
             </div>
@@ -339,14 +339,14 @@ export function StackLab() {
                     whileTap={{ scale: 0.985 }}
                     className={`group relative overflow-hidden rounded-xl border p-4 text-left transition-colors ${
                       isSelected
-                        ? "border-[#ccff00]/20 bg-[#ccff00]/[0.045]"
+                        ? "border-[#C4A7FF]/20 bg-[#C4A7FF]/[0.045]"
                         : "border-white/[0.06] bg-white/[0.015] hover:border-white/[0.12]"
                     }`}
                   >
                     {isSelected && (
                       <motion.div
                         layoutId="active-stack-line"
-                        className="absolute left-0 top-0 h-full w-px bg-[#ccff00]"
+                        className="absolute left-0 top-0 h-full w-px bg-[#C4A7FF]"
                       />
                     )}
 
@@ -355,7 +355,7 @@ export function StackLab() {
                         <span
                           className={`flex size-9 items-center justify-center rounded-lg border ${
                             isSelected
-                              ? "border-[#ccff00]/20 bg-[#ccff00]/10 text-[#ccff00]"
+                              ? "border-[#C4A7FF]/20 bg-[#C4A7FF]/10 text-[#C4A7FF]"
                               : "border-white/[0.07] bg-white/[0.025] text-white/90"
                           }`}
                         >
@@ -367,7 +367,7 @@ export function StackLab() {
                             {technology.name}
                           </p>
 
-                          <p className="mono mt-1 text-[9px] uppercase tracking-[0.12em] text-white/80">
+                          <p className="mono mt-1 text-[9px] uppercase tracking-[0.12em] text-white/90">
                             {technology.category}
                           </p>
                         </div>
@@ -376,8 +376,8 @@ export function StackLab() {
                       <ChevronRight
                         className={`mt-2 size-3.5 transition-transform ${
                           isSelected
-                            ? "translate-x-0 text-[#ccff00]"
-                            : "text-white/80 group-hover:translate-x-0.5"
+                            ? "translate-x-0 text-[#C4A7FF]"
+                            : "text-white/90 group-hover:translate-x-0.5"
                         }`}
                       />
                     </div>
@@ -396,8 +396,8 @@ export function StackLab() {
                 transition={{ duration: 0.3 }}
               >
                 <div className="flex items-center gap-2">
-                  <Terminal className="size-3.5 text-[#ccff00]" />
-                  <span className="mono text-[9px] uppercase tracking-[0.16em] text-white/80">
+                  <Terminal className="size-3.5 text-[#C4A7FF]" />
+                  <span className="mono text-[9px] uppercase tracking-[0.16em] text-white/90">
                     Evidence
                   </span>
                 </div>
@@ -414,16 +414,16 @@ export function StackLab() {
                   {selectedTechnology.evidence.map((item) => (
                     <div
                       key={item}
-                      className="flex items-start gap-2.5 text-sm text-white/80"
+                      className="flex items-start gap-2.5 text-sm text-white/90"
                     >
-                      <Check className="mt-0.5 size-3.5 shrink-0 text-[#ccff00]" />
+                      <Check className="mt-0.5 size-3.5 shrink-0 text-[#C4A7FF]" />
                       <span>{item}</span>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-7 border-t border-white/[0.07] pt-5">
-                  <p className="mono text-[9px] uppercase tracking-[0.16em] text-white/80">
+                  <p className="mono text-[9px] uppercase tracking-[0.16em] text-white/90">
                     Used in
                   </p>
 
@@ -431,7 +431,7 @@ export function StackLab() {
                     {selectedTechnology.projects.map((project) => (
                       <span
                         key={project}
-                        className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] text-white/80"
+                        className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] text-white/90"
                       >
                         {project}
                       </span>
@@ -456,15 +456,15 @@ export function StackLab() {
               className="group rounded-xl border border-white/[0.06] bg-white/[0.015] p-4 text-left transition-colors hover:border-white/[0.12]"
             >
               <div className="flex items-center justify-between">
-                <Icon className="size-4 text-white/80 transition-colors group-hover:text-[#ccff00]" />
-                <ChevronRight className="size-3 text-white/80" />
+                <Icon className="size-4 text-white/90 transition-colors group-hover:text-[#C4A7FF]" />
+                <ChevronRight className="size-3 text-white/90" />
               </div>
 
               <p className="mt-5 text-sm font-medium text-white/90">
                 {category}
               </p>
 
-              <p className="mt-1 text-xs leading-5 text-white/80">
+              <p className="mt-1 text-xs leading-5 text-white/90">
                 {categoryDescriptions[category]}
               </p>
             </button>

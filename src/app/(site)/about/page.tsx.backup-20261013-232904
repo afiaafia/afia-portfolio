@@ -1,0 +1,70 @@
+import type { Metadata } from "next"
+import { Code2 } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "About",
+  description:
+    "A little about my approach to full-stack web development.",
+}
+
+export default function AboutPage() {
+  return (
+    <main className="mx-auto w-full max-w-6xl px-5 py-20 sm:px-8 sm:py-28">
+      <section
+        aria-labelledby="about-heading"
+        className="grid items-center gap-10 md:grid-cols-[1.25fr_0.75fr] md:gap-16"
+      >
+        <div className="max-w-2xl">
+          <p className="mb-5 text-xs font-medium uppercase tracking-[0.24em] text-violet-300">
+            A little about me
+          </p>
+
+          <h1
+            id="about-heading"
+            className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
+          >
+            I build for the{" "}
+            <span className="text-violet-300">web.</span>
+          </h1>
+
+          <p className="mt-6 max-w-xl text-base leading-7 text-white/65 sm:text-lg sm:leading-8">
+            I’m a full-stack web developer focused on building useful
+            applications, improving my engineering skills, and turning
+            ideas into working products.
+          </p>
+        </div>
+
+        <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-violet-500/10 blur-3xl"
+          />
+
+          <div className="relative">
+            <div className="mb-8 flex h-12 w-12 items-center justify-center rounded-xl border border-violet-300/20 bg-violet-400/10 text-violet-300">
+              <Code2 size={23} strokeWidth={1.7} />
+            </div>
+
+            <p className="text-xs font-medium uppercase tracking-[0.2em] text-white/45">
+              Current focus
+            </p>
+
+            <p className="mt-3 text-lg font-medium leading-8 text-white">
+              React · Next.js · TypeScript
+            </p>
+
+            <p className="mt-1 text-sm leading-6 text-white/55">
+              Node.js · Express · MongoDB
+            </p>
+
+            <div className="mt-7 h-px w-full bg-white/10" />
+
+            <p className="mt-5 text-sm leading-6 text-white/60">
+              Learn through building. Improve through iteration.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+  )
+}
