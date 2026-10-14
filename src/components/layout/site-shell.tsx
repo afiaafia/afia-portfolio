@@ -1,24 +1,22 @@
 import type { ReactNode } from "react"
 
-import { MobileNav } from "@/components/layout/mobile-nav"
 import { Navbar } from "@/components/layout/navbar"
-import { Sidebar } from "@/components/layout/sidebar"
 import { CommandPalette } from "@/components/layout/command-palette"
+import MascotWidget from "@/components/mascot/mascot-widget"
+import { Footer } from "@/components/layout/footer"
 
 export function SiteShell({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen bg-[#08090b] text-white">
-      <Sidebar />
+    <div className="min-h-screen bg-[#0b0a12] text-white">
+      <Navbar />
 
-      <div className="lg:pl-64">
-        <Navbar />
+      <main className="relative min-h-[calc(100vh-4.5rem)]">
+        {children}
+      </main>
 
-        <main className="relative min-h-[calc(100vh-4rem)]">
-          {children}
-        </main>
-      </div>
+      <Footer />
 
-      <MobileNav />
+      <MascotWidget />
       <CommandPalette />
     </div>
   )

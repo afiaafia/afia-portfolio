@@ -26,11 +26,11 @@ export function ProofStrip() {
                 : ""
             }`}
           >
-            <p className="mono text-[10px] uppercase tracking-[0.18em] text-white/25">
+            <p className="mono text-[10px] uppercase tracking-[0.18em] text-white/90">
               {item.label}
             </p>
 
-            <p className="mt-2 text-sm font-medium text-white/65">
+            <p className="mt-2 text-sm font-medium text-white/90">
               {item.value}
             </p>
           </div>

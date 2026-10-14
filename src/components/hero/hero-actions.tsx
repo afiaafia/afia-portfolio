@@ -19,7 +19,7 @@ export function HeroActions() {
         href={siteConfig.github}
         target="_blank"
         rel="noreferrer"
-        className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.025] px-5 py-3 text-sm font-medium text-white/70 transition-all duration-200 hover:border-white/20 hover:bg-white/[0.04] hover:text-white"
+        className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.025] px-5 py-3 text-sm font-medium text-white/90 transition-all duration-200 hover:border-white/20 hover:bg-white/[0.04] hover:text-white"
       >
         GitHub
 

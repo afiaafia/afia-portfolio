@@ -108,22 +108,17 @@ export function ContactSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="mb-12"
         >
-          <div className="mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.22em] text-white/80">
-            <span className="h-px w-8 bg-lime-300" />
+          <div className="mb-4 flex items-center gap-3 font-mono text-xs tracking-[0.22em] text-white/90">
+            <span className="h-px w-8 bg-violet-400" />
             <span>08 / CONTACT</span>
           </div>
 
           <div className="max-w-4xl">
             <h2 className="text-balance text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
-              LET&apos;S OPEN
-              <br />
-              A CHANNEL.
+              GET IN TOUCH
+
             </h2>
 
-            <p className="mt-6 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
-              Have a project, collaboration idea, or simply want to connect?
-              Pick a channel or send a direct message.
-            </p>
           </div>
         </motion.div>
 
@@ -137,10 +132,6 @@ export function ContactSection() {
             transition={{ duration: 0.7, delay: 0.08, ease: "easeOut" }}
             className="space-y-3"
           >
-            <div className="mb-5 font-mono text-xs uppercase tracking-[0.18em] text-white/80">
-              DIRECT CHANNELS
-            </div>
-
             {channels.map((channel, index) => {
               const Icon = channel.icon
 
@@ -149,13 +140,13 @@ export function ContactSection() {
                   <div className="flex items-center gap-4">
                     <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
                       <Icon
-                        className="h-5 w-5 text-white"
+                        className="h-5 w-5 text-violet-400 transition-colors duration-300 group-hover:text-violet-300"
                         strokeWidth={1.8}
                       />
                     </div>
 
                     <div className="min-w-0">
-                      <div className="font-mono text-[11px] tracking-[0.18em] text-white/80">
+                      <div className="font-mono text-[11px] tracking-[0.18em] text-white/90">
                         {channel.label}
                       </div>
 
@@ -166,7 +157,7 @@ export function ContactSection() {
                   </div>
 
                   <ArrowUpRight
-                    className="h-4 w-4 shrink-0 text-white/80"
+                    className="h-4 w-4 shrink-0 text-violet-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                     strokeWidth={1.8}
                   />
                 </>
@@ -232,11 +223,11 @@ export function ContactSection() {
               )
             })}
 
-            <div className="mt-8 rounded-2xl border border-lime-300/20 bg-lime-300/[0.04] p-5">
+            <div className="mt-8 rounded-2xl border border-violet-400/20 bg-violet-400/[0.04] p-5">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-2.5 w-2.5">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-lime-300/70" />
-                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-lime-300" />
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400/70" />
+                  <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-violet-400" />
                 </span>
 
                 <span className="font-mono text-xs uppercase tracking-[0.16em] text-white">
@@ -244,10 +235,6 @@ export function ContactSection() {
                 </span>
               </div>
 
-              <p className="mt-3 text-sm leading-6 text-white/80">
-                The easiest way to reach me is email. LinkedIn and GitHub are
-                also available for professional and technical conversations.
-              </p>
             </div>
           </motion.div>
 
@@ -262,24 +249,17 @@ export function ContactSection() {
           >
             <div className="mb-7 flex items-start justify-between gap-6">
               <div>
-                <div className="font-mono text-xs tracking-[0.18em] text-white/80">
-                  SEND A MESSAGE
-                </div>
-
                 <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                   Start a conversation.
                 </h3>
               </div>
 
-              <div className="hidden rounded-xl border border-white/10 bg-black/20 px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/80 sm:block">
-                Direct
-              </div>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid gap-6 sm:grid-cols-2">
                 <label className="block">
-                  <span className="mb-2 block font-mono text-xs tracking-[0.14em] text-white/80">
+                  <span className="mb-2 block font-mono text-xs tracking-[0.14em] text-white/90">
                     NAME
                   </span>
 
@@ -289,12 +269,12 @@ export function ContactSection() {
                     required
                     autoComplete="name"
                     placeholder="Your name"
-                    className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm text-white outline-none placeholder:text-white/80 transition-colors duration-300 focus:border-lime-300/50"
+                    className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm text-white outline-none placeholder:text-white/90 transition-colors duration-300 focus:border-violet-400/60"
                   />
                 </label>
 
                 <label className="block">
-                  <span className="mb-2 block font-mono text-xs tracking-[0.14em] text-white/80">
+                  <span className="mb-2 block font-mono text-xs tracking-[0.14em] text-white/90">
                     EMAIL
                   </span>
 
@@ -304,13 +284,13 @@ export function ContactSection() {
                     required
                     autoComplete="email"
                     placeholder="you@example.com"
-                    className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm text-white outline-none placeholder:text-white/80 transition-colors duration-300 focus:border-lime-300/50"
+                    className="w-full rounded-xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm text-white outline-none placeholder:text-white/90 transition-colors duration-300 focus:border-violet-400/60"
                   />
                 </label>
               </div>
 
               <div>
-                <div className="mb-3 font-mono text-xs tracking-[0.14em] text-white/80">
+                <div className="mb-3 font-mono text-xs tracking-[0.14em] text-white/90">
                   TOPIC
                 </div>
 
@@ -325,8 +305,8 @@ export function ContactSection() {
                         onClick={() => setTopic(item)}
                         className={`rounded-full border px-3.5 py-2 text-xs transition-colors duration-300 ${
                           active
-                            ? "border-lime-300/40 bg-lime-300/10 text-white"
-                            : "border-white/10 bg-white/[0.02] text-white/80 hover:border-white/20 hover:text-white"
+                            ? "border-violet-400/40 bg-violet-400/10 text-white"
+                            : "border-white/10 bg-white/[0.02] text-white/90 hover:border-white/20 hover:text-white"
                         }`}
                       >
                         {item}
@@ -337,32 +317,42 @@ export function ContactSection() {
               </div>
 
               <label className="block">
-                <span className="mb-2 block font-mono text-xs tracking-[0.14em] text-white/80">
+                <span className="mb-2 block font-mono text-xs tracking-[0.14em] text-white/90">
                   MESSAGE
                 </span>
 
                 <textarea
                   name="message"
                   required
-                  rows={7}
+                  rows={1}
                   placeholder="Tell me a little about what you want to build, discuss, or explore."
-                  className="w-full resize-y rounded-xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm leading-6 text-white outline-none placeholder:text-white/80 transition-colors duration-300 focus:border-lime-300/50"
+                  onInput={(event) => {
+                    const field = event.currentTarget;
+                    const styles = window.getComputedStyle(field);
+                    const lineHeight = parseFloat(styles.lineHeight) || 24;
+                    const padding =
+                      parseFloat(styles.paddingTop) +
+                      parseFloat(styles.paddingBottom);
+                    const maxHeight = lineHeight * 3 + padding;
+
+                    field.style.height = "auto";
+
+                    if (field.scrollHeight > maxHeight) {
+                      field.style.height = `${maxHeight}px`;
+                      field.style.overflowY = "auto";
+                    } else {
+                      field.style.height = `${field.scrollHeight}px`;
+                      field.style.overflowY = "hidden";
+                    }
+                  }}
+                  className="w-full resize-none overflow-y-hidden rounded-xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm leading-6 text-white outline-none placeholder:text-white/90 transition-colors duration-300 focus:border-violet-400/60"
                 />
               </label>
 
               <div className="flex flex-col gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
-                <div className="font-mono text-xs text-white/80">
-                  STATUS:{" "}
-                  <span className="text-white">
-                    {status === "idle" && "READY TO SEND"}
-                    {status === "preparing" && "PREPARING EMAIL"}
-                    {status === "ready" && "OPENING COMPOSER"}
-                  </span>
-                </div>
-
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-lime-300 px-5 py-3.5 text-sm font-semibold text-black transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-violet-400 px-5 py-3.5 text-sm font-semibold text-black transition-transform duration-300 hover:-translate-y-0.5 active:translate-y-0"
                 >
                   <Send className="h-4 w-4" />
                   Send Message
@@ -381,7 +371,7 @@ export function ContactSection() {
         }
         viewport={{ once: true }}
         transition={{ duration: 1.1, delay: 0.2, ease: "easeOut" }}
-        className="mx-auto mt-16 h-px max-w-7xl origin-left bg-gradient-to-r from-transparent via-lime-300/35 to-transparent"
+        className="mx-auto mt-16 h-px max-w-7xl origin-left bg-gradient-to-r from-transparent via-violet-400/35 to-transparent"
       />
     </section>
   )

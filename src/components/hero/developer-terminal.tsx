@@ -11,7 +11,7 @@ export function DeveloperTerminal() {
           <span className="size-2 rounded-full bg-white/15" />
         </div>
 
-        <div className="mono text-[10px] tracking-[0.08em] text-white/25">
+        <div className="mono text-[10px] tracking-[0.08em] text-white/90">
           developer.workspace
         </div>
       </div>
@@ -41,11 +41,11 @@ export function DeveloperTerminal() {
               />
             </div>
 
-            <p className="mt-1 text-xs leading-5 text-white/40 sm:text-sm">
+            <p className="mt-1 text-xs leading-5 text-white/90 sm:text-sm">
               Full-Stack Web Developer
             </p>
 
-            <p className="mono mt-2 text-[9px] uppercase tracking-[0.14em] text-white/20">
+            <p className="mono mt-2 text-[9px] uppercase tracking-[0.14em] text-white/90">
               /developer/profile
             </p>
           </div>
@@ -55,10 +55,10 @@ export function DeveloperTerminal() {
           <div>
             <div className="flex gap-2">
               <span className="text-[#ccff00]">$</span>
-              <span className="text-white/70">whoami</span>
+              <span className="text-white/90">whoami</span>
             </div>
 
-            <p className="pl-5 text-white/45">
+            <p className="pl-5 text-white/90">
               afia — full-stack web developer
             </p>
           </div>
@@ -66,7 +66,7 @@ export function DeveloperTerminal() {
           <div>
             <div className="flex gap-2">
               <span className="text-[#ccff00]">$</span>
-              <span className="text-white/70">stack</span>
+              <span className="text-white/90">stack</span>
             </div>
 
             <div className="mt-1 flex flex-wrap gap-2 pl-5">
@@ -80,7 +80,7 @@ export function DeveloperTerminal() {
               ].map((technology) => (
                 <span
                   key={technology}
-                  className="rounded-md border border-white/[0.07] bg-white/[0.025] px-2 py-1 text-[10px] text-white/40"
+                  className="rounded-md border border-white/[0.07] bg-white/[0.025] px-2 py-1 text-[10px] text-white/90"
                 >
                   {technology}
                 </span>
@@ -91,16 +91,16 @@ export function DeveloperTerminal() {
           <div>
             <div className="flex gap-2">
               <span className="text-[#ccff00]">$</span>
-              <span className="text-white/70">principle</span>
+              <span className="text-white/90">principle</span>
             </div>
 
-            <p className="pl-5 text-white/45">
+            <p className="pl-5 text-white/90">
               learn by building
             </p>
           </div>
 
           <div className="border-t border-white/[0.07] pt-4">
-            <div className="flex items-center gap-2 text-white/30">
+            <div className="flex items-center gap-2 text-white/90">
               <Code2 className="size-3.5 text-[#ccff00]" />
               <span>workspace ready</span>
             </div>

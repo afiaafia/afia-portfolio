@@ -15,12 +15,12 @@ export function Hero() {
             <div className="flex flex-wrap items-center gap-3">
               <StatusIndicator />
 
-              <span className="mono text-[10px] uppercase tracking-[0.18em] text-white/25">
+              <span className="mono text-[10px] uppercase tracking-[0.18em] text-white/90">
                 /home
               </span>
             </div>
 
-            <p className="mono mt-8 text-[10px] uppercase tracking-[0.22em] text-white/30">
+            <p className="mono mt-8 text-[10px] uppercase tracking-[0.22em] text-white/90">
               Afia A. / Full-Stack Web Developer
             </p>
 
@@ -29,10 +29,10 @@ export function Hero() {
               <br />
               TO
               <br />
-              <span className="text-white/25">UNDERSTAND.</span>
+              <span className="text-white/90">UNDERSTAND.</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-base leading-7 text-white/52 sm:text-lg">
+            <p className="mt-8 max-w-2xl text-base leading-7 text-white/90 sm:text-lg">
               I&apos;m a Computer Science &amp; Technology student focused on
               building practical web applications and understanding how
               modern frontend, backend, APIs, and databases fit together.
@@ -40,7 +40,7 @@ export function Hero() {
 
             <HeroActions />
 
-            <div className="mt-10 flex items-center gap-2 text-white/25">
+            <div className="mt-10 flex items-center gap-2 text-white/90">
               <ArrowDownRight className="size-4" />
 
               <span className="mono text-[10px] uppercase tracking-[0.16em]">

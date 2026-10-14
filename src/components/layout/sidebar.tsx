@@ -29,7 +29,7 @@ export function Sidebar() {
         </div>
 
         <div className="px-4 py-6">
-          <p className="mb-3 px-3 text-[10px] font-medium uppercase tracking-[0.2em] text-white/35">
+          <p className="mb-3 px-3 text-[10px] font-medium uppercase tracking-[0.2em] text-white/90">
             Workspace
           </p>
 
@@ -49,7 +49,7 @@ export function Sidebar() {
                       "group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors",
                       isActive
                         ? "bg-white/[0.07] text-white"
-                        : "text-white/50 hover:bg-white/[0.04] hover:text-white",
+                        : "text-white/90 hover:bg-white/[0.04] hover:text-white",
                     )}
                   >
                     <Icon
@@ -57,7 +57,7 @@ export function Sidebar() {
                         "size-4 transition-colors",
                         isActive
                           ? "text-[#ccff00]"
-                          : "text-white/35 group-hover:text-white/70",
+                          : "text-white/90 group-hover:text-white/90",
                       )}
                       strokeWidth={1.8}
                     />
@@ -81,12 +81,12 @@ export function Sidebar() {
           <div className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-4">
             <div className="flex items-center gap-2">
               <span className="size-2 rounded-full bg-[#ccff00] shadow-[0_0_12px_rgba(204,255,0,0.55)]" />
-              <span className="text-xs font-medium text-white/75">
+              <span className="text-xs font-medium text-white/90">
                 Currently building
               </span>
             </div>
 
-            <p className="mt-2 text-xs leading-5 text-white/40">
+            <p className="mt-2 text-xs leading-5 text-white/90">
               Full-stack web projects, one layer at a time.
             </p>
           </div>

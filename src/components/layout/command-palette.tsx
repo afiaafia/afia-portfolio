@@ -7,6 +7,7 @@ import {
   CircleUserRound,
   Code2,
   FileText,
+  FolderKanban,
   Home,
   Mail,
   Search,
@@ -27,6 +28,7 @@ const navigationCommands: CommandItem[] = [
   { label: "Home", href: "/", icon: Home },
   { label: "About", href: "/about", icon: CircleUserRound },
   { label: "Work", href: "/work", icon: Code2 },
+  { label: "Projects", href: "/#selected-work", icon: FolderKanban },
   { label: "Stack", href: "/stack", icon: Wrench },
   { label: "Build Log", href: "/build-log", icon: Terminal },
   { label: "GitHub", href: "/github", icon: Code2 },
@@ -98,27 +100,27 @@ export function CommandPalette() {
         shouldFilter
       >
         <div className="flex items-center gap-3 border-b border-white/[0.07] px-4">
-          <Search className="size-4 shrink-0 text-white/30" />
+          <Search className="size-4 shrink-0 text-white/90" />
 
           <Command.Input
             autoFocus
             placeholder="Search AFIA.OS..."
-            className="h-14 w-full bg-transparent text-sm text-white outline-none placeholder:text-white/25"
+            className="h-14 w-full bg-transparent text-sm text-white outline-none placeholder:text-white/90"
           />
 
-          <kbd className="hidden rounded-md border border-white/10 px-2 py-1 text-[10px] text-white/30 sm:block">
+          <kbd className="hidden rounded-md border border-white/10 px-2 py-1 text-[10px] text-white/90 sm:block">
             ESC
           </kbd>
         </div>
 
         <Command.List className="max-h-[55vh] overflow-y-auto p-2">
-          <Command.Empty className="px-4 py-10 text-center text-sm text-white/35">
+          <Command.Empty className="px-4 py-10 text-center text-sm text-white/90">
             No command found.
           </Command.Empty>
 
           <Command.Group
             heading="Navigation"
-            className="px-1 pb-2 text-[10px] uppercase tracking-[0.18em] text-white/25"
+            className="px-1 pb-2 text-[10px] uppercase tracking-[0.18em] text-white/90"
           >
             {navigationCommands.map((item) => {
               const Icon = item.icon
@@ -128,13 +130,13 @@ export function CommandPalette() {
                   key={item.href}
                   value={item.label}
                   onSelect={() => navigate(item.href, item.external)}
-                  className="group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 text-sm text-white/60 outline-none transition-colors data-[selected=true]:bg-white/[0.06] data-[selected=true]:text-white"
+                  className="group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 text-sm text-white/90 outline-none transition-colors data-[selected=true]:bg-white/[0.06] data-[selected=true]:text-white"
                 >
-                  <Icon className="size-4 text-white/30 transition-colors group-data-[selected=true]:text-[#ccff00]" />
+                  <Icon className="size-4 text-white/90 transition-colors group-data-[selected=true]:text-[#ccff00]" />
 
                   <span>{item.label}</span>
 
-                  <ArrowUpRight className="ml-auto size-3.5 text-white/20 group-data-[selected=true]:text-[#ccff00]" />
+                  <ArrowUpRight className="ml-auto size-3.5 text-white/90 group-data-[selected=true]:text-[#ccff00]" />
                 </Command.Item>
               )
             })}
@@ -142,18 +144,18 @@ export function CommandPalette() {
 
           <Command.Group
             heading="Actions"
-            className="border-t border-white/[0.07] px-1 pt-3 text-[10px] uppercase tracking-[0.18em] text-white/25"
+            className="border-t border-white/[0.07] px-1 pt-3 text-[10px] uppercase tracking-[0.18em] text-white/90"
           >
             <Command.Item
               value="Random Build"
               onSelect={() => navigate("/build-log")}
-              className="group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 text-sm text-white/60 outline-none transition-colors data-[selected=true]:bg-white/[0.06] data-[selected=true]:text-white"
+              className="group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 text-sm text-white/90 outline-none transition-colors data-[selected=true]:bg-white/[0.06] data-[selected=true]:text-white"
             >
-              <Shuffle className="size-4 text-white/30 transition-colors group-data-[selected=true]:text-[#ccff00]" />
+              <Shuffle className="size-4 text-white/90 transition-colors group-data-[selected=true]:text-[#ccff00]" />
 
               <span>Random Build</span>
 
-              <ArrowUpRight className="ml-auto size-3.5 text-white/20 group-data-[selected=true]:text-[#ccff00]" />
+              <ArrowUpRight className="ml-auto size-3.5 text-white/90 group-data-[selected=true]:text-[#ccff00]" />
             </Command.Item>
 
             <Command.Item
@@ -161,23 +163,23 @@ export function CommandPalette() {
               onSelect={() =>
                 navigate("https://github.com/afiaafia", true)
               }
-              className="group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 text-sm text-white/60 outline-none transition-colors data-[selected=true]:bg-white/[0.06] data-[selected=true]:text-white"
+              className="group flex cursor-pointer items-center gap-3 rounded-xl px-3 py-3 text-sm text-white/90 outline-none transition-colors data-[selected=true]:bg-white/[0.06] data-[selected=true]:text-white"
             >
-              <Code2 className="size-4 text-white/30 transition-colors group-data-[selected=true]:text-[#ccff00]" />
+              <Code2 className="size-4 text-white/90 transition-colors group-data-[selected=true]:text-[#ccff00]" />
 
               <span>Open GitHub Profile</span>
 
-              <ArrowUpRight className="ml-auto size-3.5 text-white/20 group-data-[selected=true]:text-[#ccff00]" />
+              <ArrowUpRight className="ml-auto size-3.5 text-white/90 group-data-[selected=true]:text-[#ccff00]" />
             </Command.Item>
           </Command.Group>
         </Command.List>
 
         <div className="flex items-center justify-between border-t border-white/[0.07] px-4 py-3">
-          <p className="mono text-[10px] text-white/20">
+          <p className="mono text-[10px] text-white/90">
             AFIA.OS COMMAND SYSTEM
           </p>
 
-          <div className="flex items-center gap-2 text-[10px] text-white/20">
+          <div className="flex items-center gap-2 text-[10px] text-white/90">
             <kbd className="rounded border border-white/10 px-1.5 py-0.5">
               ↑↓
             </kbd>

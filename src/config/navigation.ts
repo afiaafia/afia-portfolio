@@ -2,6 +2,7 @@ import {
   CircleUserRound,
   Code2,
   FileText,
+  FolderKanban,
   Home,
   Mail,
   Terminal,
@@ -25,6 +26,11 @@ export const navigationItems = [
     icon: Code2,
   },
   {
+    label: "Projects",
+    href: "/#selected-work",
+    icon: FolderKanban,
+  },
+  {
     label: "Stack",
     href: "/#stack",
     icon: Wrench,
@@ -38,15 +44,5 @@ export const navigationItems = [
     label: "GitHub",
     href: "/github",
     icon: Code2,
-  },
-  {
-    label: "Resume",
-    href: "/resume",
-    icon: FileText,
-  },
-  {
-    label: "Contact",
-    href: "/#contact",
-    icon: Mail,
   },
 ] as const
