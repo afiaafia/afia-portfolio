@@ -5,7 +5,6 @@ import {
   FolderKanban,
   Home,
   Mail,
-  Terminal,
   Wrench,
 } from "lucide-react"
 
@@ -34,11 +33,6 @@ export const navigationItems = [
     label: "Stack",
     href: "/#stack",
     icon: Wrench,
-  },
-  {
-    label: "Build Log",
-    href: "/build-log",
-    icon: Terminal,
   },
   {
     label: "GitHub",

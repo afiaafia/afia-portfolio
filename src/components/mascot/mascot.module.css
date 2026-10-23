@@ -213,3 +213,82 @@
     transition: none;
   }
 }
+
+
+/* Living kitty: expressive idle motion for the single-image character. */
+.kitty {
+  animation: kitty-alive 6.5s ease-in-out infinite;
+  transform-origin: 50% 88%;
+  will-change: transform, filter;
+}
+
+.kittyButton {
+  transform-origin: 50% 90%;
+  transition: filter 220ms ease;
+}
+
+.kittyButton:hover {
+  filter: drop-shadow(0 0 12px rgb(216 180 254 / 38%));
+}
+
+.kittyButton:active {
+  transform: scale(.96);
+}
+
+@keyframes kitty-alive {
+  0%, 8%, 17%, 29%, 42%, 56%, 70%, 84%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  11% {
+    transform: translate3d(0, -5px, 0) rotate(-3deg) scale(1.02, .98);
+  }
+  14% {
+    transform: translate3d(0, 0, 0) rotate(3deg) scale(.99, 1.02);
+  }
+  33% {
+    transform: translate3d(-3px, -2px, 0) rotate(-4deg) scale(1.01, .99);
+  }
+  37% {
+    transform: translate3d(3px, 0, 0) rotate(4deg) scale(.99, 1.01);
+  }
+  60% {
+    transform: translate3d(0, -13px, 0) rotate(-2deg) scale(1.03, .97);
+  }
+  65% {
+    transform: translate3d(0, 1px, 0) rotate(2deg) scale(1.05, .94);
+  }
+  68% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  88% {
+    transform: translate3d(0, -3px, 0) rotate(2deg) scale(1.01, .99);
+  }
+}
+
+/* Keep explicit menu actions more prominent than the idle cycle. */
+.action_jump .kitty {
+  animation: kitty-jump 520ms cubic-bezier(.2, .8, .25, 1);
+}
+
+.action_spin .kitty {
+  animation: kitty-spin 750ms ease-in-out;
+}
+
+.action_wave .kitty,
+.action_greet .kitty {
+  animation: kitty-wave 650ms ease-in-out;
+}
+
+.sleeping .kitty {
+  animation: kitty-sleep 3.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kitty {
+    animation: none;
+  }
+
+  .kittyButton {
+    transition: none;
+  }
+}

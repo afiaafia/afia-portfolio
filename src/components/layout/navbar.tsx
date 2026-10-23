@@ -12,7 +12,6 @@ const links = [
   { label: "Projects", href: "/#selected-work" },
   { label: "About", href: "/about" },
   { label: "Stack", href: "/#stack" },
-  { label: "Build Log", href: "/build-log" },
   { label: "Contact", href: "/#contact" },
 ]
 

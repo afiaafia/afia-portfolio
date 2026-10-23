@@ -104,20 +104,17 @@ export function moveWhileDragging(
 
 export function endDrag(
   state: MascotMotionState,
-  releaseVelocity: MascotVelocity = { x: 0, y: 0 },
-  maxSpeed = MAX_SPEED,
+  _releaseVelocity: MascotVelocity = { x: 0, y: 0 },
+  _maxSpeed = MAX_SPEED,
 ): MascotMotionState {
   if (!state.dragging) return state
 
   return {
     ...state,
     dragging: false,
-    grounded: false,
-    jumping: true,
-    velocity: {
-      x: Math.max(-maxSpeed, Math.min(maxSpeed, releaseVelocity.x)),
-      y: Math.max(-maxSpeed, Math.min(maxSpeed, releaseVelocity.y)),
-    },
+    grounded: true,
+    jumping: false,
+    velocity: { x: 0, y: 0 },
   }
 }
 

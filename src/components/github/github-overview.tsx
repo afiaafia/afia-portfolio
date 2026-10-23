@@ -96,18 +96,6 @@ const activityItems = [
   },
 ]
 
-const heatmap = Array.from({ length: 84 }, (_, index) => {
-  const level =
-    (index * 17 + Math.floor(index / 7) * 11 + (index % 5) * 7) % 5
-
-  return {
-    index,
-    level,
-    week: Math.floor(index / 7),
-    label: `${level + 1} build signal`,
-  }
-})
-
 function RepositoryCard({
   repo,
   index,
@@ -310,8 +298,6 @@ function RepositoryCard({
 
 export function GitHubOverview() {
   const shouldReduceMotion = useReducedMotion()
-
-  const [activeCell, setActiveCell] = useState<number | null>(null)
   const [selectedRepo, setSelectedRepo] = useState<string | null>(null)
 
   const [profile, setProfile] = useState<{
@@ -633,181 +619,86 @@ export function GitHubOverview() {
           </div>
         </motion.div>
 
-        {/* ACTIVITY + HEATMAP */}
-        <div className="mt-10 grid gap-8 lg:grid-cols-[1.25fr_0.75fr]">
-          <motion.div
-            initial={
-              shouldReduceMotion
-                ? false
-                : {
-                    opacity: 0,
-                    x: -24,
-                  }
-            }
-            whileInView={
-              shouldReduceMotion
-                ? undefined
-                : {
-                    opacity: 1,
-                    x: 0,
-                  }
-            }
-            viewport={{ once: true, amount: 0.14 }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
-            className="rounded-3xl border border-white/10 bg-[#0b0d0f] p-5 sm:p-7"
-          >
-            <div className="flex items-start justify-between gap-6">
-              <div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/90">
-                  ACTIVITY MAP
-                </div>
-
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
-                  Build signals over time.
-                </h3>
+        {/* ACTIVITY FEED */}
+        <motion.div
+          initial={
+            shouldReduceMotion
+              ? false
+              : {
+                  opacity: 0,
+                  y: 20,
+                }
+          }
+          whileInView={
+            shouldReduceMotion
+              ? undefined
+              : {
+                  opacity: 1,
+                  y: 0,
+                }
+          }
+          viewport={{ once: true, amount: 0.14 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="mt-10 rounded-3xl border border-white/10 bg-[#0b0d0f] p-5 sm:p-7"
+        >
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/90">
+                ACTIVITY FEED
               </div>
 
-              <Activity className="h-5 w-5 text-lime-300" />
+              <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
+                What the code points to.
+              </h3>
             </div>
 
-            <div className="mt-7 overflow-x-auto pb-1">
-              <div className="grid min-w-[560px] grid-cols-12 gap-1.5 sm:gap-2">
-                {heatmap.map((cell) => {
-                  const active = activeCell === cell.index
+            <Activity className="h-5 w-5 text-lime-300" />
+          </div>
 
-                  return (
-                    <button
-                      key={cell.index}
-                      type="button"
-                      aria-label={cell.label}
-                      onClick={() =>
-                        setActiveCell(active ? null : cell.index)
+          <div className="mt-7 grid gap-5 sm:grid-cols-3">
+            {activityItems.map((item, index) => (
+              <motion.div
+                key={item.repo}
+                initial={
+                  shouldReduceMotion
+                    ? false
+                    : {
+                        opacity: 0,
+                        y: 12,
                       }
-                      onMouseEnter={() => setActiveCell(cell.index)}
-                      className={`aspect-square rounded-[3px] border transition-all duration-200 ${
-                        active
-                          ? "scale-125 border-lime-300/80"
-                          : "border-transparent"
-                      } ${
-                        cell.level === 0
-                          ? "bg-white/[0.06]"
-                          : cell.level === 1
-                            ? "bg-lime-300/15"
-                            : cell.level === 2
-                              ? "bg-lime-300/30"
-                              : cell.level === 3
-                                ? "bg-lime-300/55"
-                                : "bg-lime-300/90"
-                      }`}
-                    />
-                  )
-                })}
-              </div>
-            </div>
+                }
+                whileInView={
+                  shouldReduceMotion
+                    ? undefined
+                    : {
+                        opacity: 1,
+                        y: 0,
+                      }
+                }
+                viewport={{ once: true }}
+                transition={{
+                  duration: 0.4,
+                  delay: 0.1 + index * 0.09,
+                }}
+                className="relative border-l border-white/10 pl-5"
+              >
+                <span className="absolute -left-[4px] top-1.5 h-2 w-2 rounded-full bg-lime-300 shadow-[0_0_12px_rgba(204,255,0,0.5)]" />
 
-            <div className="mt-5 flex flex-col gap-2 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between">
-              <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-white/90">
-                Hover or tap a cell
-              </div>
-
-              <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-white">
-                {activeCell === null
-                  ? "No day selected"
-                  : `Signal ${heatmap[activeCell].level + 1} / Week ${
-                      heatmap[activeCell].week + 1
-                    }`}
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={
-              shouldReduceMotion
-                ? false
-                : {
-                    opacity: 0,
-                    x: 24,
-                  }
-            }
-            whileInView={
-              shouldReduceMotion
-                ? undefined
-                : {
-                    opacity: 1,
-                    x: 0,
-                  }
-            }
-            viewport={{ once: true, amount: 0.14 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.08,
-              ease: "easeOut",
-            }}
-            className="rounded-3xl border border-white/10 bg-[#0b0d0f] p-5 sm:p-7"
-          >
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <div className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/90">
-                  ACTIVITY FEED
+                <div className="font-mono text-[9px] tracking-[0.16em] text-white/90">
+                  {item.label}
                 </div>
 
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
-                  What the code points to.
-                </h3>
-              </div>
+                <div className="mt-2 text-sm font-medium text-white">
+                  {item.repo}
+                </div>
 
-              <Activity className="h-5 w-5 text-lime-300" />
-            </div>
-
-            <div className="mt-7 space-y-5">
-              {activityItems.map((item, index) => (
-                <motion.div
-                  key={item.repo}
-                  initial={
-                    shouldReduceMotion
-                      ? false
-                      : {
-                          opacity: 0,
-                          x: 12,
-                        }
-                  }
-                  whileInView={
-                    shouldReduceMotion
-                      ? undefined
-                      : {
-                          opacity: 1,
-                          x: 0,
-                        }
-                  }
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.4,
-                    delay: 0.14 + index * 0.09,
-                  }}
-                  className="relative pl-6"
-                >
-                  <span className="absolute left-0 top-1.5 h-2 w-2 rounded-full bg-lime-300 shadow-[0_0_12px_rgba(204,255,0,0.5)]" />
-
-                  {index !== activityItems.length - 1 && (
-                    <span className="absolute left-[3px] top-4 h-[calc(100%+12px)] w-px bg-white/10" />
-                  )}
-
-                  <div className="font-mono text-[9px] tracking-[0.16em] text-white/90">
-                    {item.label}
-                  </div>
-
-                  <div className="mt-1 text-sm font-medium text-white">
-                    {item.repo}
-                  </div>
-
-                  <div className="mt-1 text-xs leading-5 text-white/90">
-                    {item.detail}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        </div>
+                <div className="mt-1 text-xs leading-5 text-white/90">
+                  {item.detail}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* REPOSITORIES */}
         <div className="mt-12">

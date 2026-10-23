@@ -12,7 +12,6 @@ import { siteConfig } from "@/config/site"
 import { StackLab } from "@/components/stack/stack-lab"
 import { ContactSection } from "@/components/contact/contact-section"
 import { InteractivePortrait } from "@/components/interactive-portrait"
-import { GitHubOverview } from "@/components/github/github-overview"
 
 const projects = [
   {
@@ -292,7 +291,6 @@ export default function HomePage() {
       </section>
 
       <StackLab />
-      <GitHubOverview />
       <ContactSection />
     </div>
   )

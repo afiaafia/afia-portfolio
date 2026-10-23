@@ -30,7 +30,6 @@ const navigationCommands: CommandItem[] = [
   { label: "Work", href: "/work", icon: Code2 },
   { label: "Projects", href: "/#selected-work", icon: FolderKanban },
   { label: "Stack", href: "/stack", icon: Wrench },
-  { label: "Build Log", href: "/build-log", icon: Terminal },
   { label: "GitHub", href: "/github", icon: Code2 },
   { label: "Resume", href: "/resume", icon: FileText },
   { label: "Contact", href: "/contact", icon: Mail },
