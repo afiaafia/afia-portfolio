@@ -30,13 +30,102 @@
   outline-offset: 5px;
 }
 
+.kittyVisual {
+  position: relative;
+  display: block;
+  width: 100%;
+  transform-origin: 50% 88%;
+  animation: kitty-alive 6.5s ease-in-out infinite;
+  will-change: transform;
+}
+
 .kitty {
   display: block;
   width: 100%;
   height: auto;
   overflow: visible;
-  transform-origin: 50% 90%;
-  animation: kitty-idle 3.8s ease-in-out infinite;
+  transition: opacity 220ms ease;
+}
+
+.kittyWave {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+}
+
+.eyelids {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 18ms ease-out;
+}
+
+.eyelids.blinking {
+  opacity: 1;
+}
+
+.eyelid {
+  position: absolute;
+  top: 34.6%;
+  width: 14%;
+  height: 14%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    #fffdf7 0 54%,
+    rgb(255 250 246 / 98%) 70%,
+    rgb(246 224 229 / 76%) 88%,
+    transparent 100%
+  );
+}
+
+.eyelidLeft {
+  left: 28.8%;
+}
+
+.eyelidRight {
+  top: 32.8%;
+  right: 30.2%;
+  width: 15%;
+}
+
+.action_wave .eyelidLeft,
+.action_greet .eyelidLeft {
+  top: 35%;
+  left: 27.6%;
+  width: 15%;
+}
+
+.action_wave .eyelidRight,
+.action_greet .eyelidRight {
+  top: 33.5%;
+  right: 28.9%;
+  width: 16%;
+}
+
+.eyelid::after {
+  position: absolute;
+  right: 22%;
+  bottom: 34%;
+  left: 22%;
+  height: 14%;
+  border-bottom: 1px solid rgb(104 57 91 / 88%);
+  border-radius: 0 0 50% 50%;
+  content: "";
+}
+
+.action_wave .kittyNormal,
+.action_greet .kittyNormal {
+  opacity: 0;
+}
+
+.action_wave .kittyWave,
+.action_greet .kittyWave {
+  opacity: 1;
 }
 
 .tail {
@@ -85,7 +174,9 @@
   line-height: 1;
   cursor: pointer;
   box-shadow: 0 4px 12px rgb(88 28 135 / 22%);
-  transition: background 160ms ease, transform 160ms ease;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
 }
 
 .menuToggle:hover {
@@ -126,102 +217,154 @@
   background: #f3e8ff;
 }
 
-.action_jump .kitty {
-  animation: kitty-jump 520ms cubic-bezier(.2, .8, .25, 1);
+.actionMenu .voiceToggle {
+  min-height: 44px;
+  border-bottom: 1px solid rgb(216 180 254 / 55%);
+  border-radius: 4px;
 }
 
-.action_spin .kitty {
+.actionMenu .voiceToggle[aria-pressed="true"] {
+  color: var(--accent);
+}
+
+.action_jump .kittyVisual {
+  animation: kitty-jump 520ms cubic-bezier(0.2, 0.8, 0.25, 1);
+}
+
+.action_spin .kittyVisual {
   animation: kitty-spin 750ms ease-in-out;
 }
 
-.action_wave .kitty,
-.action_greet .kitty {
+.action_wave .kittyVisual,
+.action_greet .kittyVisual {
   animation: kitty-wave 650ms ease-in-out;
 }
 
-.action_play .kitty {
+.action_play .kittyVisual {
   animation: kitty-play 800ms ease-in-out;
 }
 
-.sleeping .kitty {
+.sleeping .kittyVisual {
   animation: kitty-sleep 3.8s ease-in-out infinite;
 }
 
-@keyframes kitty-idle {
-  0%, 100% { transform: translateY(0) rotate(0); }
-  50% { transform: translateY(-4px) rotate(-1.5deg); }
-}
-
 @keyframes tail-sway {
-  0%, 100% { transform: rotate(-4deg); }
-  50% { transform: rotate(12deg); }
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(12deg);
+  }
 }
 
 @keyframes kitty-blink {
-  0%, 44%, 48%, 100% { transform: scaleY(1); }
-  46% { transform: scaleY(.08); }
+  0%,
+  44%,
+  48%,
+  100% {
+    transform: scaleY(1);
+  }
+  46% {
+    transform: scaleY(0.08);
+  }
 }
 
 @keyframes kitty-jump {
-  0%, 100% { transform: translateY(0) scale(1); }
-  35% { transform: translateY(-34px) scale(1.04, .96); }
-  58% { transform: translateY(-38px) scale(.98, 1.04); }
-  78% { transform: translateY(2px) scale(1.06, .92); }
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  35% {
+    transform: translateY(-34px) scale(1.04, 0.96);
+  }
+  58% {
+    transform: translateY(-38px) scale(0.98, 1.04);
+  }
+  78% {
+    transform: translateY(2px) scale(1.06, 0.92);
+  }
 }
 
 @keyframes kitty-spin {
-  0%, 100% { transform: rotate(0) scale(1); }
-  50% { transform: rotate(360deg) scale(.88); }
+  0%,
+  100% {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(360deg) scale(0.88);
+  }
 }
 
 @keyframes kitty-wave {
-  0%, 100% { transform: rotate(0); }
-  25% { transform: rotate(-9deg) translateY(-3px); }
-  65% { transform: rotate(8deg) translateY(-2px); }
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-9deg) translateY(-3px);
+  }
+  65% {
+    transform: rotate(8deg) translateY(-2px);
+  }
 }
 
 @keyframes kitty-play {
-  0%, 100% { transform: translateX(0) rotate(0); }
-  25% { transform: translateX(-5px) rotate(-7deg); }
-  75% { transform: translateX(5px) rotate(7deg); }
+  0%,
+  100% {
+    transform: translateX(0) rotate(0);
+  }
+  25% {
+    transform: translateX(-5px) rotate(-7deg);
+  }
+  75% {
+    transform: translateX(5px) rotate(7deg);
+  }
 }
 
 @keyframes kitty-sleep {
-  0%, 100% { transform: translateY(1px) scaleY(.98); }
-  50% { transform: translateY(4px) scaleY(1); }
+  0%,
+  100% {
+    transform: translateY(1px) scaleY(0.98);
+  }
+  50% {
+    transform: translateY(4px) scaleY(1);
+  }
 }
 
 @keyframes bubble-in {
-  from { opacity: 0; transform: translateY(5px) scale(.97); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(5px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kitty,
+  .kittyVisual,
   .tail,
   .eye,
-  .action_jump .kitty,
-  .action_spin .kitty,
-  .action_wave .kitty,
-  .action_greet .kitty,
-  .action_play .kitty,
-  .sleeping .kitty {
+  .action_jump .kittyVisual,
+  .action_spin .kittyVisual,
+  .action_wave .kittyVisual,
+  .action_greet .kittyVisual,
+  .action_play .kittyVisual,
+  .sleeping .kittyVisual {
     animation: none;
   }
 
+  .kitty,
+  .kittyButton,
+  .eyelids,
   .menuToggle {
     transition: none;
   }
 }
 
-
 /* Living kitty: expressive idle motion for the single-image character. */
-.kitty {
-  animation: kitty-alive 6.5s ease-in-out infinite;
-  transform-origin: 50% 88%;
-  will-change: transform, filter;
-}
-
 .kittyButton {
   transform-origin: 50% 90%;
   transition: filter 220ms ease;
@@ -232,63 +375,43 @@
 }
 
 .kittyButton:active {
-  transform: scale(.96);
+  transform: scale(0.96);
 }
 
 @keyframes kitty-alive {
-  0%, 8%, 17%, 29%, 42%, 56%, 70%, 84%, 100% {
+  0%,
+  8%,
+  17%,
+  29%,
+  42%,
+  56%,
+  70%,
+  84%,
+  100% {
     transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
   11% {
-    transform: translate3d(0, -5px, 0) rotate(-3deg) scale(1.02, .98);
+    transform: translate3d(0, -5px, 0) rotate(-3deg) scale(1.02, 0.98);
   }
   14% {
-    transform: translate3d(0, 0, 0) rotate(3deg) scale(.99, 1.02);
+    transform: translate3d(0, 0, 0) rotate(3deg) scale(0.99, 1.02);
   }
   33% {
-    transform: translate3d(-3px, -2px, 0) rotate(-4deg) scale(1.01, .99);
+    transform: translate3d(-3px, -2px, 0) rotate(-4deg) scale(1.01, 0.99);
   }
   37% {
-    transform: translate3d(3px, 0, 0) rotate(4deg) scale(.99, 1.01);
+    transform: translate3d(3px, 0, 0) rotate(4deg) scale(0.99, 1.01);
   }
   60% {
-    transform: translate3d(0, -13px, 0) rotate(-2deg) scale(1.03, .97);
+    transform: translate3d(0, -13px, 0) rotate(-2deg) scale(1.03, 0.97);
   }
   65% {
-    transform: translate3d(0, 1px, 0) rotate(2deg) scale(1.05, .94);
+    transform: translate3d(0, 1px, 0) rotate(2deg) scale(1.05, 0.94);
   }
   68% {
     transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
   }
   88% {
-    transform: translate3d(0, -3px, 0) rotate(2deg) scale(1.01, .99);
-  }
-}
-
-/* Keep explicit menu actions more prominent than the idle cycle. */
-.action_jump .kitty {
-  animation: kitty-jump 520ms cubic-bezier(.2, .8, .25, 1);
-}
-
-.action_spin .kitty {
-  animation: kitty-spin 750ms ease-in-out;
-}
-
-.action_wave .kitty,
-.action_greet .kitty {
-  animation: kitty-wave 650ms ease-in-out;
-}
-
-.sleeping .kitty {
-  animation: kitty-sleep 3.8s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .kitty {
-    animation: none;
-  }
-
-  .kittyButton {
-    transition: none;
+    transform: translate3d(0, -3px, 0) rotate(2deg) scale(1.01, 0.99);
   }
 }

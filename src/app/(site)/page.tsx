@@ -1,17 +1,17 @@
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowDownRight,
   ArrowUpRight,
   Code2,
   Layers3,
   Sparkles,
-} from "lucide-react"
+} from "lucide-react";
 
-import { siteConfig } from "@/config/site"
-import { StackLab } from "@/components/stack/stack-lab"
-import { ContactSection } from "@/components/contact/contact-section"
-import { InteractivePortrait } from "@/components/interactive-portrait"
+import { siteConfig } from "@/config/site";
+import { StackLab } from "@/components/stack/stack-lab";
+import { ContactSection } from "@/components/contact/contact-section";
+import { InteractivePortrait } from "@/components/interactive-portrait";
 
 const projects = [
   {
@@ -50,20 +50,20 @@ const projects = [
     live: "",
     accent: "text-violet-300",
   },
-]
+];
 
 export default function HomePage() {
   return (
     <div className="relative overflow-hidden">
       <div className="grid-background pointer-events-none absolute inset-0 opacity-60" />
 
-      <div className="pointer-events-none absolute -top-48 left-1/2 size-[32rem] -translate-x-1/2 rounded-full bg-violet-500/[0.09] blur-[120px]" />
-      <div className="pointer-events-none absolute left-[-12rem] top-[28rem] size-[24rem] rounded-full bg-purple-500/[0.10] blur-[110px]" />
+      <div className="pointer-events-none absolute -top-48 left-1/2 size-128 -translate-x-1/2 rounded-full bg-violet-500/9 blur-[120px]" />
+      <div className="pointer-events-none absolute -left-48 top-112 size-96 rounded-full bg-purple-500/10 blur-[110px]" />
 
-      <section className="noise relative mx-auto max-w-[1400px] px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:px-10 lg:pb-28 lg:pt-28">
+      <section className="noise relative mx-auto max-w-350 px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:px-10 lg:pb-28 lg:pt-28">
         <div className="grid items-center gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <div>
-            <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-violet-400/25 bg-violet-500/[0.08] px-3.5 py-2 backdrop-blur-xl">
+            <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-violet-400/25 bg-violet-500/8 px-3.5 py-2 backdrop-blur-xl">
               <span className="relative flex size-2">
                 <span className="absolute inline-flex size-full animate-ping rounded-full bg-violet-400/60" />
                 <span className="relative inline-flex size-2 rounded-full bg-violet-400" />
@@ -101,7 +101,7 @@ export default function HomePage() {
                 href={siteConfig.github}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.025] px-5 py-3.5 text-sm font-medium text-white/90 transition hover:border-white/25 hover:bg-white/[0.06] hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/2.5 px-5 py-3.5 text-sm font-medium text-white/90 transition hover:border-white/25 hover:bg-white/6 hover:text-white"
               >
                 GitHub profile
                 <ArrowUpRight className="size-4" />
@@ -111,12 +111,11 @@ export default function HomePage() {
 
           <InteractivePortrait />
         </div>
-
       </section>
 
       <section
         id="selected-work"
-        className="relative mx-auto max-w-[1400px] px-4 pb-12 sm:px-6 lg:px-10 lg:pb-16"
+        className="relative mx-auto max-w-350 px-4 pb-12 sm:px-6 lg:px-10 lg:pb-16"
       >
         <div className="mb-6 flex flex-col justify-between gap-3 sm:mb-7 sm:flex-row sm:items-end">
           <div>
@@ -159,7 +158,7 @@ export default function HomePage() {
                 href={project.live || project.repo}
                 target="_blank"
                 rel="noreferrer"
-                className="relative block aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] sm:aspect-[4/3]"
+                className="relative block aspect-16/10 w-full overflow-hidden rounded-xl border border-white/10 bg-white/3 sm:aspect-4/3"
                 aria-label={`Open ${project.name}`}
               >
                 <Image
@@ -229,12 +228,12 @@ export default function HomePage() {
               <p className="mono text-[10px] uppercase tracking-[0.2em] text-violet-300/90">
                 Behind the code / Build log
               </p>
-              <h3 className="mt-2 text-xl font-semibold tracking-[-0.05em] text-white sm:text-2xl">
+              <h3 className="mt-2 text-xl font-semibold tracking-tighter text-white sm:text-2xl">
                 Engineering notes.
               </h3>
               <p className="mt-2 max-w-xl text-sm leading-6 text-white/70">
-                Lessons from debugging, API integration, and the decisions
-                that shape each implementation.
+                Lessons from debugging, API integration, and the decisions that
+                shape each implementation.
               </p>
             </div>
             <Link
@@ -257,7 +256,8 @@ export default function HomePage() {
               {
                 number: "02",
                 title: "Working with APIs",
-                description: "Connecting interfaces to real data and endpoints.",
+                description:
+                  "Connecting interfaces to real data and endpoints.",
                 href: "/build-log/fit-log-api",
               },
               {
@@ -293,5 +293,5 @@ export default function HomePage() {
       <StackLab />
       <ContactSection />
     </div>
-  )
+  );
 }
