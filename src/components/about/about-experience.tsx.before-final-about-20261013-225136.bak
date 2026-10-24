@@ -1,0 +1,311 @@
+"use client"
+
+import { useState } from "react"
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Braces,
+  Code2,
+  Compass,
+  Layers3,
+  Sparkles,
+  Terminal,
+} from "lucide-react"
+
+const panels = [
+  {
+    number: "01",
+    title: "The person behind the code",
+    eyebrow: "IDENTITY",
+    icon: Sparkles,
+    summary: "A student, a builder, and a work in progress.",
+    detail:
+      "I’m a Computer Science and Technology diploma student exploring full-stack web development. I’m building my skills one project, one challenge, and one lesson at a time.",
+    tags: ["CST Student", "Curious Mind"],
+  },
+  {
+    number: "02",
+    title: "From ideas to interfaces",
+    eyebrow: "WHAT I BUILD",
+    icon: Code2,
+    summary: "Turning concepts into working web experiences.",
+    detail:
+      "I work with React, Next.js, TypeScript, and modern styling tools to create responsive interfaces. I care about how a product looks, how it behaves, and how people use it.",
+    tags: ["React", "Next.js", "TypeScript"],
+  },
+  {
+    number: "03",
+    title: "Understand, not just implement",
+    eyebrow: "HOW I THINK",
+    icon: Compass,
+    summary: "Debugging is part of learning the craft.",
+    detail:
+      "When something breaks, I want to understand why. I learn by tracing problems, exploring documentation, testing solutions, and improving the implementation instead of stopping at a quick fix.",
+    tags: ["Problem Solving", "Debugging"],
+  },
+  {
+    number: "04",
+    title: "Always becoming better",
+    eyebrow: "WHAT'S NEXT",
+    icon: Layers3,
+    summary: "Building stronger full-stack foundations.",
+    detail:
+      "My current focus is growing as a full-stack web developer—strengthening frontend fundamentals while learning how APIs, backend logic, and databases work together in practical applications.",
+    tags: ["Frontend", "Backend", "APIs"],
+  },
+]
+
+export function AboutExperience() {
+  const [activePanel, setActivePanel] = useState<string | null>("01")
+  const [pointer, setPointer] = useState({ x: 50, y: 50 })
+
+  function handlePointerMove(event: React.PointerEvent<HTMLDivElement>) {
+    if (event.pointerType === "touch") return
+
+    const rect = event.currentTarget.getBoundingClientRect()
+    setPointer({
+      x: ((event.clientX - rect.left) / rect.width) * 100,
+      y: ((event.clientY - rect.top) / rect.height) * 100,
+    })
+  }
+
+  return (
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#08060d] text-white">
+      {/* Ambient background */}
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(124,58,237,0.16),transparent_48%)]" />
+      <div className="pointer-events-none absolute -left-40 top-[32rem] -z-10 size-[26rem] rounded-full bg-purple-700/[0.08] blur-[130px]" />
+      <div className="pointer-events-none absolute -right-40 top-[62rem] -z-10 size-[30rem] rounded-full bg-violet-500/[0.08] blur-[140px]" />
+
+      <section className="mx-auto max-w-[1400px] px-5 pb-20 pt-16 sm:px-8 sm:pt-24 lg:px-12 lg:pb-28">
+        {/* Page introduction */}
+        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+          <div>
+            <p className="mono inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-400/[0.06] px-3.5 py-2 text-[10px] uppercase tracking-[0.19em] text-violet-200">
+              <span className="size-1.5 animate-pulse rounded-full bg-violet-400" />
+              About / A work in progress
+            </p>
+
+            <h1 className="mt-8 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.075em] sm:text-7xl lg:text-[5.8rem]">
+              Not just learning.
+              <span className="mt-2 block bg-gradient-to-r from-violet-200 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+                Building.
+              </span>
+            </h1>
+
+            <p className="mt-7 max-w-xl text-sm leading-7 text-white/65 sm:text-base sm:leading-8">
+              I learn by making things, questioning how they work, and finding
+              better ways to build for the web. This is a little of the thinking
+              behind the projects.
+            </p>
+
+            <a
+              href="#about-index"
+              className="group mt-8 inline-flex items-center gap-2.5 rounded-full border border-violet-300/25 bg-violet-500/[0.09] px-5 py-3.5 text-sm font-medium text-white transition duration-300 hover:-translate-y-0.5 hover:border-violet-300/50 hover:bg-violet-500/[0.16]"
+            >
+              Explore my perspective
+              <ArrowDownRight className="size-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+            </a>
+          </div>
+
+          {/* Interactive visual centerpiece */}
+          <div
+            onPointerMove={handlePointerMove}
+            onPointerLeave={() => setPointer({ x: 50, y: 50 })}
+            className="relative mx-auto flex aspect-square w-full max-w-[440px] items-center justify-center"
+            aria-label="Interactive purple orbital artwork"
+          >
+            <div className="absolute inset-[8%] rounded-full border border-violet-300/[0.12]" />
+            <div className="absolute inset-[17%] rounded-full border border-violet-300/[0.12]" />
+            <div className="absolute inset-[27%] rounded-full border border-fuchsia-300/[0.12]" />
+
+            <div className="absolute inset-[8%] animate-[spin_32s_linear_infinite] rounded-full border border-dashed border-violet-300/20 motion-reduce:animate-none" />
+            <div className="absolute inset-[17%] animate-[spin_24s_linear_infinite_reverse] rounded-full border border-dashed border-fuchsia-300/20 motion-reduce:animate-none" />
+
+            <div
+              className="absolute inset-[25%] rounded-full bg-violet-600/20 blur-3xl transition-transform duration-300"
+              style={{
+                transform: `translate(${(pointer.x - 50) * 0.12}px, ${(pointer.y - 50) * 0.12}px)`,
+              }}
+            />
+
+            <div
+              className="relative flex aspect-square w-[45%] items-center justify-center rounded-[34%] border border-violet-200/25 bg-gradient-to-br from-violet-400/20 via-[#21112f] to-[#0c0913] shadow-[inset_0_0_40px_rgba(167,139,250,0.12),0_0_80px_rgba(124,58,237,0.14)] transition-transform duration-300"
+              style={{
+                transform: `translate(${(pointer.x - 50) * 0.055}px, ${(pointer.y - 50) * 0.055}px) rotate(${(pointer.x - 50) * 0.025}deg)`,
+              }}
+            >
+              <div className="absolute inset-3 rounded-[30%] border border-white/[0.08]" />
+              <div className="absolute inset-0 rounded-[34%] bg-[radial-gradient(circle_at_30%_25%,rgba(221,214,254,0.18),transparent_45%)]" />
+              <Braces className="relative size-[27%] text-violet-200 drop-shadow-[0_0_18px_rgba(196,181,253,0.7)]" strokeWidth={1.2} />
+            </div>
+
+            <div className="absolute left-[4%] top-[27%] rounded-xl border border-violet-300/20 bg-[#100b19]/90 px-3.5 py-3 shadow-xl backdrop-blur-xl sm:left-[1%]">
+              <Terminal className="size-4 text-violet-300" />
+              <p className="mono mt-2 text-[9px] tracking-[0.12em] text-white/60">
+                KEEP_BUILDING
+              </p>
+            </div>
+
+            <div className="absolute bottom-[17%] right-[1%] rounded-xl border border-fuchsia-300/20 bg-[#100b19]/90 px-3.5 py-3 shadow-xl backdrop-blur-xl sm:right-0">
+              <div className="flex items-center gap-2">
+                <span className="size-1.5 rounded-full bg-fuchsia-300 shadow-[0_0_10px_rgba(232,121,249,0.8)]" />
+                <p className="mono text-[9px] tracking-[0.12em] text-white/70">
+                  ALWAYS_EVOLVING
+                </p>
+              </div>
+            </div>
+
+            <span className="mono absolute right-[13%] top-[13%] text-[10px] text-violet-300/70">
+              001
+            </span>
+            <span className="mono absolute bottom-[11%] left-[17%] text-[10px] text-fuchsia-300/70">
+              {`{ curiosity }`}
+            </span>
+          </div>
+        </div>
+
+        {/* Interactive index */}
+        <section id="about-index" className="mt-20 scroll-mt-24 sm:mt-28 lg:mt-32">
+          <div className="mb-8 flex flex-col justify-between gap-4 sm:mb-10 sm:flex-row sm:items-end">
+            <div>
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-violet-300">
+                The developer index / 004
+              </p>
+              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.06em] sm:text-4xl">
+                A little more <span className="text-violet-400">context.</span>
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-6 text-white/50">
+              Select a chapter to explore the person and process behind the
+              projects.
+            </p>
+          </div>
+
+          <div className="border-y border-white/10">
+            {panels.map((panel) => {
+              const Icon = panel.icon
+              const isActive = activePanel === panel.number
+
+              return (
+                <article
+                  key={panel.number}
+                  className={`border-b border-white/[0.08] last:border-b-0 transition-colors duration-300 ${
+                    isActive ? "bg-violet-500/[0.045]" : "hover:bg-white/[0.02]"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    aria-expanded={isActive}
+                    onClick={() =>
+                      setActivePanel(isActive ? null : panel.number)
+                    }
+                    className="flex w-full items-center gap-4 py-5 text-left sm:gap-6 sm:py-6"
+                  >
+                    <span
+                      className={`mono w-8 shrink-0 text-xs transition-colors ${
+                        isActive ? "text-violet-300" : "text-white/35"
+                      }`}
+                    >
+                      {panel.number}
+                    </span>
+
+                    <span
+                      className={`flex size-10 shrink-0 items-center justify-center rounded-xl border transition-colors sm:size-12 ${
+                        isActive
+                          ? "border-violet-300/30 bg-violet-400/10 text-violet-200"
+                          : "border-white/10 bg-white/[0.025] text-white/55"
+                      }`}
+                    >
+                      <Icon className="size-5" strokeWidth={1.6} />
+                    </span>
+
+                    <span className="min-w-0 flex-1">
+                      <span className="mono block text-[9px] uppercase tracking-[0.15em] text-violet-300/75">
+                        {panel.eyebrow}
+                      </span>
+                      <span
+                        className={`mt-1 block text-base font-medium tracking-[-0.03em] transition-colors sm:text-xl ${
+                          isActive ? "text-white" : "text-white/75"
+                        }`}
+                      >
+                        {panel.title}
+                      </span>
+                      <span className="mt-1 hidden text-sm text-white/45 sm:block">
+                        {panel.summary}
+                      </span>
+                    </span>
+
+                    <span
+                      className={`flex size-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                        isActive
+                          ? "rotate-45 border-violet-300/30 bg-violet-400/10 text-violet-200"
+                          : "border-white/10 text-white/55"
+                      }`}
+                    >
+                      <ArrowUpRight className="size-4" />
+                    </span>
+                  </button>
+
+                  <div
+                    className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                      isActive
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                    aria-hidden={!isActive}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="pb-6 pl-12 pr-2 sm:pb-7 sm:pl-[7.5rem] sm:pr-12">
+                        <p className="max-w-2xl text-sm leading-7 text-white/65 sm:text-base sm:leading-8">
+                          {panel.detail}
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {panel.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-violet-300/15 bg-violet-400/[0.05] px-3 py-1.5 text-[10px] text-violet-100/80"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* Closing statement */}
+        <section className="relative mt-16 overflow-hidden rounded-2xl border border-violet-300/15 bg-gradient-to-br from-violet-500/[0.10] via-[#110b19] to-fuchsia-500/[0.06] p-6 sm:mt-20 sm:p-10 lg:p-12">
+          <div className="pointer-events-none absolute -right-16 -top-24 size-64 rounded-full bg-violet-500/[0.12] blur-[90px]" />
+          <div className="relative flex flex-col justify-between gap-7 sm:flex-row sm:items-end">
+            <div className="max-w-2xl">
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-violet-300">
+                Still in progress
+              </p>
+              <h2 className="mt-4 text-3xl font-semibold leading-tight tracking-[-0.06em] sm:text-5xl">
+                The best work is
+                <span className="text-violet-400"> still ahead.</span>
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-white/60">
+                Every project is another opportunity to learn something
+                meaningful and build with more intention.
+              </p>
+            </div>
+
+            <a
+              href="/#selected-work"
+              className="group inline-flex w-fit shrink-0 items-center gap-2 rounded-full border border-violet-300/25 bg-violet-500/10 px-5 py-3.5 text-sm font-medium transition hover:border-violet-300/50 hover:bg-violet-500/20"
+            >
+              Explore my projects
+              <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+  )
+}

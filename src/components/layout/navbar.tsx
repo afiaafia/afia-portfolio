@@ -1,11 +1,10 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { useEffect, useState } from "react"
-import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react"
-import { useTheme } from "next-themes"
-
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { ArrowUpRight, Menu, Moon, Sun, X } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const links = [
   { label: "Home", href: "/" },
@@ -13,52 +12,52 @@ const links = [
   { label: "About", href: "/about" },
   { label: "Stack", href: "/#stack" },
   { label: "Contact", href: "/#contact" },
-]
+];
 
 export function Navbar() {
-  const pathname = usePathname()
-  const { resolvedTheme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [activeHash, setActiveHash] = useState("")
+  const pathname = usePathname();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("");
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
-    const syncHash = () => setActiveHash(window.location.hash)
+    const syncHash = () => setActiveHash(window.location.hash);
 
-    syncHash()
-    window.addEventListener("hashchange", syncHash)
-    window.addEventListener("popstate", syncHash)
+    syncHash();
+    window.addEventListener("hashchange", syncHash);
+    window.addEventListener("popstate", syncHash);
 
     return () => {
-      window.removeEventListener("hashchange", syncHash)
-      window.removeEventListener("popstate", syncHash)
-    }
-  }, [pathname])
+      window.removeEventListener("hashchange", syncHash);
+      window.removeEventListener("popstate", syncHash);
+    };
+  }, [pathname]);
 
   function isActive(href: string) {
     if (href === "/") {
-      return pathname === "/" && activeHash !== "#stack"
+      return pathname === "/" && activeHash !== "#stack";
     }
 
     if (href === "/#stack") {
-      return pathname === "/" && activeHash === "#stack"
+      return pathname === "/" && activeHash === "#stack";
     }
 
-    return pathname === href || pathname.startsWith(`${href}/`)
+    return pathname === href || pathname.startsWith(`${href}/`);
   }
 
   function handleNavigation(href: string) {
     if (href === "/#stack") {
-      setActiveHash("#stack")
+      setActiveHash("#stack");
     } else if (href === "/") {
-      setActiveHash("")
+      setActiveHash("");
     }
 
-    setMobileOpen(false)
+    setMobileOpen(false);
   }
 
   return (
@@ -72,7 +71,10 @@ export function Navbar() {
           onClick={() => handleNavigation("/")}
           className="group relative shrink-0 text-lg font-bold tracking-[-0.06em] text-white transition-colors duration-300 hover:text-violet-200"
         >
-          AFIA<span className="text-violet-400 transition-colors duration-300 group-hover:text-purple-300">.</span>
+          AFIA
+          <span className="text-violet-400 transition-colors duration-300 group-hover:text-purple-300">
+            .
+          </span>
           <span className="absolute -inset-2 -z-10 rounded-xl bg-violet-500/0 blur-xl transition-colors duration-300 group-hover:bg-violet-500/15" />
         </Link>
 
@@ -81,7 +83,7 @@ export function Navbar() {
           className="hidden items-center justify-center gap-1 md:flex"
         >
           {links.map((item) => {
-            const active = isActive(item.href)
+            const active = isActive(item.href);
 
             return (
               <Link
@@ -102,16 +104,28 @@ export function Navbar() {
                   }`}
                 />
               </Link>
-            )
+            );
           })}
         </nav>
 
         <div className="hidden items-center justify-self-end md:flex">
           <button
             type="button"
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            aria-label={mounted ? `Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode` : "Toggle color theme"}
-            title={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
+            aria-label={
+              mounted
+                ? `Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`
+                : "Toggle color theme"
+            }
+            title={
+              mounted
+                ? resolvedTheme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+                : "Toggle color theme"
+            }
             className="group flex size-9 items-center justify-center rounded-xl border border-violet-400/25 bg-violet-500/[0.08] text-violet-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-300/60 hover:bg-violet-500/20 hover:text-violet-200 hover:shadow-[0_0_22px_rgba(139,92,246,0.22)]"
           >
             {mounted && resolvedTheme === "light" ? (
@@ -125,9 +139,21 @@ export function Navbar() {
         <div className="col-span-2 flex items-center justify-self-end gap-2 md:hidden">
           <button
             type="button"
-            onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-            aria-label={mounted ? `Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode` : "Toggle color theme"}
-            title={resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={() =>
+              setTheme(resolvedTheme === "dark" ? "light" : "dark")
+            }
+            aria-label={
+              mounted
+                ? `Switch to ${resolvedTheme === "dark" ? "light" : "dark"} mode`
+                : "Toggle color theme"
+            }
+            title={
+              mounted
+                ? resolvedTheme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+                : "Toggle color theme"
+            }
             className="group flex size-10 items-center justify-center rounded-xl border border-violet-400/25 bg-violet-500/[0.08] text-violet-300 transition-all duration-300 hover:border-violet-300/60 hover:bg-violet-500/20 hover:text-violet-200"
           >
             {mounted && resolvedTheme === "light" ? (
@@ -138,13 +164,17 @@ export function Navbar() {
           </button>
 
           <button
-          type="button"
-          onClick={() => setMobileOpen((open) => !open)}
-          aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
-          aria-expanded={mobileOpen}
-          className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white/90 transition-all duration-300 hover:border-violet-400/40 hover:bg-violet-400/10 hover:text-violet-200 md:hidden"
-        >
-          {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
+            type="button"
+            onClick={() => setMobileOpen((open) => !open)}
+            aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={mobileOpen}
+            className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white/90 transition-all duration-300 hover:border-violet-400/40 hover:bg-violet-400/10 hover:text-violet-200 md:hidden"
+          >
+            {mobileOpen ? (
+              <X className="size-5" />
+            ) : (
+              <Menu className="size-5" />
+            )}
           </button>
         </div>
       </div>
@@ -154,7 +184,7 @@ export function Navbar() {
           <nav aria-label="Mobile navigation" className="mx-auto max-w-7xl">
             <div className="grid gap-2">
               {links.map((item) => {
-                const active = isActive(item.href)
+                const active = isActive(item.href);
 
                 return (
                   <Link
@@ -171,13 +201,12 @@ export function Navbar() {
                     {item.label}
                     <ArrowUpRight className="size-4 text-violet-300/90 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-violet-200" />
                   </Link>
-                )
+                );
               })}
-
             </div>
           </nav>
         </div>
       )}
     </header>
-  )
+  );
 }

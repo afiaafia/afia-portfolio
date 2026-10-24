@@ -1,0 +1,294 @@
+.mascot {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 104px;
+  min-height: 124px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+  will-change: transform;
+  filter: drop-shadow(0 8px 14px rgb(88 28 135 / 18%));
+}
+
+.mascot.dragging {
+  cursor: grabbing;
+  z-index: 10000;
+  filter: drop-shadow(0 12px 18px rgb(88 28 135 / 28%));
+}
+
+.kittyButton {
+  display: block;
+  width: 104px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: inherit;
+  outline-offset: 5px;
+}
+
+.kitty {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  transform-origin: 50% 90%;
+  animation: kitty-idle 3.8s ease-in-out infinite;
+}
+
+.tail {
+  transform-origin: 90px 100px;
+  animation: tail-sway 2.6s ease-in-out infinite;
+}
+
+.eye {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: kitty-blink 5.2s infinite;
+}
+
+.bubble {
+  position: absolute;
+  right: 76px;
+  bottom: 84px;
+  width: max-content;
+  max-width: min(230px, 62vw);
+  padding: 9px 12px;
+  border: 1px solid rgb(216 180 254 / 75%);
+  border-radius: 14px 14px 4px 14px;
+  background: rgb(250 245 255 / 96%);
+  color: #581c87;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.45;
+  box-shadow: 0 8px 28px rgb(46 16 101 / 12%);
+  animation: bubble-in 180ms ease-out both;
+  pointer-events: none;
+}
+
+.menuToggle {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid rgb(216 180 254 / 80%);
+  border-radius: 50%;
+  background: #7e22ce;
+  color: white;
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgb(88 28 135 / 22%);
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.menuToggle:hover {
+  transform: scale(1.08);
+  background: #6b21a8;
+}
+
+.actionMenu {
+  position: absolute;
+  right: 0;
+  bottom: 34px;
+  display: grid;
+  width: 112px;
+  gap: 4px;
+  padding: 6px;
+  border: 1px solid rgb(216 180 254 / 75%);
+  border-radius: 12px;
+  background: rgb(250 245 255 / 97%);
+  box-shadow: 0 10px 28px rgb(46 16 101 / 16%);
+  animation: bubble-in 150ms ease-out both;
+}
+
+.actionMenu button {
+  padding: 7px 9px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #581c87;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.actionMenu button:hover,
+.actionMenu button:focus-visible {
+  outline: none;
+  background: #f3e8ff;
+}
+
+.action_jump .kitty {
+  animation: kitty-jump 520ms cubic-bezier(.2, .8, .25, 1);
+}
+
+.action_spin .kitty {
+  animation: kitty-spin 750ms ease-in-out;
+}
+
+.action_wave .kitty,
+.action_greet .kitty {
+  animation: kitty-wave 650ms ease-in-out;
+}
+
+.action_play .kitty {
+  animation: kitty-play 800ms ease-in-out;
+}
+
+.sleeping .kitty {
+  animation: kitty-sleep 3.8s ease-in-out infinite;
+}
+
+@keyframes kitty-idle {
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-4px) rotate(-1.5deg); }
+}
+
+@keyframes tail-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes kitty-blink {
+  0%, 44%, 48%, 100% { transform: scaleY(1); }
+  46% { transform: scaleY(.08); }
+}
+
+@keyframes kitty-jump {
+  0%, 100% { transform: translateY(0) scale(1); }
+  35% { transform: translateY(-34px) scale(1.04, .96); }
+  58% { transform: translateY(-38px) scale(.98, 1.04); }
+  78% { transform: translateY(2px) scale(1.06, .92); }
+}
+
+@keyframes kitty-spin {
+  0%, 100% { transform: rotate(0) scale(1); }
+  50% { transform: rotate(360deg) scale(.88); }
+}
+
+@keyframes kitty-wave {
+  0%, 100% { transform: rotate(0); }
+  25% { transform: rotate(-9deg) translateY(-3px); }
+  65% { transform: rotate(8deg) translateY(-2px); }
+}
+
+@keyframes kitty-play {
+  0%, 100% { transform: translateX(0) rotate(0); }
+  25% { transform: translateX(-5px) rotate(-7deg); }
+  75% { transform: translateX(5px) rotate(7deg); }
+}
+
+@keyframes kitty-sleep {
+  0%, 100% { transform: translateY(1px) scaleY(.98); }
+  50% { transform: translateY(4px) scaleY(1); }
+}
+
+@keyframes bubble-in {
+  from { opacity: 0; transform: translateY(5px) scale(.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kitty,
+  .tail,
+  .eye,
+  .action_jump .kitty,
+  .action_spin .kitty,
+  .action_wave .kitty,
+  .action_greet .kitty,
+  .action_play .kitty,
+  .sleeping .kitty {
+    animation: none;
+  }
+
+  .menuToggle {
+    transition: none;
+  }
+}
+
+
+/* Living kitty: expressive idle motion for the single-image character. */
+.kitty {
+  animation: kitty-alive 6.5s ease-in-out infinite;
+  transform-origin: 50% 88%;
+  will-change: transform, filter;
+}
+
+.kittyButton {
+  transform-origin: 50% 90%;
+  transition: filter 220ms ease;
+}
+
+.kittyButton:hover {
+  filter: drop-shadow(0 0 12px rgb(216 180 254 / 38%));
+}
+
+.kittyButton:active {
+  transform: scale(.96);
+}
+
+@keyframes kitty-alive {
+  0%, 8%, 17%, 29%, 42%, 56%, 70%, 84%, 100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  11% {
+    transform: translate3d(0, -5px, 0) rotate(-3deg) scale(1.02, .98);
+  }
+  14% {
+    transform: translate3d(0, 0, 0) rotate(3deg) scale(.99, 1.02);
+  }
+  33% {
+    transform: translate3d(-3px, -2px, 0) rotate(-4deg) scale(1.01, .99);
+  }
+  37% {
+    transform: translate3d(3px, 0, 0) rotate(4deg) scale(.99, 1.01);
+  }
+  60% {
+    transform: translate3d(0, -13px, 0) rotate(-2deg) scale(1.03, .97);
+  }
+  65% {
+    transform: translate3d(0, 1px, 0) rotate(2deg) scale(1.05, .94);
+  }
+  68% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  88% {
+    transform: translate3d(0, -3px, 0) rotate(2deg) scale(1.01, .99);
+  }
+}
+
+/* Keep explicit menu actions more prominent than the idle cycle. */
+.action_jump .kitty {
+  animation: kitty-jump 520ms cubic-bezier(.2, .8, .25, 1);
+}
+
+.action_spin .kitty {
+  animation: kitty-spin 750ms ease-in-out;
+}
+
+.action_wave .kitty,
+.action_greet .kitty {
+  animation: kitty-wave 650ms ease-in-out;
+}
+
+.sleeping .kitty {
+  animation: kitty-sleep 3.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kitty {
+    animation: none;
+  }
+
+  .kittyButton {
+    transition: none;
+  }
+}

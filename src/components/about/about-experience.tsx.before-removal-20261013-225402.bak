@@ -1,0 +1,534 @@
+"use client"
+
+import { useState } from "react"
+import {
+  ArrowDownRight,
+  ArrowUpRight,
+  Braces,
+  Bug,
+  Code2,
+  Database,
+  GitBranch,
+  Layers3,
+  Terminal,
+  Wrench,
+} from "lucide-react"
+
+const chapters = [
+  {
+    number: "01",
+    eyebrow: "THE PERSON",
+    title: "Learning by building real things.",
+    summary: "A CST student building a foundation in full-stack development.",
+    detail:
+      "I’m a Computer Science and Technology diploma student focused on web development. I learn by turning concepts into working projects, exploring unfamiliar tools, and improving with every iteration.",
+    tags: ["CST Student", "Full-Stack Web Development"],
+    icon: Braces,
+  },
+  {
+    number: "02",
+    eyebrow: "WHAT I BUILD",
+    title: "Interfaces backed by working logic.",
+    summary: "From responsive screens to APIs and database integration.",
+    detail:
+      "My work spans React and Next.js interfaces, TypeScript, API integration, server-side logic, and databases. I care about the complete experience: how a feature looks, behaves, and fits into the application.",
+    tags: ["React", "Next.js", "TypeScript", "Node.js", "MongoDB"],
+    icon: Code2,
+  },
+  {
+    number: "03",
+    eyebrow: "HOW I THINK",
+    title: "Understand the problem before the fix.",
+    summary: "Debugging is investigation, not guesswork.",
+    detail:
+      "I work to reproduce unexpected behaviour, trace its cause, test a solution, and verify the result. I want to understand why an implementation works—not only get it past the immediate error.",
+    tags: ["Debugging", "Problem Solving", "Iteration"],
+    icon: Bug,
+  },
+  {
+    number: "04",
+    eyebrow: "WHAT'S NEXT",
+    title: "Stronger foundations. Better products.",
+    summary: "Growing through practical work and thoughtful feedback.",
+    detail:
+      "I’m strengthening my frontend and backend fundamentals by building projects and learning how the pieces connect. My next step is to contribute those skills to real-world development work and keep improving alongside a team.",
+    tags: ["Practical Experience", "Collaboration", "Growth"],
+    icon: GitBranch,
+  },
+]
+
+const principles = [
+  {
+    number: "01",
+    title: "Build",
+    description: "Translate requirements into usable features.",
+    icon: Layers3,
+  },
+  {
+    number: "02",
+    title: "Investigate",
+    description: "Trace errors back to their underlying cause.",
+    icon: Bug,
+  },
+  {
+    number: "03",
+    title: "Refine",
+    description: "Improve structure, accessibility, and usability.",
+    icon: Wrench,
+  },
+]
+
+const proof = [
+  {
+    id: "bazar",
+    label: "Bazar Dor",
+    type: "PRODUCT INTERFACE",
+    title: "Make product information easier to explore.",
+    description:
+      "A price-focused web application built around product discovery, category browsing, and price trends.",
+    stack: "Next.js · TypeScript · API integration",
+    href: "https://bazar-dor-pi.vercel.app/",
+    action: "Open live project",
+  },
+  {
+    id: "fitlog",
+    label: "Fit Log",
+    type: "FULL-STACK APPLICATION",
+    title: "Turn training sessions into trackable progress.",
+    description:
+      "A workout logging project focused on recording training activity through a dedicated web interface and API.",
+    stack: "Next.js · React · TypeScript",
+    href: "https://fit-log-sandy.vercel.app/",
+    action: "Open live project",
+  },
+  {
+    id: "taskvault",
+    label: "Task Vault",
+    type: "BACKEND PRACTICE",
+    title: "Focus on the logic behind the feature.",
+    description:
+      "A project for practising backend fundamentals, API structure, validation, and database-backed application logic.",
+    stack: "TypeScript · APIs · MongoDB",
+    href: "/work/task-vault",
+    action: "Explore project",
+  },
+]
+
+export function AboutExperience() {
+  const [activeChapter, setActiveChapter] = useState("01")
+  const [activeProof, setActiveProof] = useState("bazar")
+  const selectedProof = proof.find((item) => item.id === activeProof) ?? proof[0]
+
+  return (
+    <main className="relative isolate min-h-screen overflow-hidden bg-[#09070f] text-white">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_48%_0%,rgba(139,92,246,0.18),transparent_48%)]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-48 top-[34rem] -z-10 size-[28rem] rounded-full bg-violet-700/[0.09] blur-[130px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-48 top-[76rem] -z-10 size-[30rem] rounded-full bg-fuchsia-600/[0.07] blur-[140px]"
+      />
+
+      <div className="mx-auto max-w-[1240px] px-5 pb-24 pt-14 sm:px-8 sm:pt-20 lg:px-12 lg:pb-32">
+        <section
+          aria-labelledby="about-heading"
+          className="grid items-center gap-12 lg:grid-cols-[1.12fr_0.88fr] lg:gap-14"
+        >
+          <div>
+            <p className="mono inline-flex items-center gap-2 rounded-full border border-violet-300/20 bg-violet-400/[0.06] px-3.5 py-2 text-[10px] uppercase tracking-[0.18em] text-violet-200">
+              <span className="size-1.5 animate-pulse rounded-full bg-violet-300 motion-reduce:animate-none" />
+              About / Developer in progress
+            </p>
+
+            <h1
+              id="about-heading"
+              className="mt-8 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.075em] sm:text-7xl lg:text-[6.2rem]"
+            >
+              Not just learning.
+              <span className="mt-2 block bg-gradient-to-r from-violet-200 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+                Building.
+              </span>
+            </h1>
+
+            <p className="mt-7 max-w-xl text-sm leading-7 text-white/65 sm:text-base sm:leading-8">
+              I build to learn, debug to understand, and refine to do better.
+              Here’s the thinking, process, and project work behind my journey
+              into full-stack web development.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <a
+                href="#about-chapters"
+                className="group inline-flex items-center gap-2 rounded-full border border-violet-300/30 bg-violet-500/[0.12] px-5 py-3 text-sm font-medium transition duration-300 hover:-translate-y-0.5 hover:border-violet-200/50 hover:bg-violet-500/[0.2]"
+              >
+                Explore my approach
+                <ArrowDownRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" />
+              </a>
+              <a
+                href="/work"
+                className="inline-flex items-center gap-2 px-3 py-3 text-sm text-white/65 transition hover:text-violet-200"
+              >
+                View my work
+                <ArrowUpRight className="size-4" />
+              </a>
+            </div>
+
+            <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/[0.09] pt-5">
+              <span className="mono text-[10px] uppercase tracking-[0.12em] text-white/45">
+                Frontend <span className="text-violet-300">/</span> Backend
+              </span>
+              <span className="mono text-[10px] uppercase tracking-[0.12em] text-white/45">
+                Build <span className="text-violet-300">/</span> Debug
+              </span>
+              <span className="mono text-[10px] uppercase tracking-[0.12em] text-white/45">
+                Learn <span className="text-violet-300">/</span> Improve
+              </span>
+            </div>
+          </div>
+
+          <div className="relative mx-auto flex aspect-square w-full max-w-[420px] items-center justify-center">
+            <div className="absolute inset-[7%] rounded-full border border-violet-300/[0.13]" />
+            <div className="absolute inset-[17%] rounded-full border border-dashed border-violet-300/20 motion-safe:animate-[spin_34s_linear_infinite] motion-reduce:animate-none" />
+            <div className="absolute inset-[28%] rounded-full border border-fuchsia-300/[0.16]" />
+            <div className="absolute inset-[25%] rounded-full bg-violet-600/20 blur-3xl" />
+
+            <div className="relative flex aspect-square w-[46%] items-center justify-center rounded-[32%] border border-violet-200/25 bg-gradient-to-br from-violet-400/20 via-[#21132f] to-[#0d0a14] shadow-[inset_0_0_40px_rgba(167,139,250,0.12),0_0_90px_rgba(124,58,237,0.15)] transition duration-500 hover:rotate-3 hover:scale-[1.03]">
+              <div className="absolute inset-3 rounded-[28%] border border-white/[0.08]" />
+              <Braces
+                className="relative size-[30%] text-violet-200 drop-shadow-[0_0_18px_rgba(196,181,253,0.65)]"
+                strokeWidth={1.25}
+              />
+              <span className="absolute -bottom-3 rounded-full border border-violet-300/20 bg-[#100b19] px-3 py-1.5 font-mono text-[9px] tracking-[0.14em] text-violet-200">
+                KEEP_BUILDING
+              </span>
+            </div>
+
+            <div className="absolute left-0 top-[25%] rounded-xl border border-violet-300/20 bg-[#100b19]/90 p-3 shadow-xl backdrop-blur-xl sm:left-1">
+              <Terminal className="size-4 text-violet-300" />
+              <p className="mono mt-2 text-[9px] tracking-[0.1em] text-white/55">
+                DEBUG_MODE
+              </p>
+            </div>
+
+            <div className="absolute bottom-[17%] right-0 rounded-xl border border-fuchsia-300/20 bg-[#100b19]/90 p-3 shadow-xl backdrop-blur-xl sm:right-1">
+              <div className="flex items-center gap-2">
+                <Database className="size-4 text-fuchsia-300" />
+                <span className="mono text-[9px] tracking-[0.08em] text-white/65">
+                  FULL_STACK
+                </span>
+              </div>
+            </div>
+
+            <span className="mono absolute right-[12%] top-[12%] text-[10px] text-violet-300/70">
+              001
+            </span>
+            <span className="mono absolute bottom-[10%] left-[15%] text-[10px] text-fuchsia-300/70">
+              {"{ curiosity }"}
+            </span>
+          </div>
+        </section>
+
+        <section
+          id="about-chapters"
+          aria-labelledby="chapters-heading"
+          className="mt-24 scroll-mt-24 sm:mt-32"
+        >
+          <div className="mb-8 flex flex-col justify-between gap-4 sm:mb-10 sm:flex-row sm:items-end">
+            <div>
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-violet-300">
+                The developer index / 004
+              </p>
+              <h2
+                id="chapters-heading"
+                className="mt-3 text-3xl font-semibold tracking-[-0.06em] sm:text-4xl"
+              >
+                A little more <span className="text-violet-300">context.</span>
+              </h2>
+            </div>
+            <p className="max-w-sm text-sm leading-6 text-white/50">
+              Four parts of the person and process behind the projects.
+            </p>
+          </div>
+
+          <div className="border-y border-white/10">
+            {chapters.map((chapter) => {
+              const Icon = chapter.icon
+              const isActive = activeChapter === chapter.number
+
+              return (
+                <article
+                  key={chapter.number}
+                  className={`border-b border-white/[0.08] last:border-b-0 transition-colors duration-300 ${
+                    isActive
+                      ? "bg-violet-500/[0.045]"
+                      : "hover:bg-white/[0.02]"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    aria-expanded={isActive}
+                    onClick={() =>
+                      setActiveChapter(isActive ? "" : chapter.number)
+                    }
+                    className="flex w-full items-center gap-3 py-5 text-left sm:gap-6 sm:py-6"
+                  >
+                    <span
+                      className={`mono w-7 shrink-0 text-xs ${
+                        isActive ? "text-violet-300" : "text-white/35"
+                      }`}
+                    >
+                      {chapter.number}
+                    </span>
+
+                    <span
+                      className={`flex size-10 shrink-0 items-center justify-center rounded-xl border transition-colors sm:size-12 ${
+                        isActive
+                          ? "border-violet-300/30 bg-violet-400/10 text-violet-200"
+                          : "border-white/10 bg-white/[0.025] text-white/55"
+                      }`}
+                    >
+                      <Icon className="size-5" strokeWidth={1.6} />
+                    </span>
+
+                    <span className="min-w-0 flex-1">
+                      <span className="mono block text-[9px] uppercase tracking-[0.15em] text-violet-300/75">
+                        {chapter.eyebrow}
+                      </span>
+                      <span className="mt-1 block text-base font-medium tracking-[-0.03em] text-white sm:text-xl">
+                        {chapter.title}
+                      </span>
+                      <span className="mt-1 hidden text-sm text-white/45 sm:block">
+                        {chapter.summary}
+                      </span>
+                    </span>
+
+                    <span
+                      className={`flex size-9 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                        isActive
+                          ? "rotate-45 border-violet-300/30 bg-violet-400/10 text-violet-200"
+                          : "border-white/10 text-white/55"
+                      }`}
+                    >
+                      <ArrowUpRight className="size-4" />
+                    </span>
+                  </button>
+
+                  <div
+                    className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
+                      isActive
+                        ? "grid-rows-[1fr] opacity-100"
+                        : "grid-rows-[0fr] opacity-0"
+                    }`}
+                    aria-hidden={!isActive}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="pb-6 pl-10 pr-2 sm:pb-7 sm:pl-[7.5rem] sm:pr-12">
+                        <p className="max-w-2xl text-sm leading-7 text-white/65 sm:text-base sm:leading-8">
+                          {chapter.detail}
+                        </p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {chapter.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="rounded-full border border-violet-300/15 bg-violet-400/[0.05] px-3 py-1.5 text-[10px] text-violet-100/80"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              )
+            })}
+          </div>
+        </section>
+
+        <section className="mt-20 sm:mt-28" aria-labelledby="principles-heading">
+          <div className="mb-7">
+            <p className="mono text-[10px] uppercase tracking-[0.2em] text-violet-300">
+              02 / Working principles
+            </p>
+            <h2
+              id="principles-heading"
+              className="mt-3 text-2xl font-semibold tracking-[-0.05em] sm:text-3xl"
+            >
+              How progress happens.
+            </h2>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-3">
+            {principles.map((principle) => {
+              const Icon = principle.icon
+              return (
+                <article
+                  key={principle.number}
+                  className="group rounded-2xl border border-white/[0.08] bg-white/[0.025] p-5 transition duration-300 hover:-translate-y-1 hover:border-violet-300/25 hover:bg-violet-500/[0.04] sm:p-6"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="mono text-[10px] tracking-[0.16em] text-white/40">
+                      {principle.number}
+                    </span>
+                    <Icon className="size-5 text-violet-300 transition-transform duration-300 group-hover:scale-110" />
+                  </div>
+                  <h3 className="mt-8 text-xl font-medium tracking-[-0.035em]">
+                    {principle.title}
+                  </h3>
+                  <p className="mt-2 max-w-xs text-sm leading-6 text-white/55">
+                    {principle.description}
+                  </p>
+                </article>
+              )
+            })}
+          </div>
+        </section>
+
+        <section className="mt-20 sm:mt-28" aria-labelledby="proof-heading">
+          <div className="mb-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+            <div>
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-violet-300">
+                03 / Project evidence
+              </p>
+              <h2
+                id="proof-heading"
+                className="mt-3 text-2xl font-semibold tracking-[-0.05em] sm:text-3xl"
+              >
+                The work behind the words.
+              </h2>
+            </div>
+            <a
+              href="/work"
+              className="inline-flex items-center gap-2 text-sm text-violet-200 transition hover:text-white"
+            >
+              All projects <ArrowUpRight className="size-4" />
+            </a>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl border border-white/[0.09] bg-[#0d0a14]/90 shadow-2xl shadow-black/20">
+            <div className="flex items-center justify-between border-b border-white/[0.07] px-4 py-3 sm:px-5">
+              <div className="flex items-center gap-2" aria-hidden="true">
+                <span className="size-2 rounded-full bg-rose-400/70" />
+                <span className="size-2 rounded-full bg-amber-300/70" />
+                <span className="size-2 rounded-full bg-emerald-400/70" />
+              </div>
+              <span className="mono text-[10px] text-white/45">
+                selected-work.log
+              </span>
+              <Terminal className="size-4 text-violet-300" />
+            </div>
+
+            <div className="grid md:grid-cols-[0.72fr_1.28fr]">
+              <div
+                className="border-b border-white/[0.07] p-3 md:border-b-0 md:border-r"
+                role="tablist"
+                aria-label="Select a project"
+              >
+                {proof.map((item, index) => {
+                  const isActive = item.id === activeProof
+                  return (
+                    <button
+                      key={item.id}
+                      id={`about-project-tab-${item.id}`}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      aria-controls="about-project-panel"
+                      onClick={() => setActiveProof(item.id)}
+                      className={`group flex w-full items-center justify-between gap-3 rounded-xl px-3 py-4 text-left transition-colors ${
+                        isActive
+                          ? "bg-violet-400/[0.09] text-white"
+                          : "text-white/55 hover:bg-white/[0.035] hover:text-white"
+                      }`}
+                    >
+                      <span className="flex items-center gap-3">
+                        <span
+                          className={`mono text-[10px] ${
+                            isActive ? "text-violet-300" : "text-white/30"
+                          }`}
+                        >
+                          0{index + 1}
+                        </span>
+                        <span className="text-sm font-medium">{item.label}</span>
+                      </span>
+                      <ArrowUpRight
+                        className={`size-4 transition-transform ${
+                          isActive
+                            ? "text-violet-300"
+                            : "text-white/30 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        }`}
+                      />
+                    </button>
+                  )
+                })}
+              </div>
+
+              <div
+                id="about-project-panel"
+                role="tabpanel"
+                aria-labelledby={`about-project-tab-${selectedProof.id}`}
+                className="min-h-[290px] p-5 sm:p-8 lg:p-10"
+              >
+                <p className="mono text-[10px] uppercase tracking-[0.17em] text-violet-300">
+                  {selectedProof.type}
+                </p>
+                <h3 className="mt-5 max-w-lg text-2xl font-medium leading-tight tracking-[-0.045em] sm:text-3xl">
+                  {selectedProof.title}
+                </h3>
+                <p className="mt-4 max-w-lg text-sm leading-7 text-white/60">
+                  {selectedProof.description}
+                </p>
+                <div className="mt-6 flex items-start gap-3 border-l border-violet-300/35 pl-4">
+                  <Code2 className="mt-0.5 size-4 shrink-0 text-violet-300" />
+                  <p className="text-xs leading-6 text-white/55">
+                    {selectedProof.stack}
+                  </p>
+                </div>
+                <a
+                  href={selectedProof.href}
+                  target={selectedProof.href.startsWith("http") ? "_blank" : undefined}
+                  rel={selectedProof.href.startsWith("http") ? "noreferrer" : undefined}
+                  className="group mt-7 inline-flex items-center gap-2 rounded-full border border-violet-300/25 px-4 py-2.5 text-sm text-violet-100 transition hover:border-violet-200/50 hover:bg-violet-400/[0.08]"
+                >
+                  {selectedProof.action}
+                  <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-20 border-t border-white/[0.09] pt-8 sm:mt-28 sm:pt-10">
+          <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+            <div>
+              <p className="mono text-[10px] uppercase tracking-[0.2em] text-violet-300">
+                The next chapter
+              </p>
+              <h2 className="mt-3 max-w-2xl text-3xl font-semibold leading-tight tracking-[-0.055em] sm:text-4xl">
+                Still learning.
+                <span className="block text-violet-300">Still building.</span>
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-white/55">
+                I’m working toward becoming a stronger full-stack developer
+                through practical projects, consistent learning, and meaningful
+                development experience.
+              </p>
+            </div>
+            <a
+              href="/contact"
+              className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-violet-300 px-5 py-3 text-sm font-semibold text-[#130d1c] transition hover:-translate-y-0.5 hover:bg-violet-200"
+            >
+              Get in touch
+              <ArrowUpRight className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+  )
+}
