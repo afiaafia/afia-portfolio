@@ -1,5 +1,0 @@
-import { ProjectUniverse } from "@/components/projects/project-universe"
-
-export default function ProjectsPage() {
-  return <ProjectUniverse />
-}

@@ -42,3 +42,9 @@ next-env.d.ts
 
 .vercel
 .env*
+*.bak
+*.backup
+*.opacity-backup
+*.before-*
+.backups/
+backups/
