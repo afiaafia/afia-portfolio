@@ -1,282 +1,511 @@
-import type { Metadata } from "next"
-import Link from "next/link"
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowDownRight,
   ArrowUpRight,
-  Bug,
+  BrainCircuit,
   Code2,
-  GitBranch,
-  Layers3,
-} from "lucide-react"
+  Compass,
+  GraduationCap,
+  Lightbulb,
+  Terminal,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "My approach to full-stack web development, learning, and building projects.",
-}
+    "Learn about my full-stack development journey, current work, interests, and future direction.",
+};
+
+const presentFocus = [
+  "Full-stack web development",
+  "JavaScript and TypeScript",
+  "React and Next.js",
+  "APIs and database integration",
+];
+
+const journeyPoints = [
+  {
+    number: "01",
+    title: "Build the fundamentals",
+    description:
+      "I am developing my programming knowledge through structured learning, practice, and a deeper understanding of how web technologies work together.",
+  },
+  {
+    number: "02",
+    title: "Learn through projects",
+    description:
+      "Working on applications gives me a way to apply what I learn, solve implementation problems, and understand the decisions behind a working product.",
+  },
+  {
+    number: "03",
+    title: "Keep improving",
+    description:
+      "Each project gives me new questions to investigate, mistakes to learn from, and skills to strengthen for the next challenge.",
+  },
+];
 
 const principles = [
   {
     number: "01",
-    title: "Build with purpose",
-    description: "Focus on useful features and clear user experiences.",
-    icon: Code2,
+    title: "Understand first",
+    description:
+      "I prefer to investigate a problem and understand its cause before choosing a solution.",
   },
   {
     number: "02",
-    title: "Debug systematically",
-    description: "Understand the problem before reaching for a fix.",
-    icon: Bug,
+    title: "Experiment and learn",
+    description:
+      "I learn by trying things, testing assumptions, and figuring out why something works or fails.",
   },
   {
     number: "03",
     title: "Improve through iteration",
-    description: "Refine code, learn from mistakes, and keep improving.",
-    icon: GitBranch,
-  },
-]
-
-const journey = [
-  {
-    title: "Start with the fundamentals",
     description:
-      "Build a strong foundation in web development, from core concepts to modern tools.",
+      "I revisit my work, identify what can be better, and keep refining my approach.",
   },
-  {
-    title: "Learn by building",
-    description:
-      "Apply new skills through hands-on projects, API integration, and debugging.",
-  },
-  {
-    title: "Keep moving forward",
-    description:
-      "Strengthen full-stack skills by improving existing work and tackling new challenges.",
-  },
-]
+];
 
 const projects = [
   {
     number: "01",
     name: "Bazar Dor",
-    type: "Market price web app",
+    image: "/images/bazar-dor.png",
+    category: "MARKET PRICE WEB APP",
     description:
-      "A product-focused application for browsing everyday essentials and tracking price changes.",
-    href: "https://bazar-dor-pi.vercel.app/",
-    stack: "Next.js · TypeScript · MongoDB",
+      "A product-focused web application with category browsing, sorting, product details, authentication, and a responsive interface.",
+    technologies: "Next.js · TypeScript · Tailwind CSS · MongoDB",
+    demo: "https://bazar-dor-pi.vercel.app/",
+    source: "https://github.com/afiaafia/bazar-dor",
   },
   {
     number: "02",
     name: "Fit Log",
-    type: "Workout tracking app",
+    image: "/images/fit-log%20.png",
+    category: "WORKOUT LOGGING APP",
     description:
-      "A workout logging application built around recording training sessions and exploring muscle groups.",
-    href: "https://fit-log-sandy.vercel.app/",
-    stack: "Next.js · TypeScript · API integration",
+      "A workout application built around recording training sessions, exploring muscle groups, and working with API-provided data.",
+    technologies: "Next.js · TypeScript · Tailwind CSS · API integration",
+    demo: "https://b14-a6-fit-log-six.vercel.app/",
+    source: "https://github.com/afiaafia/b14-a6-fit-log",
   },
-]
+];
 
 export default function AboutPage() {
   return (
-    <main className="mx-auto w-full max-w-6xl px-5 pb-20 pt-16 sm:px-8 sm:pb-28 sm:pt-24">
-      {/* 01 — Introduction */}
-      <section
-        aria-labelledby="about-heading"
-        className="grid items-center gap-10 border-b border-white/10 pb-20 md:grid-cols-[1.2fr_0.8fr] md:gap-16 md:pb-28"
+    <main className="relative isolate overflow-hidden bg-[#0B0A10] text-white">
+      {/* Subtle background atmosphere */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        <div className="max-w-2xl">
-          <p className="mb-5 text-xs font-medium uppercase tracking-[0.24em] text-violet-300">
-            01 / A little about me
-          </p>
+        <div className="absolute -right-40 top-20 size-[28rem] rounded-full bg-violet-500/[0.07] blur-[120px]" />
+        <div className="absolute -left-40 top-[55rem] size-[24rem] rounded-full bg-violet-500/[0.05] blur-[110px]" />
+      </div>
 
-          <h1
-            id="about-heading"
-            className="text-4xl font-semibold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-7xl"
-          >
-            I build for the{" "}
-            <span className="text-violet-300">web.</span>
-          </h1>
-
-          <p className="mt-6 max-w-xl text-base leading-8 text-white/65 sm:text-lg">
-            I’m a full-stack web development student focused on building
-            useful applications, understanding how things work, and turning
-            what I learn into working projects.
-          </p>
-        </div>
-
-        <div className="relative overflow-hidden rounded-2xl border border-violet-300/15 bg-white/[0.025] p-7 sm:p-9">
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -right-12 -top-12 h-44 w-44 rounded-full bg-violet-500/15 blur-3xl"
-          />
-          <div className="relative">
-            <div className="mb-10 flex h-12 w-12 items-center justify-center rounded-xl border border-violet-300/20 bg-violet-400/10 text-violet-300">
-              <Code2 size={23} strokeWidth={1.7} />
-            </div>
-            <p className="text-xs uppercase tracking-[0.2em] text-white/45">
-              Current focus
-            </p>
-            <p className="mt-4 text-xl font-medium text-white sm:text-2xl">
-              Full-stack development
-            </p>
-            <p className="mt-3 text-sm leading-7 text-white/55">
-              React · Next.js · TypeScript
-              <br />
-              Node.js · Express · MongoDB
-            </p>
-            <div className="mt-8 h-px bg-white/10" />
-            <p className="mt-5 text-sm text-violet-200/80">
-              Learn through building. Improve through iteration.
-            </p>
+      <div className="mx-auto max-w-6xl px-5 pb-24 pt-12 sm:px-8 sm:pb-32 sm:pt-16">
+        {/* Intro */}
+        <section
+          aria-labelledby="about-title"
+          className="border-b border-white/10 pb-14 sm:pb-20"
+        >
+          <div className="flex items-center gap-3 text-[10px] font-medium uppercase tracking-[0.24em] text-violet-300">
+            <span className="h-px w-7 bg-violet-300" />
+            A little about me
           </div>
-        </div>
-      </section>
 
-      {/* 02 — How I work */}
-      <section
-        aria-labelledby="approach-heading"
-        className="border-b border-white/10 py-20 sm:py-24"
-      >
-        <div className="mb-10 max-w-xl">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-violet-300">
-            02 / My approach
-          </p>
-          <h2
-            id="approach-heading"
-            className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
-          >
-            How I work.
-          </h2>
-        </div>
+          <div className="mt-8 grid gap-8 lg:grid-cols-[1fr_280px] lg:items-end">
+            <div>
+              <h1
+                id="about-title"
+                className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+              >
+                Afia Mubassira
+                <span className="text-violet-300">.</span>
+              </h1>
 
-        <div className="grid gap-8 sm:grid-cols-3 sm:gap-6">
-          {principles.map((item) => {
-            const Icon = item.icon
+              <p className="mt-3 text-sm font-medium tracking-wide text-violet-200/85 sm:text-base">
+                Full-Stack Web Developer
+              </p>
 
-            return (
-              <article key={item.number} className="border-t border-white/15 pt-5">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs tabular-nums text-violet-300">
-                    {item.number}
-                  </span>
-                  <Icon size={19} className="text-white/45" />
+              <p className="mt-6 max-w-2xl text-sm leading-7 text-white/85 sm:text-base sm:leading-8">
+                I&apos;m a Computer Science and Technology student interested
+                in understanding how technology works and using that knowledge
+                to build useful web applications. My current focus is
+                full-stack development, while my curiosity extends to
+                artificial intelligence, robotics, and emerging technologies.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-white/10 bg-white/[0.025] p-5">
+              <p className="text-[10px] uppercase tracking-[0.2em] text-white/85">
+                Currently
+              </p>
+              <div className="mt-4 flex items-start gap-3">
+                <GraduationCap
+                  size={19}
+                  className="mt-0.5 shrink-0 text-violet-300"
+                />
+                <div>
+                  <p className="text-sm font-medium text-white/85">
+                    CST Diploma
+                  </p>
+                  <p className="mt-1 text-xs leading-5 text-white/85">
+                    National Polytechnic Institute
+                    <br />
+                    Manikganj · 4th semester
+                  </p>
                 </div>
-                <h3 className="mt-6 text-lg font-medium text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-white/55">
-                  {item.description}
-                </p>
-              </article>
-            )
-          })}
-        </div>
-      </section>
+              </div>
+              <div className="mt-5 flex items-start gap-3">
+                <Terminal
+                  size={18}
+                  className="mt-0.5 shrink-0 text-violet-300"
+                />
+                <div>
+                  <p className="text-sm font-medium text-white/85">
+                    Learning by building
+                  </p>
+                  <p className="mt-1 text-xs leading-5 text-white/85">
+                    Full-stack web development
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* 03 — Journey */}
-      <section
-        aria-labelledby="journey-heading"
-        className="grid gap-10 border-b border-white/10 py-20 sm:py-24 md:grid-cols-[0.8fr_1.2fr] md:gap-16"
-      >
-        <div>
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-violet-300">
-            03 / My journey
-          </p>
-          <h2
-            id="journey-heading"
-            className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
-          >
-            Progress, one project at a time.
-          </h2>
-          <p className="mt-5 max-w-sm text-sm leading-7 text-white/55">
-            I’m developing my skills through structured learning and practical
-            work, with a focus on understanding the process—not just the result.
-          </p>
-        </div>
-
-        <div className="relative space-y-8 border-l border-violet-300/25 pl-6 sm:pl-8">
-          {journey.map((item, index) => (
-            <article key={item.title} className="relative">
-              <span
-                aria-hidden="true"
-                className="absolute -left-[29px] top-1.5 h-2.5 w-2.5 rounded-full border border-violet-300 bg-[#111014] sm:-left-[37px]"
-              />
-              <p className="text-xs uppercase tracking-[0.16em] text-white/40">
-                STEP 0{index + 1}
-              </p>
-              <h3 className="mt-2 text-lg font-medium text-white">
-                {item.title}
-              </h3>
-              <p className="mt-2 max-w-lg text-sm leading-7 text-white/55">
-                {item.description}
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* 04 — Selected projects */}
-      <section aria-labelledby="projects-heading" className="pt-20 sm:pt-24">
-        <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+        {/* 01 — Present */}
+        <section
+          aria-labelledby="present-title"
+          className="grid gap-8 border-b border-white/10 py-16 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16"
+        >
           <div>
-            <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-violet-300">
-              04 / Learning by building
+            <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-violet-300">
+              01 / Present
             </p>
             <h2
-              id="projects-heading"
-              className="text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+              id="present-title"
+              className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
             >
-              Work that shows my progress.
+              What I&apos;m doing now.
             </h2>
+            <p className="mt-4 max-w-md text-sm leading-7 text-white/85">
+              My current priority is strengthening my full-stack development
+              skills and applying them to practical projects.
+            </p>
           </div>
-          <Link
-            href="/work"
-            className="inline-flex w-fit items-center gap-2 text-sm text-white/65 transition-colors hover:text-violet-300"
-          >
-            Explore all work <ArrowDownRight size={16} />
-          </Link>
-        </div>
 
-        <div className="divide-y divide-white/10 border-y border-white/10">
-          {projects.map((project) => (
-            <article
-              key={project.number}
-              className="grid gap-4 py-7 sm:grid-cols-[56px_1fr_auto] sm:items-start sm:gap-6 sm:py-8"
+          <div>
+            <div className="grid gap-0 sm:grid-cols-2 sm:gap-x-8">
+              {presentFocus.map((item, index) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 border-b border-white/10 py-4"
+                >
+                  <span className="font-mono text-xs text-violet-300/85">
+                    0{index + 1}
+                  </span>
+                  <span className="text-sm text-white/85">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-7 flex items-start gap-3 rounded-xl border border-violet-300/15 bg-violet-300/[0.04] p-4">
+              <Code2
+                size={20}
+                className="mt-0.5 shrink-0 text-violet-300"
+              />
+              <p className="text-sm leading-6 text-white/85">
+                I use projects to connect concepts with practice, from
+                building interfaces to integrating APIs and working with
+                application data.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 02 — Past */}
+        <section
+          aria-labelledby="past-title"
+          className="grid gap-10 border-b border-white/10 py-16 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16"
+        >
+          <div>
+            <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-violet-300">
+              02 / Past
+            </p>
+            <h2
+              id="past-title"
+              className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
             >
-              <span className="pt-1 text-xs tabular-nums text-violet-300">
-                {project.number}
-              </span>
+              How I got here.
+            </h2>
+            <p className="mt-4 max-w-md text-sm leading-7 text-white/85">
+              My journey is built around learning the fundamentals, applying
+              them, and gradually taking on more challenging work.
+            </p>
+          </div>
 
-              <div>
-                <p className="text-xs text-white/40">{project.type}</p>
-                <h3 className="mt-2 text-xl font-medium text-white">
-                  {project.name}
+          <div className="relative space-y-8 border-l border-violet-300/20 pl-6 sm:pl-8">
+            {journeyPoints.map((point) => (
+              <article key={point.number} className="relative">
+                <span
+                  aria-hidden="true"
+                  className="absolute -left-[31px] top-1.5 size-2.5 rounded-full border border-violet-300 bg-[#0B0A10] sm:-left-[37px]"
+                />
+                <p className="font-mono text-[10px] tracking-[0.18em] text-violet-300/85">
+                  {point.number}
+                </p>
+                <h3 className="mt-2 text-lg font-medium text-white">
+                  {point.title}
                 </h3>
-                <p className="mt-3 max-w-2xl text-sm leading-7 text-white/55">
-                  {project.description}
+                <p className="mt-2 max-w-xl text-sm leading-7 text-white/85">
+                  {point.description}
                 </p>
-                <p className="mt-4 text-xs leading-6 text-white/40">
-                  {project.stack}
-                </p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* 03 — Future */}
+        <section
+          aria-labelledby="future-title"
+          className="border-b border-white/10 py-16 sm:py-20"
+        >
+          <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+            <div>
+              <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-violet-300">
+                03 / Future
+              </p>
+              <h2
+                id="future-title"
+                className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
+              >
+                What I want to explore.
+              </h2>
+              <p className="mt-4 max-w-md text-sm leading-7 text-white/85">
+                Web development is my current focus, but I am also interested
+                in the technologies that may shape what comes next.
+              </p>
+            </div>
+
+            <div>
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  {
+                    title: "Artificial Intelligence",
+                    description: "Systems that perform intelligent tasks.",
+                  },
+                  {
+                    title: "Machine Learning",
+                    description: "Learning patterns from data.",
+                  },
+                  {
+                    title: "Deep Learning",
+                    description: "Neural networks and complex models.",
+                  },
+                  {
+                    title: "Robotics",
+                    description: "Connecting software with the physical world.",
+                  },
+                ].map((interest) => (
+                  <div
+                    key={interest.title}
+                    className="rounded-xl border border-white/10 bg-white/[0.025] p-5 transition-colors duration-300 hover:border-violet-300/30"
+                  >
+                    <BrainCircuit
+                      size={19}
+                      className="text-violet-300"
+                    />
+                    <h3 className="mt-4 text-sm font-medium text-white/85">
+                      {interest.title}
+                    </h3>
+                    <p className="mt-2 text-xs leading-6 text-white/85">
+                      {interest.description}
+                    </p>
+                  </div>
+                ))}
               </div>
 
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Visit ${project.name} (opens in a new tab)`}
-                className="inline-flex w-fit items-center gap-2 text-sm text-violet-300 transition-colors hover:text-violet-200 sm:mt-1"
-              >
-                View project <ArrowUpRight size={16} />
-              </a>
-            </article>
-          ))}
-        </div>
+              <p className="mt-5 text-sm leading-7 text-white/85">
+                I want to explore these areas more deeply as my technical
+                foundation grows, with the long-term goal of building
+                something meaningful using intelligent systems.
+              </p>
+            </div>
+          </div>
+        </section>
 
-        <div className="mt-10 flex items-center gap-3 text-sm text-white/45">
-          <Layers3 size={17} className="shrink-0 text-violet-300" />
-          <p>Each project is an opportunity to learn, test, and improve.</p>
-        </div>
-      </section>
+        {/* 04 — Personality */}
+        <section
+          aria-labelledby="personality-title"
+          className="grid gap-10 border-b border-white/10 py-16 sm:py-20 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16"
+        >
+          <div>
+            <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-violet-300">
+              04 / Personality
+            </p>
+            <h2
+              id="personality-title"
+              className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
+            >
+              How I think and work.
+            </h2>
+            <p className="mt-4 max-w-md text-sm leading-7 text-white/85">
+              I enjoy figuring out how things work, asking questions, and
+              working through the details instead of stopping at the first
+              solution.
+            </p>
+            <div className="mt-7 flex items-start gap-3">
+              <Lightbulb
+                size={20}
+                className="mt-0.5 shrink-0 text-violet-300"
+              />
+              <p className="text-sm leading-7 text-white/85">
+                Curiosity keeps me learning; patience helps me work through
+                the difficult parts.
+              </p>
+            </div>
+          </div>
+
+          <div className="divide-y divide-white/10">
+            {principles.map((principle) => (
+              <article key={principle.number} className="py-5 first:pt-0">
+                <div className="flex items-start gap-4">
+                  <span className="pt-1 font-mono text-xs text-violet-300">
+                    {principle.number}
+                  </span>
+                  <div>
+                    <h3 className="text-base font-medium text-white">
+                      {principle.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-7 text-white/85">
+                      {principle.description}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
+
+            <div className="flex items-start gap-4 py-5">
+              <Compass
+                size={19}
+                className="mt-1 shrink-0 text-violet-300"
+              />
+              <div>
+                <h3 className="text-base font-medium text-white">
+                  Outside my current focus
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-white/85">
+                  I enjoy exploring ideas around emerging technology and
+                  learning about fields beyond the tools I use every day.
+                  I prefer to share personal hobbies only when they genuinely
+                  reflect my interests.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 05 — Selected work */}
+        <section
+          aria-labelledby="work-title"
+          className="pt-16 sm:pt-20"
+        >
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-[10px] font-medium uppercase tracking-[0.22em] text-violet-300">
+                05 / Selected work
+              </p>
+              <h2
+                id="work-title"
+                className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl"
+              >
+                Learning through building.
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-white/85">
+                A couple of projects where I have put my learning into
+                practice.
+              </p>
+            </div>
+
+            <Link
+              href="/work"
+              className="inline-flex w-fit items-center gap-2 text-sm text-white/85 transition-colors hover:text-violet-300"
+            >
+              View all projects
+              <ArrowDownRight size={16} />
+            </Link>
+          </div>
+
+          <div className="mt-8 divide-y divide-white/10 border-y border-white/10">
+            {projects.map((project) => (
+              <article
+                key={project.number}
+                className="grid gap-5 py-7 sm:grid-cols-[44px_180px_minmax(0,1fr)_auto] sm:items-start sm:gap-6 sm:py-9"
+              >
+                <span className="font-mono text-xs text-violet-300">
+                  {project.number}
+                </span>
+
+                <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-white/10 bg-[#171320] sm:w-[180px]">
+                  <Image
+                    src={project.image}
+                    alt={`${project.name} project screenshot`}
+                    fill
+                    sizes="(max-width: 639px) 100vw, 180px"
+                    className="object-cover transition-transform duration-500 hover:scale-[1.03] motion-reduce:transition-none"
+                  />
+                </div>
+
+                <div className="min-w-0">
+                  <p className="font-mono text-[10px] tracking-[0.16em] text-white/85">
+                    {project.category}
+                  </p>
+                  <h3 className="mt-2 text-xl font-medium text-white sm:text-2xl">
+                    {project.name}
+                  </h3>
+                  <p className="mt-3 max-w-2xl text-sm leading-7 text-white/85">
+                    {project.description}
+                  </p>
+                  <p className="mt-3 text-xs leading-6 text-white/85">
+                    {project.technologies}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-4 sm:flex-col sm:items-end">
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-white/85 transition-colors hover:text-violet-300"
+                  >
+                    Live demo
+                    <ArrowUpRight size={14} />
+                  </a>
+                  <a
+                    href={project.source}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 text-xs text-white/85 transition-colors hover:text-violet-300"
+                  >
+                    Source code
+                    <ArrowUpRight size={14} />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-12 border-l-2 border-violet-300/60 py-1 pl-5 sm:mt-16 sm:pl-7">
+            <p className="max-w-2xl text-lg leading-8 tracking-tight text-white/85 sm:text-xl">
+              Still learning. Still experimenting. Building a stronger
+              foundation for the work I want to do next.
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
-  )
+  );
 }
