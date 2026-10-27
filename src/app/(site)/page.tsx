@@ -1,14 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ArrowDownRight,
   ArrowUpRight,
-  Code2,
-  Layers3,
-  Sparkles,
+  FileText,
 } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 
-import { siteConfig } from "@/config/site";
+import { FaLinkedinIn } from "react-icons/fa6";
 import { StackLab } from "@/components/stack/stack-lab";
 import { ContactSection } from "@/components/contact/contact-section";
 import { InteractivePortrait } from "@/components/interactive-portrait";
@@ -87,31 +85,42 @@ export default function HomePage() {
               project helps me sharpen my craft.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link
-                href="/#selected-work"
-                className="group inline-flex items-center gap-2.5 rounded-full border border-violet-300/30 bg-violet-600 px-5 py-3.5 text-sm font-semibold text-white shadow-[0_4px_22px_rgba(139,92,246,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-violet-200/60 hover:bg-violet-500 hover:shadow-[0_10px_35px_rgba(139,92,246,0.38)] active:translate-y-0"
-              >
-                Explore projects
-                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-              </Link>
-
-              <Link
-                href={siteConfig.github}
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-white/12 bg-white/2.5 px-5 py-3.5 text-sm font-medium text-white/90 transition hover:border-white/25 hover:bg-white/6 hover:text-white"
-              >
-                GitHub profile
-                <ArrowUpRight className="size-4" />
-              </Link>
-
+            <div className="mt-9 flex flex-wrap items-center gap-3">
               <Link
                 href="/resume"
-                className="group inline-flex items-center gap-2 rounded-full border border-violet-300/30 bg-violet-400/6 px-5 py-3.5 text-sm font-medium text-white/90 transition-all duration-300 hover:-translate-y-1 hover:border-violet-200/60 hover:bg-violet-500/15 hover:text-white"
+                className="group inline-flex items-center gap-2 rounded-full border border-violet-400/60 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-300 hover:bg-violet-400/4 hover:shadow-[0_0_28px_rgba(139,92,246,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/70"
               >
-                View Resume
+                <FileText className="size-4 text-violet-400" aria-hidden="true" />
+                Resume / CV
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+
+              <Link
+                href="https://linkedin.com/in/afia-afia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit LinkedIn profile"
+                title="LinkedIn"
+                className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-400/6 text-violet-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400/50 hover:bg-violet-400/12 hover:text-violet-300"
+              >
+                <FaLinkedinIn
+                  aria-hidden="true"
+                  className="h-4.5 w-4.5 transition-transform duration-300 group-hover:scale-110"
+                />
+              </Link>
+
+              <Link
+                href="https://github.com/afiaafia"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit GitHub profile"
+                title="GitHub"
+                className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-400/6 text-violet-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400/50 hover:bg-violet-400/12 hover:text-violet-300"
+              >
+                <SiGithub
+                  aria-hidden="true"
+                  className="h-4.5 w-4.5 transition-transform duration-300 group-hover:scale-110"
+                />
               </Link>
             </div>
           </div>
