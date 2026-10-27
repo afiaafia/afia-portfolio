@@ -9,6 +9,7 @@ import { useTheme } from "next-themes";
 const links = [
   { label: "Home", href: "/" },
   { label: "Projects", href: "/#selected-work" },
+  { label: "Work", href: "/work" },
   { label: "About", href: "/about" },
   { label: "Stack", href: "/#stack" },
   { label: "Contact", href: "/#contact" },
@@ -19,20 +20,66 @@ export function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeHash, setActiveHash] = useState("");
+  const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    const syncHash = () => setActiveHash(window.location.hash);
+    const sectionIds = ["selected-work", "stack", "contact"];
+    const visibleSections = new Set<string>();
+    const syncHash = () => {
+      const hash = window.location.hash;
+      setActiveSection(sectionIds.includes(hash.slice(1)) ? hash : "");
+    };
 
     syncHash();
     window.addEventListener("hashchange", syncHash);
     window.addEventListener("popstate", syncHash);
 
+    if (pathname !== "/" || !("IntersectionObserver" in window)) {
+      return () => {
+        window.removeEventListener("hashchange", syncHash);
+        window.removeEventListener("popstate", syncHash);
+      };
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            visibleSections.add(entry.target.id);
+          } else {
+            visibleSections.delete(entry.target.id);
+          }
+        });
+
+        const activeId = [...visibleSections]
+          .map((id) => document.getElementById(id))
+          .filter((element): element is HTMLElement => element !== null)
+          .sort(
+            (first, second) =>
+              first.getBoundingClientRect().top -
+              second.getBoundingClientRect().top,
+          )[0]?.id;
+
+        if (activeId) {
+          setActiveSection(`#${activeId}`);
+        } else if (window.scrollY < window.innerHeight * 0.45) {
+          setActiveSection("");
+        }
+      },
+      { rootMargin: "-20% 0px -65% 0px", threshold: 0 },
+    );
+
+    sectionIds.forEach((id) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
     return () => {
+      observer.disconnect();
       window.removeEventListener("hashchange", syncHash);
       window.removeEventListener("popstate", syncHash);
     };
@@ -40,21 +87,21 @@ export function Navbar() {
 
   function isActive(href: string) {
     if (href === "/") {
-      return pathname === "/" && activeHash !== "#stack";
+      return pathname === "/" && activeSection === "";
     }
 
-    if (href === "/#stack") {
-      return pathname === "/" && activeHash === "#stack";
+    if (href.startsWith("/#")) {
+      return pathname === "/" && activeSection === href.slice(1);
     }
 
     return pathname === href || pathname.startsWith(`${href}/`);
   }
 
   function handleNavigation(href: string) {
-    if (href === "/#stack") {
-      setActiveHash("#stack");
+    if (href.startsWith("/#")) {
+      setActiveSection(href.slice(1));
     } else if (href === "/") {
-      setActiveHash("");
+      setActiveSection("");
     }
 
     setMobileOpen(false);
@@ -91,16 +138,19 @@ export function Navbar() {
                 href={item.href}
                 onClick={() => handleNavigation(item.href)}
                 aria-current={active ? "page" : undefined}
-                className={`group relative rounded-lg px-3 py-2 text-[13px] font-medium transition-all duration-300 ${
+                className={`group relative rounded-lg px-3 py-2 text-[13px] font-medium transition-colors duration-300 motion-reduce:transition-none ${
                   active
-                    ? "text-violet-200"
-                    : "text-white/90 hover:bg-white/[0.04] hover:text-white"
+                    ? "text-violet-300"
+                    : "text-white/70 hover:text-violet-200"
                 }`}
               >
                 {item.label}
                 <span
-                  className={`absolute inset-x-3 -bottom-px h-px origin-center bg-gradient-to-r from-violet-400 to-purple-300 transition-transform duration-300 ${
-                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  aria-hidden="true"
+                  className={`absolute inset-x-3 -bottom-px h-px origin-center bg-violet-400 transition-transform duration-[280ms] ease-out motion-reduce:transition-none ${
+                    active
+                      ? "scale-x-100"
+                      : "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100"
                   }`}
                 />
               </Link>
@@ -199,7 +249,7 @@ export function Navbar() {
                     }`}
                   >
                     {item.label}
-                    <ArrowUpRight className="size-4 text-violet-300/90 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-violet-200" />
+                    <ArrowUpRight className="relative z-10 size-4 text-violet-300/90 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-violet-200" />
                   </Link>
                 );
               })}

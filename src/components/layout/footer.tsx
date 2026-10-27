@@ -27,7 +27,7 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="h-px w-full bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
 
-        <div className="flex flex-col gap-7 py-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
             <Link
               href="/"
@@ -66,19 +66,19 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="border-t border-white/[0.07] py-5">
-          <div className="flex flex-col items-center gap-2 text-center">
-            <p className="text-[13px] text-white/85">
+        <div className="border-t border-white/[0.07] py-4">
+          <div className="flex flex-col items-center justify-between gap-2 text-center sm:flex-row sm:text-left">
+            <p className="text-xs text-white/60">
               © {new Date().getFullYear()} Afia Mubassira. All rights reserved.
             </p>
 
-            <p className="text-[15px] text-white/85">
+            <p className="text-sm text-white/65">
               Crafted with care <span className="text-violet-400">♡</span> and code.
             </p>
 
             <a
-              href="#top"
-              className="group mt-1 inline-flex items-center gap-2 font-mono text-[11px] tracking-wider text-white/85 transition-colors hover:text-violet-300"
+              href="/"
+              className="group inline-flex items-center gap-2 font-mono text-[10px] tracking-wider text-white/55 transition-colors duration-300 hover:text-violet-300 motion-reduce:transition-none sm:mt-0"
             >
               BACK TO TOP
               <ArrowUpRight className="h-3 w-3 rotate-[-45deg] transition-transform group-hover:-translate-y-0.5" />

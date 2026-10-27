@@ -74,7 +74,7 @@ export default function HomePage() {
             </div>
 
             <p className="mono mb-6 text-[11px] uppercase tracking-[0.22em] text-white/90">
-              Afia Mubassira / Full-Stack Web Development
+              Afia Mubassira / Full-Stack Web Developer
             </p>
 
             <h1 className="display-heading text-3xl font-semibold leading-tight tracking-[-0.065em] sm:text-5xl lg:text-6xl">
@@ -82,10 +82,9 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-8 max-w-xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
-              I&apos;m a developer in progress, building practical web
-              applications while learning how frontend, backend, APIs, and
-              databases work together. Each project is a chance to solve a
-              problem and get better at the craft.
+              I build practical full-stack web applications, bringing frontend,
+              backend, APIs, and databases together to solve real problems. Each
+              project helps me sharpen my craft.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
@@ -105,6 +104,14 @@ export default function HomePage() {
               >
                 GitHub profile
                 <ArrowUpRight className="size-4" />
+              </Link>
+
+              <Link
+                href="/resume"
+                className="group inline-flex items-center gap-2 rounded-full border border-violet-300/30 bg-violet-400/6 px-5 py-3.5 text-sm font-medium text-white/90 transition-all duration-300 hover:-translate-y-1 hover:border-violet-200/60 hover:bg-violet-500/15 hover:text-white"
+              >
+                View Resume
+                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
             </div>
           </div>
