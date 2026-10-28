@@ -6,6 +6,7 @@ import {
   BriefcaseBusiness,
   Code2,
   Mail,
+  Phone,
   Send,
 } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
@@ -13,6 +14,13 @@ import type { FormEvent } from "react"
 import { useState } from "react"
 
 const channels = [
+  {
+    label: "PHONE",
+    value: "01326860016",
+    href: "tel:+8801326860016",
+    icon: Phone,
+    external: false,
+  },
   {
     label: "EMAIL",
     value: "afiastudent461@gmail.com",
