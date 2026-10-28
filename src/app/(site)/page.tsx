@@ -1,10 +1,7 @@
 import { SiMongodb, SiExpress, SiReact, SiNodedotjs } from "react-icons/si";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  ArrowUpRight,
-  FileText,
-} from "lucide-react";
+import { ArrowDownToLine, ArrowUpRight, FileText } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 
 import { FaLinkedinIn } from "react-icons/fa6";
@@ -63,7 +60,7 @@ export default function HomePage() {
       <section className="noise relative mx-auto max-w-350 px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:px-10 lg:pb-28 lg:pt-28">
         <div className="grid items-center gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <div>
-<div className="mb-5">
+            <div className="mb-5">
               <h1 className="display-heading text-3xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
                 Hello, I’m
                 <span className="mt-1 block text-violet-400 [text-shadow:0_0_28px_rgba(167,139,250,0.22)]">
@@ -81,10 +78,22 @@ export default function HomePage() {
               className="mt-7 flex items-center gap-5 text-violet-300"
               aria-label="MERN stack: MongoDB, Express.js, React, Node.js"
             >
-              <SiMongodb className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8" aria-hidden="true" />
-              <SiExpress className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8" aria-hidden="true" />
-              <SiReact className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8" aria-hidden="true" />
-              <SiNodedotjs className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8" aria-hidden="true" />
+              <SiMongodb
+                className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8"
+                aria-hidden="true"
+              />
+              <SiExpress
+                className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8"
+                aria-hidden="true"
+              />
+              <SiReact
+                className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8"
+                aria-hidden="true"
+              />
+              <SiNodedotjs
+                className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8"
+                aria-hidden="true"
+              />
             </div>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
@@ -92,10 +101,25 @@ export default function HomePage() {
                 href="/resume"
                 className="group inline-flex items-center gap-2 rounded-full border border-violet-400/60 bg-transparent px-5 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-300 hover:bg-violet-400/4 hover:shadow-[0_0_28px_rgba(139,92,246,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-400/70"
               >
-                <FileText className="size-4 text-violet-400" aria-hidden="true" />
+                <FileText
+                  className="size-4 text-violet-400"
+                  aria-hidden="true"
+                />
                 Resume / CV
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </Link>
+
+              <a
+                href="/resume.pdf"
+                download="Afia-A-Resume.pdf"
+                className="group inline-flex items-center gap-2 rounded-full border border-violet-300/50 bg-violet-600 px-5 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:border-violet-200 hover:bg-violet-500 hover:shadow-[0_0_22px_rgba(139,92,246,0.22)]"
+              >
+                Get My Resume
+                <ArrowDownToLine
+                  className="size-4 transition-transform group-hover:translate-y-0.5"
+                  aria-hidden="true"
+                />
+              </a>
 
               <Link
                 href="https://linkedin.com/in/afia-afia"
