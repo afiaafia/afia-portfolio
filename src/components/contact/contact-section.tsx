@@ -353,7 +353,7 @@ export function ContactSection() {
                       field.style.overflowY = "hidden";
                     }
                   }}
-                  className="w-full resize-none overflow-y-hidden rounded-xl border border-white/10 bg-black/20 px-4 py-3.5 text-sm leading-6 text-white outline-none placeholder:text-white/90 transition-colors duration-300 focus:border-violet-400/60"
+                  className="block w-full min-w-0 resize-none overflow-y-hidden rounded-xl border border-white/10 bg-black/20 px-3 py-3.5 text-xs leading-6 text-white outline-none placeholder:text-white/90 transition-colors duration-300 focus:border-violet-400/60 sm:px-4 sm:text-sm"
                 />
               </label>
 
