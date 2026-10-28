@@ -175,7 +175,7 @@ export function StackLab() {
   return (
     <section
       id="stack"
-      className="relative mx-auto max-w-[1400px] scroll-mt-24 px-4 pb-24 sm:px-6 lg:px-10 lg:pb-32"
+      className="relative mx-auto max-w-350 scroll-mt-24 px-4 pb-24 sm:px-6 lg:px-10 lg:pb-32"
     >
       <div className="mb-10 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
         <div>
@@ -183,7 +183,7 @@ export function StackLab() {
             06 / Stack
           </p>
 
-          <h2 className="mt-3 max-w-2xl text-4xl font-semibold tracking-[-0.05em] text-white sm:text-5xl">
+          <h2 className="mt-3 max-w-2xl text-4xl font-semibold tracking-tighter text-white sm:text-5xl">
             A stack I actually build with.
           </h2>
 
@@ -231,16 +231,16 @@ export function StackLab() {
               </motion.div>
             </div>
 
-            <div className="relative min-h-[150px] overflow-hidden rounded-2xl border border-white/[0.07] bg-black/20 p-5">
+            <div className="relative min-h-37.5 overflow-hidden rounded-2xl border border-white/[0.07] bg-black/20 p-5">
               <div className="mono mb-5 flex items-center justify-between text-[9px] uppercase tracking-[0.15em] text-white/90">
                 <span>frontend</span>
                 <span>backend</span>
                 <span>data</span>
               </div>
 
-              <div className="relative mt-8 h-px bg-white/[0.08]">
+              <div className="relative mt-8 h-px bg-white/8">
                 <motion.div
-                  className="absolute -top-[3px] size-[7px] rounded-full bg-[#C4A7FF] shadow-[0_0_16px_rgba(196,167,255,0.9)]"
+                  className="absolute -top-0.75 size-1.75 rounded-full bg-[#C4A7FF] shadow-[0_0_16px_rgba(196,167,255,0.9)]"
                   animate={
                     prefersReducedMotion
                       ? { left: "15%" }
@@ -272,7 +272,7 @@ export function StackLab() {
         </div>
 
         <div className="border-b border-white/[0.07] p-4 sm:p-5">
-          <div className="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none [&::-webkit-scrollbar]:hidden">
             {categories.map((category) => {
               const isActive = activeCategory === category
 
@@ -284,7 +284,7 @@ export function StackLab() {
                   className={`shrink-0 rounded-full border px-3.5 py-2 text-[11px] font-medium transition-colors ${
                     isActive
                       ? "border-[#C4A7FF]/30 bg-[#C4A7FF]/10 text-[#C4A7FF]"
-                      : "border-white/[0.07] bg-white/[0.02] text-white/90 hover:border-white/15 hover:text-white/90"
+                      : "border-white/[0.07] bg-white/2 text-white/90 hover:border-white/15 hover:text-white/90"
                   }`}
                 >
                   {category}
@@ -339,8 +339,8 @@ export function StackLab() {
                     whileTap={{ scale: 0.985 }}
                     className={`group relative overflow-hidden rounded-xl border p-4 text-left transition-colors ${
                       isSelected
-                        ? "border-[#C4A7FF]/20 bg-[#C4A7FF]/[0.045]"
-                        : "border-white/[0.06] bg-white/[0.015] hover:border-white/[0.12]"
+                        ? "border-[#C4A7FF]/20 bg-[#C4A7FF]/4.5"
+                        : "border-white/6 bg-white/1.5 hover:border-white/12"
                     }`}
                   >
                     {isSelected && (
@@ -356,7 +356,7 @@ export function StackLab() {
                           className={`flex size-9 items-center justify-center rounded-lg border ${
                             isSelected
                               ? "border-[#C4A7FF]/20 bg-[#C4A7FF]/10 text-[#C4A7FF]"
-                              : "border-white/[0.07] bg-white/[0.025] text-white/90"
+                              : "border-white/[0.07] bg-white/2.5 text-white/90"
                           }`}
                         >
                           <Icon className="size-4" />
@@ -431,7 +431,7 @@ export function StackLab() {
                     {selectedTechnology.projects.map((project) => (
                       <span
                         key={project}
-                        className="rounded-full border border-white/[0.07] bg-white/[0.02] px-3 py-1.5 text-[10px] text-white/90"
+                        className="rounded-full border border-white/[0.07] bg-white/2 px-3 py-1.5 text-[10px] text-white/90"
                       >
                         {project}
                       </span>
@@ -453,7 +453,7 @@ export function StackLab() {
               key={category}
               type="button"
               onClick={() => setActiveCategory(category)}
-              className="group rounded-xl border border-white/[0.06] bg-white/[0.015] p-4 text-left transition-colors hover:border-white/[0.12]"
+              className="group rounded-xl border border-white/6 bg-white/1.5 p-4 text-left transition-colors hover:border-white/12"
             >
               <div className="flex items-center justify-between">
                 <Icon className="size-4 text-white/90 transition-colors group-hover:text-[#C4A7FF]" />

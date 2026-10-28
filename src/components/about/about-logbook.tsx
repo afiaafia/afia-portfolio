@@ -163,7 +163,7 @@ export function AboutLogbook() {
             </div>
           </div>
 
-          <div className="mt-12 h-px origin-left bg-gradient-to-r from-[#ccff00]/60 via-white/10 to-transparent sm:mt-16" />
+          <div className="mt-12 h-px origin-left bg-linear-to-r from-[#ccff00]/60 via-white/10 to-transparent sm:mt-16" />
         </motion.section>
 
         {/* Working principles */}
@@ -195,7 +195,7 @@ export function AboutLogbook() {
                         }
                   }
                   whileHover={shouldReduceMotion ? undefined : { y: -4 }}
-                  className="group rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 transition-colors duration-300 hover:border-[#ccff00]/25 hover:bg-[#ccff00]/[0.025] sm:p-6"
+                  className="group rounded-2xl border border-white/[0.08] bg-white/2 p-5 transition-colors duration-300 hover:border-[#ccff00]/25 hover:bg-[#ccff00]/[0.025] sm:p-6"
                 >
                   <div className="flex items-center justify-between">
                     <span className="mono text-[10px] tracking-[0.16em] text-white/90">

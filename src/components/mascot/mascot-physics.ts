@@ -104,8 +104,6 @@ export function moveWhileDragging(
 
 export function endDrag(
   state: MascotMotionState,
-  _releaseVelocity: MascotVelocity = { x: 0, y: 0 },
-  _maxSpeed = MAX_SPEED,
 ): MascotMotionState {
   if (!state.dragging) return state
 
@@ -142,7 +140,7 @@ export function stepPhysics(
   vx = Math.max(-maxSpeed, Math.min(maxSpeed, vx))
   vy = Math.max(-maxSpeed, Math.min(maxSpeed, vy))
 
-  let position = {
+  const position = {
     x: state.position.x + vx * dt,
     y: state.position.y + vy * dt,
   }

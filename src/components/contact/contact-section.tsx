@@ -146,7 +146,7 @@ export function ContactSection() {
               const content = (
                 <>
                   <div className="flex items-center gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04]">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/4">
                       <Icon
                         className="h-5 w-5 text-violet-400 transition-colors duration-300 group-hover:text-violet-300"
                         strokeWidth={1.8}
@@ -195,7 +195,7 @@ export function ContactSection() {
                     whileTap={
                       shouldReduceMotion ? undefined : { scale: 0.985 }
                     }
-                    className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.025] p-4 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+                    className="group flex items-center justify-between rounded-2xl border border-white/10 bg-white/2.5 p-4 transition-colors duration-300 hover:border-white/20 hover:bg-white/5"
                   >
                     {content}
                   </motion.a>
@@ -223,7 +223,7 @@ export function ContactSection() {
                 >
                   <Link
                     href={channel.href}
-                    className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.025] p-4 transition-colors duration-300 hover:border-white/20 hover:bg-white/[0.05]"
+                    className="flex items-center justify-between rounded-2xl border border-white/10 bg-white/2.5 p-4 transition-colors duration-300 hover:border-white/20 hover:bg-white/5"
                   >
                     {content}
                   </Link>
@@ -231,7 +231,7 @@ export function ContactSection() {
               )
             })}
 
-            <div className="mt-8 rounded-2xl border border-violet-400/20 bg-violet-400/[0.04] p-5">
+            <div className="mt-8 rounded-2xl border border-violet-400/20 bg-violet-400/4 p-5">
               <div className="flex items-center gap-3">
                 <span className="relative flex h-2.5 w-2.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-violet-400/70" />
@@ -253,7 +253,7 @@ export function ContactSection() {
             }
             viewport={{ once: true, amount: 0.15 }}
             transition={{ duration: 0.7, delay: 0.12, ease: "easeOut" }}
-            className="rounded-3xl border border-white/10 bg-white/[0.025] p-5 sm:p-7"
+            className="rounded-3xl border border-white/10 bg-white/2.5 p-5 sm:p-7"
           >
             <div className="mb-7 flex items-start justify-between gap-6">
               <div>
@@ -314,7 +314,7 @@ export function ContactSection() {
                         className={`rounded-full border px-3.5 py-2 text-xs transition-colors duration-300 ${
                           active
                             ? "border-violet-400/40 bg-violet-400/10 text-white"
-                            : "border-white/10 bg-white/[0.02] text-white/90 hover:border-white/20 hover:text-white"
+                            : "border-white/10 bg-white/2 text-white/90 hover:border-white/20 hover:text-white"
                         }`}
                       >
                         {item}
@@ -366,6 +366,17 @@ export function ContactSection() {
                   Send Message
                 </button>
               </div>
+              <p
+                className="min-h-5 text-sm text-white/70"
+                role="status"
+                aria-live="polite"
+              >
+                {status === "preparing"
+                  ? "Opening your email app..."
+                  : status === "ready"
+                    ? "Your email app should open with your message. Review and send it there."
+                    : ""}
+              </p>
             </form>
           </motion.div>
         </div>
@@ -379,7 +390,7 @@ export function ContactSection() {
         }
         viewport={{ once: true }}
         transition={{ duration: 1.1, delay: 0.2, ease: "easeOut" }}
-        className="mx-auto mt-16 h-px max-w-7xl origin-left bg-gradient-to-r from-transparent via-violet-400/35 to-transparent"
+        className="mx-auto mt-16 h-px max-w-7xl origin-left bg-linear-to-r from-transparent via-violet-400/35 to-transparent"
       />
     </section>
   )

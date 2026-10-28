@@ -25,7 +25,7 @@ export function Footer() {
   return (
     <footer className="relative border-t border-white/10 bg-[#08090B]">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-        <div className="h-px w-full bg-gradient-to-r from-transparent via-violet-400/60 to-transparent" />
+        <div className="h-px w-full bg-linear-to-r from-transparent via-violet-400/60 to-transparent" />
 
         <div className="flex flex-col gap-5 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-2">
@@ -54,11 +54,11 @@ export function Footer() {
                 target={label === "Email" ? undefined : "_blank"}
                 rel={label === "Email" ? undefined : "noreferrer"}
                 aria-label={label}
-                className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-400/[0.06] text-violet-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400/50 hover:bg-violet-400/[0.12] hover:text-violet-300"
+                className="group inline-flex h-10 w-10 items-center justify-center rounded-xl border border-violet-400/20 bg-violet-400/6 text-violet-400 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-400/50 hover:bg-violet-400/12 hover:text-violet-300"
               >
                 <Icon
                   aria-hidden="true"
-                  className="h-[18px] w-[18px] transition-transform duration-300 group-hover:scale-110"
+                  className="h-4.5 w-4.5 transition-transform duration-300 group-hover:scale-110"
                 />
                 <span className="sr-only">{label}</span>
               </a>
@@ -76,13 +76,13 @@ export function Footer() {
               Crafted with care <span className="text-violet-400">♡</span> and code.
             </p>
 
-            <a
+            <Link
               href="/"
               className="group inline-flex items-center gap-2 font-mono text-[10px] tracking-wider text-white/55 transition-colors duration-300 hover:text-violet-300 motion-reduce:transition-none sm:mt-0"
             >
               BACK TO TOP
-              <ArrowUpRight className="h-3 w-3 rotate-[-45deg] transition-transform group-hover:-translate-y-0.5" />
-            </a>
+              <ArrowUpRight className="h-3 w-3 -rotate-45 transition-transform group-hover:-translate-y-0.5" />
+            </Link>
           </div>
         </div>
       </div>

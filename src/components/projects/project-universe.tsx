@@ -174,7 +174,7 @@ export function ProjectUniverse() {
     <main className="relative min-h-screen overflow-hidden">
       <div className="grid-background pointer-events-none" />
 
-      <section className="relative mx-auto max-w-[1400px] px-4 pb-20 pt-12 sm:px-6 sm:pt-16 lg:px-10 lg:pb-28">
+      <section className="relative mx-auto max-w-350 px-4 pb-20 pt-12 sm:px-6 sm:pt-16 lg:px-10 lg:pb-28">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="mono flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-white/90">
             <span className="size-1.5 rounded-full bg-[#ccff00] shadow-[0_0_12px_rgba(204,255,0,.7)]" />
@@ -373,7 +373,7 @@ export function ProjectUniverse() {
                 className={`flex items-center gap-3 rounded-2xl border p-4 text-left ${
                   activeId === project.id
                     ? "border-[#ccff00]/40 bg-[#ccff00]/[0.05]"
-                    : "border-white/[0.08] bg-white/[0.02]"
+                    : "border-white/[0.08] bg-white/2"
                 }`}
               >
                 <span
@@ -401,7 +401,7 @@ export function ProjectUniverse() {
 
         <section
           aria-live="polite"
-          className="mt-5 grid overflow-hidden rounded-3xl border border-white/[0.09] bg-white/[0.025] lg:grid-cols-[0.7fr_1.3fr]"
+          className="mt-5 grid overflow-hidden rounded-3xl border border-white/[0.09] bg-white/2.5 lg:grid-cols-[0.7fr_1.3fr]"
         >
           <div className="border-b border-white/[0.07] p-5 sm:p-7 lg:border-b-0 lg:border-r">
             <div className="mono flex items-center gap-2 text-[10px] uppercase tracking-[0.17em] text-white/90">

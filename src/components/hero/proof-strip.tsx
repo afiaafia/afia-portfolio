@@ -16,7 +16,7 @@ const proofItems = [
 export function ProofStrip() {
   return (
     <section className="relative border-y border-white/[0.07]">
-      <div className="mx-auto grid max-w-[1400px] sm:grid-cols-3">
+      <div className="mx-auto grid max-w-350 sm:grid-cols-3">
         {proofItems.map((item, index) => (
           <div
             key={item.label}

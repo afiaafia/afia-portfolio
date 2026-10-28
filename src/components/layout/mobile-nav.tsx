@@ -52,7 +52,7 @@ export function MobileNav() {
                       key={item.href}
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center gap-4 rounded-xl border border-white/[0.07] bg-white/[0.02] px-4 py-4 text-white/90 transition-colors hover:bg-white/[0.05] hover:text-white"
+                      className="flex items-center gap-4 rounded-xl border border-white/[0.07] bg-white/2 px-4 py-4 text-white/90 transition-colors hover:bg-white/5 hover:text-white"
                     >
                       <Icon className="size-4 text-[#ccff00]" />
                       <span>{item.label}</span>

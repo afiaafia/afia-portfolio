@@ -9,10 +9,7 @@ import {
 
 import {
   createDragSession,
-  finishDragSession,
   getDraggedPosition,
-  getReleaseVelocity,
-  updateDragSession,
 } from "./mascot-interactions"
 
 import type { DragSession } from "./mascot-interactions"
@@ -107,7 +104,6 @@ export function createMascotEngine(
   let lastFrame = 0
   let lastSceneScan = 0
   let lastSleepCheck = Date.now()
-  let previousPointer: MascotPoint | null = null
   let sceneChangeCooldown = 0
 
   function getBounds(): PhysicsBounds {
@@ -140,12 +136,6 @@ export function createMascotEngine(
 
   function notify() {
     callbacks.onUpdate?.(getSnapshot())
-  }
-
-  function setExpression(
-    event: Parameters<typeof updateExpression>[1],
-  ) {
-    expression = updateExpression(expression, event)
   }
 
   function scanScene(now: number) {
@@ -275,7 +265,6 @@ export function createMascotEngine(
     motion = beginDrag(motion)
     expression = updateExpression(expression, "drag-start")
     target = null
-    previousPointer = { ...pointer }
     notify()
   }
 
@@ -285,13 +274,6 @@ export function createMascotEngine(
   ) {
     if (!drag?.active || drag.pointerId !== pointerId) return
 
-    drag = updateDragSession(
-      drag,
-      pointerId,
-      pointer,
-      getBounds(),
-    )
-
     const position = getDraggedPosition(
       drag,
       pointer,
@@ -299,18 +281,15 @@ export function createMascotEngine(
     )
 
     motion = moveWhileDragging(motion, position, getBounds())
-    previousPointer = { ...pointer }
     notify()
   }
 
   function endPointerDrag(pointerId: number) {
     if (!drag?.active || drag.pointerId !== pointerId) return
 
-    const releaseVelocity = getReleaseVelocity(drag)
-    drag = finishDragSession(drag)
-    motion = endDrag(motion, releaseVelocity)
+    drag = null
+    motion = endDrag(motion)
     expression = updateExpression(expression, "drag-end")
-    previousPointer = null
     notify()
   }
 

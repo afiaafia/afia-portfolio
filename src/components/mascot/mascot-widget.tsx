@@ -289,6 +289,7 @@ export default function MascotWidget() {
 
     engineRef.current = engine;
     engine.start();
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setReady(true);
 
     return () => {

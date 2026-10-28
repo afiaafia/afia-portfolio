@@ -261,7 +261,7 @@ function RepositoryCard({
           </div>
 
           <div className="mt-5 flex flex-wrap gap-2">
-            <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1.5 font-mono text-[10px] tracking-[0.08em] text-white/90">
+            <span className="rounded-full border border-white/10 bg-white/3 px-3 py-1.5 font-mono text-[10px] tracking-[0.08em] text-white/90">
               {repo.stack}
             </span>
 
@@ -384,7 +384,7 @@ export function GitHubOverview() {
 
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-4xl">
-              <h2 className="text-balance text-4xl font-semibold tracking-[-0.05em] text-white sm:text-5xl lg:text-6xl">
+              <h2 className="text-balance text-4xl font-semibold tracking-tighter text-white sm:text-5xl lg:text-6xl">
                 CODE THAT EXISTS
                 <br />
                 OUTSIDE THIS PORTFOLIO.
@@ -414,7 +414,7 @@ export function GitHubOverview() {
                       scale: 0.97,
                     }
               }
-              className="inline-flex shrink-0 items-center gap-2 self-start rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3.5 font-mono text-xs uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-lime-300/40 hover:bg-lime-300/[0.05] lg:self-end"
+              className="inline-flex shrink-0 items-center gap-2 self-start rounded-xl border border-white/10 bg-white/3 px-5 py-3.5 font-mono text-xs uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-lime-300/40 hover:bg-lime-300/[0.05] lg:self-end"
             >
               Open GitHub
               <ArrowUpRight className="h-4 w-4" />
@@ -507,7 +507,7 @@ export function GitHubOverview() {
               </div>
 
               <div className="mt-8 grid grid-cols-2 gap-3">
-                <div className="rounded-xl border border-white/10 bg-white/[0.025] p-4">
+                <div className="rounded-xl border border-white/10 bg-white/2.5 p-4">
                   <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/90">
                     PUBLIC REPOSITORIES
                   </div>
@@ -517,7 +517,7 @@ export function GitHubOverview() {
                   </div>
                 </div>
 
-                <div className="rounded-xl border border-white/10 bg-white/[0.025] p-4">
+                <div className="rounded-xl border border-white/10 bg-white/2.5 p-4">
                   <div className="font-mono text-[9px] uppercase tracking-[0.16em] text-white/90">
                     FOLLOWERS
                   </div>
@@ -531,7 +531,7 @@ export function GitHubOverview() {
 
             {/* BUILD SIGNAL */}
             <div className="relative overflow-hidden bg-[#090b0d] p-5 sm:p-7">
-              <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-lime-300/30 to-transparent" />
+              <div className="absolute inset-x-0 top-1/2 h-px bg-linear-to-r from-transparent via-lime-300/30 to-transparent" />
 
               <div className="relative flex items-center justify-between">
                 <div>
@@ -608,7 +608,7 @@ export function GitHubOverview() {
                                   delay: index * 0.3,
                                 }
                           }
-                          className="mx-2 h-px flex-1 bg-gradient-to-r from-white/10 via-lime-300/40 to-white/10 bg-[length:200%_100%]"
+                          className="mx-2 h-px flex-1 bg-linear-to-r from-white/10 via-lime-300/40 to-white/10 bg-[length:200%_100%]"
                         />
                       )}
                     </div>
@@ -807,7 +807,7 @@ export function GitHubOverview() {
                 href={selectedRepository.githubHref}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-lime-300/40"
+                className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/3 px-4 py-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white transition-colors duration-300 hover:border-lime-300/40"
               >
                 Open repo
                 <ExternalLink className="h-3.5 w-3.5" />
@@ -849,7 +849,7 @@ export function GitHubOverview() {
             delay: 0.15,
             ease: "easeOut",
           }}
-          className="mt-14 h-px origin-left bg-gradient-to-r from-transparent via-lime-300/35 to-transparent"
+          className="mt-14 h-px origin-left bg-linear-to-r from-transparent via-lime-300/35 to-transparent"
         />
       </div>
     </section>

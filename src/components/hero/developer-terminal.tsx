@@ -17,8 +17,8 @@ export function DeveloperTerminal() {
       </div>
 
       <div className="p-5 sm:p-6">
-        <div className="mb-7 flex items-center gap-4 rounded-xl border border-white/[0.07] bg-white/[0.02] p-3 sm:p-4">
-          <div className="relative size-[88px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] sm:size-28">
+        <div className="mb-7 flex items-center gap-4 rounded-xl border border-white/[0.07] bg-white/2 p-3 sm:p-4">
+          <div className="relative size-[88px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/3 sm:size-28">
             <Image
               src="/images/avatars/afia.jpg"
               alt="Afia — Full-Stack Web Developer"
@@ -80,7 +80,7 @@ export function DeveloperTerminal() {
               ].map((technology) => (
                 <span
                   key={technology}
-                  className="rounded-md border border-white/[0.07] bg-white/[0.025] px-2 py-1 text-[10px] text-white/90"
+                  className="rounded-md border border-white/[0.07] bg-white/2.5 px-2 py-1 text-[10px] text-white/90"
                 >
                   {technology}
                 </span>

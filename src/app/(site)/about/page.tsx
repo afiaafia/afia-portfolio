@@ -100,8 +100,8 @@ export default function AboutPage() {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
       >
-        <div className="absolute -right-40 top-20 size-[28rem] rounded-full bg-violet-500/[0.07] blur-[120px]" />
-        <div className="absolute -left-40 top-[55rem] size-[24rem] rounded-full bg-violet-500/[0.05] blur-[110px]" />
+        <div className="absolute -right-40 top-20 size-112 rounded-full bg-violet-500/[0.07] blur-[120px]" />
+        <div className="absolute -left-40 top-220 size-96 rounded-full bg-violet-500/5 blur-[110px]" />
       </div>
 
       <div className="mx-auto max-w-6xl px-5 pb-24 pt-12 sm:px-8 sm:pb-32 sm:pt-16">
@@ -138,7 +138,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="rounded-xl border border-white/10 bg-white/[0.025] p-5">
+            <div className="rounded-xl border border-white/10 bg-white/2.5 p-5">
               <p className="text-[10px] uppercase tracking-[0.2em] text-white/85">
                 Currently
               </p>
@@ -212,7 +212,7 @@ export default function AboutPage() {
               ))}
             </div>
 
-            <div className="mt-7 flex items-start gap-3 rounded-xl border border-violet-300/15 bg-violet-300/[0.04] p-4">
+            <div className="mt-7 flex items-start gap-3 rounded-xl border border-violet-300/15 bg-violet-300/4 p-4">
               <Code2
                 size={20}
                 className="mt-0.5 shrink-0 text-violet-300"
@@ -252,7 +252,7 @@ export default function AboutPage() {
               <article key={point.number} className="relative">
                 <span
                   aria-hidden="true"
-                  className="absolute -left-[31px] top-1.5 size-2.5 rounded-full border border-violet-300 bg-[#0B0A10] sm:-left-[37px]"
+                  className="absolute -left-7.75 top-1.5 size-2.5 rounded-full border border-violet-300 bg-[#0B0A10] sm:-left-9.25"
                 />
                 <p className="font-mono text-[10px] tracking-[0.18em] text-violet-300/85">
                   {point.number}
@@ -312,7 +312,7 @@ export default function AboutPage() {
                 ].map((interest) => (
                   <div
                     key={interest.title}
-                    className="rounded-xl border border-white/10 bg-white/[0.025] p-5 transition-colors duration-300 hover:border-violet-300/30"
+                    className="rounded-xl border border-white/10 bg-white/2.5 p-5 transition-colors duration-300 hover:border-violet-300/30"
                   >
                     <BrainCircuit
                       size={19}
@@ -449,7 +449,7 @@ export default function AboutPage() {
                   {project.number}
                 </span>
 
-                <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-white/10 bg-[#171320] sm:w-[180px]">
+                <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-white/10 bg-[#171320] sm:w-45">
                   <Image
                     src={project.image}
                     alt={`${project.name} project screenshot`}

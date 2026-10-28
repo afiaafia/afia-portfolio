@@ -23,6 +23,7 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -109,9 +110,9 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/[0.07] bg-[#0b0a12]/90 backdrop-blur-2xl">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-violet-400/50 to-transparent" />
 
-      <div className="mx-auto grid h-[72px] max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-5 sm:px-8">
+      <div className="mx-auto grid h-18 max-w-7xl grid-cols-[1fr_auto_1fr] items-center gap-3 px-5 sm:px-8">
         <Link
           href="/"
           aria-label="Afia — Home"
@@ -147,7 +148,7 @@ export function Navbar() {
                 {item.label}
                 <span
                   aria-hidden="true"
-                  className={`absolute inset-x-3 -bottom-px h-px origin-center bg-violet-400 transition-transform duration-[280ms] ease-out motion-reduce:transition-none ${
+                  className={`absolute inset-x-3 -bottom-px h-px origin-center bg-violet-400 transition-transform duration-280 ease-out motion-reduce:transition-none ${
                     active
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100"
@@ -176,7 +177,7 @@ export function Navbar() {
                   : "Switch to dark mode"
                 : "Toggle color theme"
             }
-            className="group flex size-9 items-center justify-center rounded-xl border border-violet-400/25 bg-violet-500/[0.08] text-violet-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-300/60 hover:bg-violet-500/20 hover:text-violet-200 hover:shadow-[0_0_22px_rgba(139,92,246,0.22)]"
+            className="group flex size-9 items-center justify-center rounded-xl border border-violet-400/25 bg-violet-500/8 text-violet-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-300/60 hover:bg-violet-500/20 hover:text-violet-200 hover:shadow-[0_0_22px_rgba(139,92,246,0.22)]"
           >
             {mounted && resolvedTheme === "light" ? (
               <Moon className="size-4 transition-transform duration-300 group-hover:-rotate-12 group-hover:scale-110" />
@@ -204,7 +205,7 @@ export function Navbar() {
                   : "Switch to dark mode"
                 : "Toggle color theme"
             }
-            className="group flex size-10 items-center justify-center rounded-xl border border-violet-400/25 bg-violet-500/[0.08] text-violet-300 transition-all duration-300 hover:border-violet-300/60 hover:bg-violet-500/20 hover:text-violet-200"
+            className="group flex size-10 items-center justify-center rounded-xl border border-violet-400/25 bg-violet-500/8 text-violet-300 transition-all duration-300 hover:border-violet-300/60 hover:bg-violet-500/20 hover:text-violet-200"
           >
             {mounted && resolvedTheme === "light" ? (
               <Moon className="size-5 transition-transform duration-300 group-hover:-rotate-12" />
@@ -218,7 +219,7 @@ export function Navbar() {
             onClick={() => setMobileOpen((open) => !open)}
             aria-label={mobileOpen ? "Close navigation" : "Open navigation"}
             aria-expanded={mobileOpen}
-            className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] text-white/90 transition-all duration-300 hover:border-violet-400/40 hover:bg-violet-400/10 hover:text-violet-200 md:hidden"
+            className="flex size-10 items-center justify-center rounded-xl border border-white/10 bg-white/3 text-white/90 transition-all duration-300 hover:border-violet-400/40 hover:bg-violet-400/10 hover:text-violet-200 md:hidden"
           >
             {mobileOpen ? (
               <X className="size-5" />
@@ -244,8 +245,8 @@ export function Navbar() {
                     aria-current={active ? "page" : undefined}
                     className={`group flex items-center justify-between rounded-xl border px-4 py-3 text-sm transition-all duration-300 ${
                       active
-                        ? "border-violet-400/25 bg-violet-400/[0.08] text-violet-200"
-                        : "border-white/[0.06] text-white/90 hover:border-violet-400/25 hover:bg-violet-400/[0.06] hover:text-white"
+                        ? "border-violet-400/25 bg-violet-400/8 text-violet-200"
+                        : "border-white/6 text-white/90 hover:border-violet-400/25 hover:bg-violet-400/6 hover:text-white"
                     }`}
                   >
                     {item.label}

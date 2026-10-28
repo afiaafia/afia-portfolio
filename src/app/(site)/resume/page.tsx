@@ -58,7 +58,7 @@ export default function ResumePage() {
           <iframe
             src="/resume.pdf"
             title="Afia Mubassira's Resume"
-            className="h-[70vh] min-h-[500px] w-full bg-white sm:h-[85vh]"
+            className="h-[70vh] min-h-125 w-full bg-white sm:h-[85vh]"
           />
         </div>
 

@@ -49,7 +49,7 @@ export function Sidebar() {
                       "group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm transition-colors",
                       isActive
                         ? "bg-white/[0.07] text-white"
-                        : "text-white/90 hover:bg-white/[0.04] hover:text-white",
+                        : "text-white/90 hover:bg-white/4 hover:text-white",
                     )}
                   >
                     <Icon
@@ -78,7 +78,7 @@ export function Sidebar() {
         </div>
 
         <div className="mt-auto border-t border-white/[0.07] p-4">
-          <div className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-4">
+          <div className="rounded-xl border border-white/[0.07] bg-white/2.5 p-4">
             <div className="flex items-center gap-2">
               <span className="size-2 rounded-full bg-[#ccff00] shadow-[0_0_12px_rgba(204,255,0,0.55)]" />
               <span className="text-xs font-medium text-white/90">

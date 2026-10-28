@@ -9,7 +9,7 @@ export function Hero() {
     <section className="relative">
       <div className="grid-background" />
 
-      <div className="relative mx-auto max-w-[1400px] px-4 pb-20 pt-14 sm:px-6 sm:pb-24 sm:pt-20 lg:px-10 lg:pb-28 lg:pt-24">
+      <div className="relative mx-auto max-w-350 px-4 pb-20 pt-14 sm:px-6 sm:pb-24 sm:pt-20 lg:px-10 lg:pb-28 lg:pt-24">
         <div className="grid items-center gap-14 lg:grid-cols-[1.25fr_0.75fr] lg:gap-20">
           <div>
             <div className="flex flex-wrap items-center gap-3">

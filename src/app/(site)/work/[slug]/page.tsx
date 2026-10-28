@@ -11,6 +11,8 @@ type Project = {
   image: string;
   stack: string[];
   features: string[];
+  challenges: string[];
+  improvements: string[];
   live: string;
   repository: string;
 };
@@ -21,13 +23,21 @@ const projects: Record<ProjectSlug, Project> = {
     description:
       "A responsive product discovery experience with category browsing and clear product information.",
     image: "/images/bazar-dor.png",
-    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB"],
     features: [
       "Browse products by category",
       "Sort products by price",
       "View product and market-price details",
       "Sign in with email, Google, or GitHub",
       "Manage profile information",
+    ],
+    challenges: [
+      "Integrating authentication with MongoDB-backed application data",
+      "Organizing product categories, price trends, and sorting into a consistent browsing experience",
+    ],
+    improvements: [
+      "Add price alerts and product watchlists",
+      "Expand price-history analytics and improve product search",
     ],
     live: "https://bazar-dor-pi.vercel.app/",
     repository: "https://github.com/afiaafia/bazar-dor",
@@ -45,6 +55,14 @@ const projects: Record<ProjectSlug, Project> = {
       "Track workout time, exercise count, and estimated calories",
       "Keep plan and completion data in browser storage",
     ],
+    challenges: [
+      "Integrating workout data with the API while keeping the logging interface responsive",
+      "Organizing workout entries and muscle-group data into a clear, usable interface",
+    ],
+    improvements: [
+      "Add workout history, progress charts, and personal fitness statistics",
+      "Improve data validation and error handling for API requests",
+    ],
     live: "https://b14-a6-fit-log-six.vercel.app/",
     repository: "https://github.com/afiaafia/b14-a6-fit-log",
   },
@@ -57,6 +75,14 @@ const projects: Record<ProjectSlug, Project> = {
     features: [
       "Explore interactive stack configuration",
       "Use developer-focused frontend tooling",
+    ],
+    challenges: [
+      "Designing a clear interface for browsing and organizing development tools",
+      "Keeping tool information and navigation consistent across the application",
+    ],
+    improvements: [
+      "Add search, filtering, and personalized tool collections",
+      "Expand the tool catalog and improve recommendations",
     ],
     live: "https://dev-stack-builder-v2.vercel.app/",
     repository: "https://github.com/afiaafia/dev-stack-builder-v2",
@@ -114,7 +140,7 @@ export default async function WorkDetailPage({ params }: WorkPageProps) {
                 {project.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/[0.025] p-3 text-sm leading-6 text-white/75"
+                    className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/2.5 p-3 text-sm leading-6 text-white/75"
                   >
                     <span
                       aria-hidden="true"
@@ -125,6 +151,54 @@ export default async function WorkDetailPage({ params }: WorkPageProps) {
                 ))}
               </ul>
             </section>
+
+            <div className="mt-8 grid gap-8 sm:grid-cols-2">
+              <section aria-labelledby="project-challenges">
+                <h2
+                  id="project-challenges"
+                  className="mono text-[10px] uppercase tracking-[0.18em] text-white/45"
+                >
+                  Challenges Faced
+                </h2>
+                <ul className="mt-3 space-y-3">
+                  {project.challenges.map((challenge) => (
+                    <li
+                      key={challenge}
+                      className="flex items-start gap-3 text-sm leading-6 text-white/75"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 size-1.5 shrink-0 rounded-full bg-violet-400"
+                      />
+                      {challenge}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
+              <section aria-labelledby="project-improvements">
+                <h2
+                  id="project-improvements"
+                  className="mono text-[10px] uppercase tracking-[0.18em] text-white/45"
+                >
+                  Potential Improvements
+                </h2>
+                <ul className="mt-3 space-y-3">
+                  {project.improvements.map((improvement) => (
+                    <li
+                      key={improvement}
+                      className="flex items-start gap-3 text-sm leading-6 text-white/75"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="mt-2 size-1.5 shrink-0 rounded-full bg-violet-400"
+                      />
+                      {improvement}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
 
             <div className="mt-8">
               <p className="mono text-[10px] uppercase tracking-[0.18em] text-white/45">

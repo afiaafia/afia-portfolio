@@ -25,6 +25,7 @@ export function InteractiveMascot() {
   })
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setPosition({
       x: Math.max(12, window.innerWidth - 116),
       y: Math.max(90, window.innerHeight - 164),

@@ -1,10 +1,8 @@
 import {
   CircleUserRound,
   Code2,
-  FileText,
   FolderKanban,
   Home,
-  Mail,
   Wrench,
 } from "lucide-react"
 

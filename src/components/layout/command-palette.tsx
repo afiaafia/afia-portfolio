@@ -12,7 +12,6 @@ import {
   Mail,
   Search,
   Shuffle,
-  Terminal,
   Wrench,
 } from "lucide-react"
 import { Command } from "cmdk"

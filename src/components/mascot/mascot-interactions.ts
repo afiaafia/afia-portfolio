@@ -20,9 +20,6 @@ export type PointerSample = {
 export type DragSession = {
   pointerId: number
   offset: MascotPoint
-  start: MascotPoint
-  previous: PointerSample
-  velocity: MascotVelocity
   active: boolean
 }
 
@@ -33,14 +30,12 @@ export type CursorState = {
   nearby: boolean
 }
 
-const MAX_RELEASE_SPEED = 850
 const CURSOR_REACTION_DISTANCE = 300
 
 export function createDragSession(
   pointerId: number,
   pointer: MascotPoint,
   mascot: MascotPoint,
-  time = performance.now(),
 ): DragSession {
   return {
     pointerId,
@@ -48,49 +43,7 @@ export function createDragSession(
       x: pointer.x - mascot.x,
       y: pointer.y - mascot.y,
     },
-    start: { ...mascot },
-    previous: {
-      point: { ...pointer },
-      time,
-    },
-    velocity: { x: 0, y: 0 },
     active: true,
-  }
-}
-
-export function updateDragSession(
-  session: DragSession,
-  pointerId: number,
-  pointer: MascotPoint,
-  bounds: PhysicsBounds,
-  time = performance.now(),
-): DragSession {
-  if (!session.active || session.pointerId !== pointerId) {
-    return session
-  }
-
-  const elapsed = Math.max(
-    0.001,
-    Math.min(0.05, (time - session.previous.time) / 1000),
-  )
-
-  const velocity = calculateVelocity(
-    session.previous.point,
-    pointer,
-    elapsed,
-  )
-
-  return {
-    ...session,
-    previous: {
-      point: { ...pointer },
-      time,
-    },
-    velocity: {
-      x: clampNumber(velocity.x, -MAX_RELEASE_SPEED, MAX_RELEASE_SPEED),
-      y: clampNumber(velocity.y, -MAX_RELEASE_SPEED, MAX_RELEASE_SPEED),
-    },
-    offset: { ...session.offset },
   }
 }
 
@@ -106,24 +59,6 @@ export function getDraggedPosition(
     },
     bounds,
   )
-}
-
-export function finishDragSession(
-  session: DragSession,
-): DragSession {
-  return {
-    ...session,
-    active: false,
-  }
-}
-
-export function getReleaseVelocity(
-  session: DragSession,
-): MascotVelocity {
-  return {
-    x: clampNumber(session.velocity.x, -MAX_RELEASE_SPEED, MAX_RELEASE_SPEED),
-    y: clampNumber(session.velocity.y, -MAX_RELEASE_SPEED, MAX_RELEASE_SPEED),
-  }
 }
 
 export function getCursorState(
@@ -189,12 +124,4 @@ export function getPointerReaction(
   if (distance < CURSOR_REACTION_DISTANCE) return "curious"
 
   return "none"
-}
-
-function clampNumber(
-  value: number,
-  min: number,
-  max: number,
-): number {
-  return Math.max(min, Math.min(max, value))
 }

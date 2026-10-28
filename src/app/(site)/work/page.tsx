@@ -119,7 +119,7 @@ export default function WorkPage() {
                     aria-label={`View ${project.name} project details`}
                     className="group/action inline-flex items-center gap-1.5 text-sm font-medium text-violet-300 transition-colors hover:text-violet-200"
                   >
-                    View Project
+                    Details
                     <ArrowUpRight className="size-4 transition-transform group-hover/action:-translate-y-0.5 group-hover/action:translate-x-0.5 motion-reduce:transition-none" />
                   </Link>
                   <a
