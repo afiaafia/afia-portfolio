@@ -1,3 +1,4 @@
+import { SiMongodb, SiExpress, SiReact, SiNodedotjs } from "react-icons/si";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -10,6 +11,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { StackLab } from "@/components/stack/stack-lab";
 import { ContactSection } from "@/components/contact/contact-section";
 import { InteractivePortrait } from "@/components/interactive-portrait";
+import { RotatingTechLine } from "@/components/home/rotating-tech-line";
 
 const projects = [
   {
@@ -61,29 +63,29 @@ export default function HomePage() {
       <section className="noise relative mx-auto max-w-350 px-4 pb-20 pt-16 sm:px-6 sm:pt-24 lg:px-10 lg:pb-28 lg:pt-28">
         <div className="grid items-center gap-14 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <div>
-            <div className="mb-8 inline-flex items-center gap-2.5 rounded-full border border-violet-400/25 bg-violet-500/8 px-3.5 py-2 backdrop-blur-xl">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-violet-400/60" />
-                <span className="relative inline-flex size-2 rounded-full bg-violet-400" />
-              </span>
-              <span className="mono text-[10px] uppercase tracking-[0.16em] text-white/90">
-                Building, learning, shipping
-              </span>
+<div className="mb-5">
+              <h1 className="display-heading text-3xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl">
+                Hello, I’m
+                <span className="mt-1 block text-violet-400 [text-shadow:0_0_28px_rgba(167,139,250,0.22)]">
+                  Afia Mubassira.
+                </span>
+              </h1>
+              <p className="mt-3 text-3xl font-bold tracking-[-0.04em] text-white/70 sm:text-5xl lg:text-6xl">
+                Full-Stack Web Developer
+              </p>
             </div>
 
-            <p className="mono mb-6 text-[11px] uppercase tracking-[0.22em] text-white/90">
-              Afia Mubassira / Full-Stack Web Developer
-            </p>
+            <RotatingTechLine />
 
-            <h1 className="display-heading text-3xl font-semibold leading-tight tracking-[-0.065em] sm:text-5xl lg:text-6xl">
-              I BUILD FOR THE <span className="text-violet-400">WEB.</span>
-            </h1>
-
-            <p className="mt-8 max-w-xl text-sm leading-7 text-white/90 sm:text-base sm:leading-8">
-              I build practical full-stack web applications, bringing frontend,
-              backend, APIs, and databases together to solve real problems. Each
-              project helps me sharpen my craft.
-            </p>
+            <div
+              className="mt-7 flex items-center gap-5 text-violet-300"
+              aria-label="MERN stack: MongoDB, Express.js, React, Node.js"
+            >
+              <SiMongodb className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8" aria-hidden="true" />
+              <SiExpress className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8" aria-hidden="true" />
+              <SiReact className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8" aria-hidden="true" />
+              <SiNodedotjs className="size-7 drop-shadow-[0_0_10px_rgba(167,139,250,0.55)] sm:size-8" aria-hidden="true" />
+            </div>
 
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Link
