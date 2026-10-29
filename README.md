@@ -136,7 +136,7 @@ This is a simplified overview; individual folders contain additional components 
 
 ## 08 — About the Developer
 
-I'm Afia A., a CST diploma student and full-stack web developer focused on learning by building real projects.
+I'm Afia Mubassira, a CST diploma student and full-stack web developer focused on learning by building real projects.
 
 I enjoy exploring how interfaces, application logic, APIs, and thoughtful design come together to create useful web experiences.
 
