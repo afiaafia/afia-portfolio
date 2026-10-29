@@ -12,7 +12,7 @@
   <a href="https://linkedin.com/in/afia-afia">LinkedIn</a>
 </p>
 
-![Afia A. — Full-Stack Web Developer Portfolio](public/images/portfolio-preview.png)
+![Afia A. — Full-Stack Web Developer Portfolio](public/images/afia-portfolio-preview.png)
 
 ---
 
