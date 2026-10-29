@@ -33,20 +33,43 @@ Rather than treating a portfolio as a static list of projects, I designed it as 
 
 [**→ Visit the live portfolio**](https://afia-portfolio-drab.vercel.app/)
 
-## 03 — Tech Stack
 
-| Technology | Role |
-|---|---|
-| [Next.js](https://nextjs.org/) | Application framework and routing |
-| [React](https://react.dev/) | Component-based user interfaces |
-| [TypeScript](https://www.typescriptlang.org/) | Type-safe application code |
-| [Tailwind CSS](https://tailwindcss.com/) | Styling and responsive layouts |
-| [Motion](https://motion.dev/) | Interface animations |
-| [Lucide React](https://lucide.dev/) & [React Icons](https://react-icons.github.io/react-icons/) | Icons |
-| [Octokit](https://github.com/octokit/octokit.js) | GitHub API integration |
-| [Vercel](https://vercel.com/) | Deployment |
+## ✦ Tech Stack
 
-Additional libraries support forms, validation, UI components, notifications, and content rendering.
+### Frontend Development
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs&theme=dark" />
+</p>
+
+Building responsive, interactive, and type-safe web interfaces.
+
+### UI & Styling
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=tailwind&theme=dark" />
+</p>
+
+Creating modern layouts and consistent user interfaces.
+
+### Backend Development
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=nodejs,express&theme=dark" />
+</p>
+
+Developing server-side logic and RESTful APIs.
+
+### Database & ORM
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=mongodb,postgres,prisma&theme=dark" />
+</p>
+
+Managing application data, database models, and queries.
+
+### Tools & Deployment
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=git,github,vercel&theme=dark" />
+</p>
+
+Version control, code collaboration, and deployment.
 
 ## 04 — What Makes It Mine
 
