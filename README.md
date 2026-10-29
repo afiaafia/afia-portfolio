@@ -36,7 +36,7 @@ Rather than treating a portfolio as a static list of projects, I designed it as 
 [**→ Visit the live portfolio**](https://afia-portfolio-drab.vercel.app/)
 
 
-## ✦ Tech Stack
+## 03 — Tech Stack
 
 ### Frontend Development
 <p align="left">
